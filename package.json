@@ -1,8 +1,8 @@
 {
   "name": "heic-to-jpg-converter",
   "version": "1.0.0",
-  "description": "HEIC to JPG Converter - Node.js version for AWS Amplify",
-  "main": "index.js",
+  "description": "HEIC to JPG Converter - Node.js version for Render deployment",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
@@ -14,8 +14,8 @@
     "jpg",
     "converter",
     "image",
-    "aws",
-    "amplify"
+    "render",
+    "nodejs"
   ],
   "author": "HEIC to JPG Converter",
   "license": "MIT",

@@ -283,7 +283,6 @@ function createUploadedFileElement(file) {
     const statusColor = file.status === 'converted' ? 'text-green-600' : 'text-blue-600';
     const buttonText = file.status === 'converted' ? 'Download' : 'Convert';
     const buttonClass = file.status === 'converted' ? 'btn-success' : 'btn-primary';
-    const buttonAction = file.status === 'converted' ? `downloadFile('${file.id}')` : `convertSingleFile('${file.id}')`;
     
     div.innerHTML = `
         <div class="flex items-center justify-between">
@@ -300,12 +299,25 @@ function createUploadedFileElement(file) {
             </div>
             <div class="flex items-center space-x-3">
                 <span class="text-sm ${statusColor} font-medium">${status}</span>
-                <button onclick="${buttonAction}" class="${buttonClass} text-lg px-6 py-3">
+                <button class="${buttonClass} text-lg px-6 py-3 action-button" data-file-id="${file.id}" data-action="${file.status === 'converted' ? 'download' : 'convert'}">
                     ${buttonText}
                 </button>
             </div>
         </div>
     `;
+    
+    // Add event listener to the button
+    const button = div.querySelector('.action-button');
+    button.addEventListener('click', function() {
+        const fileId = this.getAttribute('data-file-id');
+        const action = this.getAttribute('data-action');
+        
+        if (action === 'convert') {
+            convertSingleFile(fileId);
+        } else if (action === 'download') {
+            downloadFile(fileId);
+        }
+    });
     
     return div;
 }
@@ -329,11 +341,18 @@ function createConvertedFileElement(file) {
                     <p class="text-sm text-gray-500">Converted from ${file.originalName} to ${file.outputFormat.toUpperCase()}</p>
                 </div>
             </div>
-            <button onclick="downloadFile('${file.id}')" class="btn-success text-lg px-6 py-3">
+            <button class="btn-success text-lg px-6 py-3 download-button" data-file-id="${file.id}">
                 Download
             </button>
         </div>
     `;
+    
+    // Add event listener to the button
+    const button = div.querySelector('.download-button');
+    button.addEventListener('click', function() {
+        const fileId = this.getAttribute('data-file-id');
+        downloadFile(fileId);
+    });
     
     return div;
 }

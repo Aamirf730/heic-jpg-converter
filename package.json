@@ -1,0 +1,40 @@
+{
+  "name": "heic-to-jpg-converter",
+  "version": "1.0.0",
+  "description": "HEIC to JPG Converter - Node.js version for AWS Amplify",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'Build completed'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "heic",
+    "jpg",
+    "converter",
+    "image",
+    "aws",
+    "amplify"
+  ],
+  "author": "HEIC to JPG Converter",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.32.6",
+    "heic-convert": "^2.1.0",
+    "aws-sdk": "^2.1490.0",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "uuid": "^9.0.1",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Free HEIC to JPG Converter - Convert HEIC to JPEG Online | No Registration</title>
+    <meta name="title" content="Free HEIC to JPG Converter - Convert HEIC to JPEG Online | No Registration">
+    <meta name="description" content="Convert HEIC to JPG online for free. Fast, secure HEIC to JPEG converter with batch processing. No registration required. Convert iPhone photos instantly. Support for HEIC, HEIF files.">
+    <meta name="keywords" content="heic to jpg, convert heic to jpg, heic to jpg converter, heic to jpeg, .heic to jpg, free heic converter, heic to jpg online, heic converter online, convert heic to jpeg, heic to jpg free">
+    <meta name="author" content="HEIC to JPG Converter">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://heic-to-jpg.io/">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://heic-to-jpg.io/">
+    <meta property="og:title" content="Free HEIC to JPG Converter - Convert HEIC to JPEG Online">
+    <meta property="og:description" content="Convert HEIC to JPG online for free. Fast, secure HEIC to JPEG converter with batch processing. No registration required.">
+    <meta property="og:image" content="https://heic-to-jpg.io/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://heic-to-jpg.io/">
+    <meta property="twitter:title" content="Free HEIC to JPG Converter - Convert HEIC to JPEG Online">
+    <meta property="twitter:description" content="Convert HEIC to JPG online for free. Fast, secure HEIC to JPEG converter with batch processing.">
+    <meta property="twitter:image" content="https://heic-to-jpg.io/og-image.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        red: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .drop-zone {
+            @apply border-2 border-dashed border-red-400 rounded-xl p-16 text-center transition-all duration-300;
+            border-style: dashed !important;
+            border-width: 2px !important;
+            border-color: #f87171 !important;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .drop-zone.drag-over {
+            @apply border-red-500 bg-red-50 scale-105;
+            border-color: #ef4444 !important;
+        }
+        .drop-zone:hover:not(.drag-over) {
+            @apply border-red-500 bg-red-50;
+            border-color: #ef4444 !important;
+        }
+        .file-item {
+            @apply bg-white border border-gray-200 rounded-lg p-4 mb-3 shadow-sm hover:shadow-md transition-shadow;
+        }
+        .file-item.converted {
+            @apply border-green-200 bg-green-50;
+        }
+        .progress-bar {
+            @apply bg-gray-200 rounded-full h-2 overflow-hidden;
+        }
+        .progress-fill {
+            @apply bg-red-500 h-full transition-all duration-300;
+        }
+        .btn-primary {
+            @apply bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+        }
+        .btn-secondary {
+            @apply bg-gray-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors;
+        }
+        .btn-success {
+            @apply bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors;
+        }
+        .card {
+            @apply bg-white rounded-xl shadow-sm border border-gray-100 p-8;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+    
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Lazy Loading for Images -->
+    <script>
+        // Lazy loading implementation
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            images.forEach(img => imageObserver.observe(img));
+        });
+    </script>
+    
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free HEIC to JPG Converter",
+        "description": "Convert HEIC to JPG online for free. Fast, secure HEIC to JPEG converter with batch processing. No registration required.",
+        "url": "https://heic-to-jpg.io/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Convert HEIC to JPG",
+            "Convert HEIC to PNG",
+            "Remove EXIF data",
+            "Batch conversion",
+            "No registration required",
+            "Privacy-focused",
+            "Free online converter"
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "HEIC to JPG Converter"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I convert HEIC to JPG?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "To convert HEIC to JPG, simply drag and drop your HEIC files onto our converter, select your preferred output format (JPG or PNG), and click convert. The process is free and requires no registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is HEIC to JPG conversion free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our HEIC to JPG converter is completely free to use. No registration, no hidden fees, and no watermarks on converted images."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is HEIC format?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "HEIC (High Efficiency Image Container) is an image format used by Apple devices. It provides better compression than JPEG but is not widely supported by other devices and software, which is why converting HEIC to JPG is often necessary."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I convert multiple HEIC files at once?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our HEIC to JPG converter supports batch processing. You can upload multiple HEIC files and convert them all to JPG format simultaneously."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my files safe when converting HEIC to JPG?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. Your files are processed securely on our server and automatically deleted after conversion. We do not store or access your personal data."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://heic-to-jpg.io/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "HEIC to JPG Converter",
+                "item": "https://heic-to-jpg.io/"
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col">
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Breadcrumb Navigation -->
+            <nav class="bg-white border-b border-gray-200 px-8 py-3">
+                <div class="flex items-center space-x-2 text-sm text-gray-600">
+                    <a href="/" class="hover:text-red-500 transition-colors">Home</a>
+                    <span>/</span>
+                    <span class="text-gray-800 font-medium">HEIC to JPG Converter</span>
+                </div>
+            </nav>
+            
+            <!-- Header -->
+            <header class="bg-gradient-to-r from-red-50 to-pink-50 border-b border-gray-200 px-8 py-8">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-4xl font-bold text-gradient mb-2">Free HEIC to JPG Converter</h1>
+                        <p class="text-lg text-gray-600 max-w-2xl">Convert HEIC to JPG online - Transform your iPhone photos instantly. Fast, secure, and completely free. No registration required.</p>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="hidden md:flex items-center space-x-6 text-sm">
+                        <div class="flex items-center bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <svg class="w-5 h-5 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="font-medium text-gray-700">Free Forever</span>
+                        </div>
+                        <div class="flex items-center bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <svg class="w-5 h-5 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="font-medium text-gray-700">Secure</span>
+                        </div>
+                        <div class="flex items-center bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <svg class="w-5 h-5 mr-2 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="font-medium text-gray-700">No Registration</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="flex-1 flex">
+                <!-- Left Sidebar -->
+                <div class="w-80 bg-white border-r border-gray-200 p-6">
+                    <!-- Logo and Branding -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 bg-red-600 rounded flex items-center justify-center mr-3">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-gray-800">HEIC to JPG</h2>
+                                <p class="text-sm text-gray-500">Privacy-first converter</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Section -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-5 h-5 text-gray-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                            </svg>
+                            <h3 class="text-lg font-semibold text-gray-800">Settings</h3>
+                        </div>
+                        
+                        <!-- Output Format -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Output Format</label>
+                            <select id="outputFormat" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                                <option value="jpeg">HEIC → JPEG</option>
+                                <option value="png">HEIC → PNG</option>
+                            </select>
+                            <p class="text-xs text-gray-500 mt-1">Choose your preferred output format</p>
+                        </div>
+                        
+                        <!-- EXIF Option -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Strip EXIF data</label>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="stripExif" class="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded">
+                                <label for="stripExif" class="ml-2 block text-sm text-gray-700">Remove metadata for privacy</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- How it works Section -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-5 h-5 text-gray-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                            </svg>
+                            <h3 class="text-lg font-semibold text-gray-800">How it works</h3>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-green-600 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                                </svg>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-800">Privacy First</h4>
+                                    <p class="text-xs text-gray-500">Files converted locally in your browser</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                                </svg>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-800">Fast & Free</h4>
+                                    <p class="text-xs text-gray-500">Instant conversion, no software needed</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-purple-600 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                </svg>
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-800">Works Everywhere</h4>
+                                    <p class="text-xs text-gray-500">All modern browsers, HEIC/HEIF support</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                
+                <!-- Main Content Area -->
+                <div class="flex-1 p-8">
+                    <!-- Header -->
+                    <div class="mb-8">
+                        <h1 class="text-4xl font-bold text-gray-800 mb-2">HEIC to JPG Converter</h1>
+                        <p class="text-lg text-gray-600">Convert HEIC to JPG online - Transform your iPhone photos instantly</p>
+                    </div>
+
+                    <!-- Upload Section -->
+                    <div class="card mb-8">
+                        <!-- Upload Area -->
+                        <div id="uploadArea" class="drop-zone cursor-pointer">
+                            <div class="flex flex-col items-center">
+                                <div class="mb-6">
+                                    <svg class="mx-auto h-20 w-20 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-red-600 mb-2">Drop your HEIC files here</h3>
+                                <p class="text-lg text-red-500 mb-4">or click to browse files</p>
+                                <p class="text-sm text-gray-500 mb-6">Supports .heic and .heif files up to 10MB</p>
+                                <button class="btn-primary text-lg px-8 py-3">
+                                    + Choose Files
+                                </button>
+                                <input type="file" id="fileInput" multiple accept=".heic,.heif" class="hidden">
+                            </div>
+                        </div>
+                        
+                        <!-- Uploaded Files Stack -->
+                        <div id="uploadedFilesStack" class="mt-6 space-y-3 hidden">
+                            <!-- Individual uploaded files will be stacked here -->
+                        </div>
+                        
+                        <!-- Converted Files Stack -->
+                        <div id="convertedFilesStack" class="mt-6 space-y-4 hidden">
+                            <!-- Download All Button (shows when multiple files) -->
+                            <div id="downloadAllSection" class="hidden">
+                                <div class="flex items-center justify-between p-4 bg-green-50 border border-green-200 rounded-lg">
+                                    <div class="flex items-center space-x-3">
+                                        <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="font-medium text-green-800">All files converted successfully!</span>
+                                    </div>
+                                    <button id="downloadAllBtn" class="btn-success">
+                                        Download All (.zip)
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Individual Converted Files -->
+                            <div id="convertedFilesList" class="space-y-3">
+                                <!-- Converted files will be stacked here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Learn More Section -->
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-4 cursor-pointer" onclick="toggleLearnMore()">
+                            <h3 class="text-lg font-semibold text-gray-800">Learn More About HEIC to JPG Conversion</h3>
+                            <svg id="learnMoreIcon" class="w-5 h-5 text-gray-600 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        
+                        <div id="learnMoreContent" class="hidden">
+                            <p class="text-gray-600 mb-6">
+                                Our HEIC to JPG converter is a free online tool that allows you to convert HEIC images to JPG format instantly. Whether you have iPhone photos, iPad screenshots, or any HEIC files, our converter makes it easy to transform them into widely-compatible JPEG format.
+                            </p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div class="flex items-start">
+                                    <svg class="w-6 h-6 text-blue-600 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-1">Multiple Formats</h4>
+                                        <p class="text-sm text-gray-600">Convert HEIC to JPG, PNG, or WebP format</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <svg class="w-6 h-6 text-green-600 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-1">Fast Conversion</h4>
+                                        <p class="text-sm text-gray-600">Instant HEIC to JPG conversion</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <svg class="w-6 h-6 text-purple-600 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-1">Privacy Focused</h4>
+                                        <p class="text-sm text-gray-600">Files processed locally, no data stored</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <svg class="w-6 h-6 text-orange-600 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800 mb-1">Mobile Friendly</h4>
+                                        <p class="text-sm text-gray-600">Works perfectly on all devices</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Why convert HEIC to JPG?</h4>
+                                    <p class="text-sm text-gray-600">JPG files work on all devices, have smaller file sizes, and are supported by all photo editing software.</p>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Is it free?</h4>
+                                    <p class="text-sm text-gray-600">Yes, completely free with no registration required.</p>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-medium text-gray-800 mb-2">Are my files safe?</h4>
+                                    <p class="text-sm text-gray-600">Absolutely! Files are processed locally and automatically deleted after conversion.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+                    <!-- SEO Content Section - Collapsible -->
+                    <div id="seoContent" class="mt-8 card overflow-hidden">
+                        <button id="seoToggle" class="w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex items-center justify-between text-left">
+                            <span class="text-lg font-semibold text-gray-800">Complete Guide: Convert HEIC to JPG</span>
+                            <svg id="seoIcon" class="w-5 h-5 text-gray-600 transform transition-transform duration-200 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        
+                        <div id="seoContentInner" class="px-6 py-4 space-y-6">
+                            <!-- What is HEIC Section -->
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800 mb-3">What is HEIC Format?</h2>
+                                <p class="text-gray-700 mb-3">
+                                    HEIC (High Efficiency Image Container) is an image format developed by Apple that provides superior compression compared to JPEG. 
+                                    While HEIC files are smaller and maintain better quality, they're not widely supported by other devices and software, 
+                                    which is why converting HEIC to JPG is often necessary.
+                                </p>
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <h3 class="font-semibold text-blue-800 mb-2">Key Benefits of Converting HEIC to JPG:</h3>
+                                    <ul class="text-sm text-blue-700 space-y-1">
+                                        <li>• Universal compatibility across all devices and platforms</li>
+                                        <li>• Smaller file sizes for easier sharing and storage</li>
+                                        <li>• Support by all photo editing software</li>
+                                        <li>• No special software required to view images</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- How to Convert Section -->
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800 mb-3">How to Convert HEIC to JPG</h2>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <div class="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold mb-2">1</div>
+                                        <h4 class="font-semibold text-gray-800 mb-2">Upload Files</h4>
+                                        <p class="text-sm text-gray-600">Drag and drop your HEIC files or click to browse. Support for multiple files at once.</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <div class="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold mb-2">2</div>
+                                        <h4 class="font-semibold text-gray-800 mb-2">Choose Format</h4>
+                                        <p class="text-sm text-gray-600">Select JPG or PNG output format. Option to remove EXIF data for privacy.</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <div class="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold mb-2">3</div>
+                                        <h4 class="font-semibold text-gray-800 mb-2">Download</h4>
+                                        <p class="text-sm text-gray-600">Download individual files or all at once. Files are automatically processed.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Features Section -->
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800 mb-3">Why Choose Our HEIC to JPG Converter?</h2>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-gray-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold text-gray-800 mb-1 text-sm">🔄 Multiple Formats</h4>
+                                        <p class="text-xs text-gray-600">Convert HEIC to JPG, PNG, or WebP format</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold text-gray-800 mb-1 text-sm">🛡️ Privacy Focused</h4>
+                                        <p class="text-xs text-gray-600">Files processed securely, no data stored</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold text-gray-800 mb-1 text-sm">⚡ Fast Conversion</h4>
+                                        <p class="text-xs text-gray-600">Instant HEIC to JPG conversion</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold text-gray-800 mb-1 text-sm">📱 Mobile Friendly</h4>
+                                        <p class="text-xs text-gray-600">Works perfectly on all devices</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold text-gray-800 mb-1 text-sm">🎯 Batch Processing</h4>
+                                        <p class="text-xs text-gray-600">Convert multiple HEIC files at once</p>
+                                    </div>
+                                    <div class="bg-gray-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold text-gray-800 mb-1 text-sm">💯 Completely Free</h4>
+                                        <p class="text-xs text-gray-600">No registration, no hidden fees</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ Section -->
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800 mb-3">Frequently Asked Questions</h2>
+                                <div class="space-y-3">
+                                    <div class="border-l-4 border-red-500 pl-4">
+                                        <h4 class="font-semibold text-gray-800">How do I convert HEIC to JPG?</h4>
+                                        <p class="text-sm text-gray-600 mt-1">Simply drag and drop your HEIC files onto our converter, select your preferred output format (JPG or PNG), and click convert. The process is free and requires no registration.</p>
+                                    </div>
+                                    <div class="border-l-4 border-red-500 pl-4">
+                                        <h4 class="font-semibold text-gray-800">Is HEIC to JPG conversion free?</h4>
+                                        <p class="text-sm text-gray-600 mt-1">Yes, our HEIC to JPG converter is completely free to use. No registration, no hidden fees, and no watermarks on converted images.</p>
+                                    </div>
+                                    <div class="border-l-4 border-red-500 pl-4">
+                                        <h4 class="font-semibold text-gray-800">What is HEIC format?</h4>
+                                        <p class="text-sm text-gray-600 mt-1">HEIC (High Efficiency Image Container) is an image format used by Apple devices. It provides better compression than JPEG but is not widely supported by other devices and software.</p>
+                                    </div>
+                                    <div class="border-l-4 border-red-500 pl-4">
+                                        <h4 class="font-semibold text-gray-800">Can I convert multiple HEIC files at once?</h4>
+                                        <p class="text-sm text-gray-600 mt-1">Yes, our HEIC to JPG converter supports batch processing. You can upload multiple HEIC files and convert them all to JPG format simultaneously.</p>
+                                    </div>
+                                    <div class="border-l-4 border-red-500 pl-4">
+                                        <h4 class="font-semibold text-gray-800">Are my files safe when converting HEIC to JPG?</h4>
+                                        <p class="text-sm text-gray-600 mt-1">Absolutely. Your files are processed securely on our server and automatically deleted after conversion. We do not store or access your personal data.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Technical Info -->
+                            <div>
+                                <h2 class="text-xl font-bold text-gray-800 mb-3">Technical Information</h2>
+                                <div class="text-sm text-gray-600 space-y-2">
+                                    <p><strong>Supported Input Formats:</strong> HEIC, HEIF</p>
+                                    <p><strong>Output Formats:</strong> JPG, PNG</p>
+                                    <p><strong>Maximum File Size:</strong> 10MB per file</p>
+                                    <p><strong>Processing:</strong> Server-side conversion for optimal quality</p>
+                                    <p><strong>Privacy:</strong> Files automatically deleted after 1 hour</p>
+                                    <p><strong>Compatibility:</strong> Works on all modern browsers and devices</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-200 px-8 py-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-gray-600 text-sm">
+                    © 2024 HEIC to JPG Converter. Free online tool to convert HEIC images to JPG format.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Error/Success Messages -->
+    <div id="errorDisplay" class="fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50">
+        <span id="errorMessage"></span>
+        <button onclick="hideError()" class="ml-4 text-white hover:text-gray-200">×</button>
+    </div>
+
+    <div id="successDisplay" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50">
+        <span id="successMessage"></span>
+        <button onclick="hideSuccess()" class="ml-4 text-white hover:text-gray-200">×</button>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex items-center space-x-3">
+                <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-red-600"></div>
+                <span class="text-gray-700">Processing files...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 

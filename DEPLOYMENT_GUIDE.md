@@ -1,161 +1,238 @@
-# 🚀 Namecheap Deployment Guide
+# AWS Amplify Deployment Guide
 
-## 📋 Prerequisites
+This guide will walk you through deploying your HEIC to JPG Converter to AWS Amplify using GitHub.
 
-Before deploying, ensure you have:
-- ✅ Namecheap shared hosting account
-- ✅ Domain name (or subdomain)
-- ✅ cPanel access
+## Prerequisites
 
-## 📁 Files Ready for Upload
+- GitHub account
+- AWS account
+- Your project code (already prepared)
 
-Your deployment package is ready in the `deployment/` folder with these files:
+## Step 1: Create GitHub Repository
 
+1. **Go to GitHub.com** and sign in
+2. **Create a new repository**:
+   - Click the "+" icon → "New repository"
+   - Name: `heic-to-jpg-converter`
+   - Description: `HEIC to JPG Converter - Privacy-focused online converter`
+   - Make it **Public** (for free Amplify hosting)
+   - Don't initialize with README (we already have one)
+
+3. **Push your code to GitHub**:
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/heic-to-jpg-converter.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+## Step 2: Deploy to AWS Amplify
+
+### Option A: Using AWS Amplify Console (Recommended)
+
+1. **Go to AWS Amplify Console**:
+   - Visit: https://console.aws.amazon.com/amplify/
+   - Sign in to your AWS account
+
+2. **Create New App**:
+   - Click "New app" → "Host web app"
+   - Choose "GitHub" as your repository source
+   - Click "Continue"
+
+3. **Connect to GitHub**:
+   - Click "Connect to GitHub"
+   - Authorize AWS Amplify to access your GitHub account
+   - Select your repository: `heic-to-jpg-converter`
+   - Click "Next"
+
+4. **Configure Build Settings**:
+   - **Branch**: `main`
+   - **Build settings**: Amplify will auto-detect Node.js
+   - **Build commands**: Leave as default (Amplify will use our `amplify.yml`)
+   - Click "Next"
+
+5. **Review and Deploy**:
+   - Review your settings
+   - Click "Save and deploy"
+
+### Option B: Using Amplify CLI (Alternative)
+
+If you prefer using CLI:
+
+1. **Install Amplify CLI**:
+   ```bash
+   npm install -g @aws-amplify/cli
+   ```
+
+2. **Configure Amplify**:
+   ```bash
+   amplify configure
+   ```
+
+3. **Initialize Amplify**:
+   ```bash
+   amplify init
+   ```
+
+4. **Add Hosting**:
+   ```bash
+   amplify add hosting
+   ```
+
+5. **Deploy**:
+   ```bash
+   amplify publish
+   ```
+
+## Step 3: Configure Environment Variables
+
+1. **Go to your Amplify app** in the console
+2. **Navigate to Environment variables**:
+   - App settings → Environment variables
+3. **Add these variables**:
+   ```
+   NODE_ENV = production
+   PORT = 8080
+   ```
+
+## Step 4: Custom Domain (Optional)
+
+1. **In Amplify Console**:
+   - Go to "Domain management"
+   - Click "Add domain"
+   - Enter your domain name
+   - Follow the DNS configuration instructions
+
+## Step 5: Monitor and Test
+
+1. **Check Build Status**:
+   - Monitor the build process in Amplify Console
+   - Check for any build errors
+
+2. **Test Your Application**:
+   - Visit your Amplify URL: `https://main.xxxxxxxx.amplifyapp.com`
+   - Test file upload and conversion
+   - Verify all features work correctly
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Build Fails**:
+   - Check build logs in Amplify Console
+   - Ensure all dependencies are in `package.json`
+   - Verify `amplify.yml` configuration
+
+2. **File Upload Issues**:
+   - Check file size limits
+   - Verify file type restrictions
+   - Check server logs
+
+3. **Conversion Fails**:
+   - Ensure `heic-convert` dependency is installed
+   - Check server environment
+
+### Build Configuration
+
+The `amplify.yml` file is already configured for optimal deployment:
+
+```yaml
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install
+    build:
+      commands:
+        - npm start
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
 ```
-deployment/
-├── index.php              # Main application
-├── download.php           # Download handler
-├── app.js                 # Frontend JavaScript
-├── .htaccess             # Server configuration
-├── README.md             # Documentation
-├── includes/
-│   ├── config.php        # Configuration
-│   └── functions.php     # Core functions
-├── images/
-│   └── favicon.ico       # Site icon
-├── uploads/              # Upload directory (755 permissions)
-└── converted/            # Converted files directory (755 permissions)
-```
 
-## 🔧 Step-by-Step Deployment
+## Cost Optimization
 
-### **Step 1: Access cPanel**
-1. Login to your Namecheap hosting account
-2. Click "Manage" next to your hosting package
-3. Click "cPanel" button
-4. Login to cPanel with your credentials
+### AWS Amplify Pricing (Free Tier)
 
-### **Step 2: Open File Manager**
-1. In cPanel, find "Files" section
-2. Click "File Manager"
-3. Navigate to `public_html` directory
-4. This is your website's root directory
+- **Build minutes**: 1,000 minutes/month free
+- **Bandwidth**: 15 GB/month free
+- **Storage**: 5 GB free
 
-### **Step 3: Upload Files**
-1. Click "Upload" button in File Manager
-2. Select all files from the `deployment/` folder
-3. Upload them to `public_html`
-4. **Important**: Upload files directly to `public_html`, not in a subfolder
+### Cost Reduction Tips
 
-### **Step 4: Set Permissions**
-After upload, set these permissions:
-1. Right-click on `uploads` folder → "Change Permissions" → Set to `755`
-2. Right-click on `converted` folder → "Change Permissions" → Set to `755`
-3. Right-click on `.htaccess` → "Change Permissions" → Set to `644`
+1. **Optimize build times**:
+   - Use `.gitignore` to exclude unnecessary files
+   - Cache `node_modules` in build
 
-### **Step 5: Configure PHP Settings**
-1. In cPanel, find "Software" section
-2. Click "PHP Configuration"
-3. Set these values:
-   - `upload_max_filesize` = `10M`
-   - `post_max_size` = `10M`
-   - `max_execution_time` = `300`
-   - `memory_limit` = `256M`
+2. **Reduce bandwidth**:
+   - Compress images and assets
+   - Use CDN for static files
 
-### **Step 6: Check PHP Extensions**
-1. In cPanel, find "Software" section
-2. Click "PHP Extensions"
-3. Ensure these extensions are enabled:
-   - ✅ `gd` (GD Library)
-   - ✅ `zip` (ZipArchive)
-   - ✅ `imagick` (ImageMagick - if available)
+3. **Monitor usage**:
+   - Set up billing alerts
+   - Monitor usage in AWS Console
 
-## 🌐 Access Your Application
+## Security Best Practices
 
-Your HEIC converter will be available at:
-- **Main URL**: `https://yourdomain.com/`
-- **Direct access**: `https://yourdomain.com/index.php`
+1. **Environment Variables**:
+   - Never commit sensitive data
+   - Use Amplify environment variables
 
-## 🧪 Testing Your Deployment
+2. **File Upload Security**:
+   - Validate file types
+   - Set size limits
+   - Implement rate limiting
 
-### **Test 1: Basic Functionality**
-1. Visit your domain
-2. Check if the page loads correctly
-3. Verify the design looks identical to localhost
+3. **HTTPS**:
+   - Amplify provides free SSL certificates
+   - Always use HTTPS in production
 
-### **Test 2: File Upload**
-1. Try uploading a HEIC file
-2. Check if files appear in the uploads directory
-3. Verify conversion process works
+## Performance Optimization
 
-### **Test 3: Download Functionality**
-1. Convert a file
-2. Try downloading individual files
-3. Test "Download All" functionality
+1. **CDN**:
+   - Amplify automatically uses CloudFront CDN
+   - Global content delivery
 
-## 🔍 Troubleshooting
+2. **Caching**:
+   - Static assets are cached
+   - API responses can be cached
 
-### **Common Issues & Solutions**
+3. **Compression**:
+   - Enable gzip compression
+   - Optimize image sizes
 
-#### **"Upload failed"**
-- Check file permissions (uploads/ should be 755)
-- Verify PHP upload settings
-- Check file size limits
+## Monitoring and Analytics
 
-#### **"Conversion failed"**
-- Ensure ImageMagick or GD is enabled
-- Check server memory limits
-- Verify file permissions
+1. **AWS CloudWatch**:
+   - Monitor application logs
+   - Set up alarms for errors
 
-#### **"Page not found"**
-- Ensure files are in `public_html` (not a subfolder)
-- Check `.htaccess` file is uploaded
-- Verify domain DNS is pointing to hosting
+2. **Amplify Analytics** (Optional):
+   - Track user engagement
+   - Monitor performance
 
-#### **"Permission denied"**
-- Set uploads/ and converted/ to 755 permissions
-- Check file ownership
-- Contact Namecheap support if needed
+## Support and Resources
 
-### **Debug Mode**
-To enable debug mode, edit `includes/config.php`:
-```php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-```
+- **AWS Amplify Documentation**: https://docs.amplify.aws/
+- **GitHub Issues**: Report bugs in your repository
+- **AWS Support**: Available with AWS Support plans
 
-## 📞 Namecheap Support
+## Next Steps
 
-If you encounter issues:
-1. **Check cPanel error logs** in "Errors" section
-2. **Contact Namecheap support** via live chat
-3. **Reference this guide** when contacting support
+After successful deployment:
 
-## 🔒 Security Notes
-
-- Files are automatically deleted after 1 hour
-- Upload directories are protected from direct access
-- File types are strictly validated
-- No permanent file storage
-
-## 📈 Performance Tips
-
-- Keep files under 10MB for best performance
-- Use modern browsers for optimal experience
-- Monitor server resources during peak usage
-
-## 🎯 Success Checklist
-
-- ✅ Files uploaded to public_html
-- ✅ Permissions set correctly (755 for directories)
-- ✅ PHP settings configured
-- ✅ Application loads without errors
-- ✅ File upload works
-- ✅ Conversion process functions
-- ✅ Download functionality works
+1. **Test thoroughly** on different devices
+2. **Set up monitoring** and alerts
+3. **Configure custom domain** (optional)
+4. **Set up CI/CD** for automatic deployments
+5. **Monitor costs** and optimize
 
 ---
 
-**Your HEIC to JPG converter is now live!** 🎉
+**🎉 Congratulations! Your HEIC to JPG Converter is now live on AWS Amplify!**
 
-Visit your domain to start converting HEIC files with the exact same beautiful design as your local version. 
+Your app will be available at: `https://main.xxxxxxxx.amplifyapp.com` 

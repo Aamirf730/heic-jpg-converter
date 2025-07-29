@@ -130,8 +130,9 @@ async function convertSingleFile(fileId) {
         return;
     }
     
-    isConverting = true;
-    updateUI();
+    // Set file status to converting
+    file.status = 'converting';
+    updateFileList();
     
     const data = {
         fileIds: [fileId],
@@ -157,19 +158,26 @@ async function convertSingleFile(fileId) {
                 file.status = 'converted';
                 file.convertedFilename = item.convertedFilename;
                 file.outputFormat = outputFormat.value;
+            } else {
+                file.status = 'ready'; // Reset to ready if conversion failed
             }
             
             updateFileList();
-            showSuccess('File converted successfully!');
+            if (item && item.success) {
+                showSuccess('File converted successfully!');
+            } else {
+                showError(result.error || 'Conversion failed.');
+            }
         } else {
+            file.status = 'ready'; // Reset to ready if conversion failed
+            updateFileList();
             showError(result.error || 'Conversion failed.');
         }
     } catch (error) {
         console.error('Conversion error:', error);
+        file.status = 'ready'; // Reset to ready if conversion failed
+        updateFileList();
         showError('Conversion failed. Please try again.');
-    } finally {
-        isConverting = false;
-        updateUI();
     }
 }
 
@@ -229,7 +237,6 @@ async function convertFiles() {
 function updateFileList() {
     if (uploadedFiles.length === 0) {
         uploadedFilesStack.classList.add('hidden');
-        convertedFilesStack.classList.add('hidden');
         downloadAllSection.classList.add('hidden');
         // Reset upload area size
         uploadArea.style.minHeight = '400px';
@@ -241,121 +248,130 @@ function updateFileList() {
     uploadedFilesStack.classList.remove('hidden');
     uploadedFilesStack.innerHTML = '';
     
-    // Create individual file stacks
+    // Create individual file stacks (only one per file)
     uploadedFiles.forEach(file => {
-        const fileElement = createUploadedFileElement(file);
+        const fileElement = createFileElement(file);
         uploadedFilesStack.appendChild(fileElement);
     });
     
-    // Update converted files stack
+    // Show download all section if multiple converted files
     const converted = uploadedFiles.filter(f => f.status === 'converted');
-    if (converted.length > 0) {
-        convertedFilesStack.classList.remove('hidden');
-        convertedFilesList.innerHTML = '';
-        
-        // Add individual converted files
-        converted.forEach(file => {
-            const convertedElement = createConvertedFileElement(file);
-            convertedFilesList.appendChild(convertedElement);
-        });
-        
-        // Show download all section if multiple files
-        if (converted.length > 1) {
-            downloadAllSection.classList.remove('hidden');
-        } else {
-            downloadAllSection.classList.add('hidden');
-        }
-        
-        // Shrink upload area
+    if (converted.length > 1) {
+        downloadAllSection.classList.remove('hidden');
+    } else {
+        downloadAllSection.classList.add('hidden');
+    }
+    
+    // Shrink upload area if files exist
+    if (uploadedFiles.length > 0) {
         uploadArea.style.minHeight = '200px';
         uploadArea.style.padding = '2rem';
-    } else {
-        convertedFilesStack.classList.add('hidden');
-        downloadAllSection.classList.add('hidden');
     }
 }
 
-function createUploadedFileElement(file) {
+function createFileElement(file) {
     const div = document.createElement('div');
-    div.className = 'bg-white border border-blue-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow';
+    div.className = 'bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300';
+    div.setAttribute('data-file-id', file.id);
     
-    const status = file.status === 'converted' ? '✅ Converted' : '📁 Ready to Convert';
-    const statusColor = file.status === 'converted' ? 'text-green-600' : 'text-blue-600';
-    const buttonText = file.status === 'converted' ? 'Download' : 'Convert';
-    const buttonClass = file.status === 'converted' ? 'btn-success' : 'btn-primary';
+    // Set border color based on status
+    if (file.status === 'converted') {
+        div.classList.add('border-green-200');
+    } else if (file.status === 'converting') {
+        div.classList.add('border-yellow-200');
+    } else {
+        div.classList.add('border-blue-200');
+    }
+    
+    const status = file.status === 'converted' ? '✅ Converted' : 
+                   file.status === 'converting' ? '⏳ Converting...' : '📁 Ready to Convert';
+    const statusColor = file.status === 'converted' ? 'text-green-600' : 
+                       file.status === 'converting' ? 'text-yellow-600' : 'text-blue-600';
+    
+    let buttonContent = '';
+    if (file.status === 'converted') {
+        buttonContent = `
+            <button class="btn-success text-lg px-6 py-3 download-button animate-pulse" data-file-id="${file.id}">
+                Download
+            </button>
+        `;
+    } else if (file.status === 'converting') {
+        buttonContent = `
+            <button class="bg-yellow-500 text-white text-lg px-6 py-3 rounded-lg font-medium animate-spin" disabled>
+                <svg class="w-5 h-5 inline mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"></path>
+                </svg>
+                Converting...
+            </button>
+        `;
+    } else {
+        buttonContent = `
+            <button class="btn-primary text-lg px-6 py-3 convert-button hover:scale-105 transition-transform" data-file-id="${file.id}">
+                Convert
+            </button>
+        `;
+    }
+    
+    // Show converted filename if available
+    let fileName = file.originalName;
+    let fileInfo = formatFileSize(file.size);
+    if (file.status === 'converted' && file.convertedFilename) {
+        const outputName = file.originalName.replace(/\.(heic|heif)$/i, `.${file.outputFormat || 'jpeg'}`);
+        fileName = outputName;
+        fileInfo = `Converted from ${file.originalName} to ${(file.outputFormat || 'jpeg').toUpperCase()}`;
+    }
     
     div.innerHTML = `
         <div class="flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300 ${
+                    file.status === 'converted' ? 'bg-green-100' : 
+                    file.status === 'converting' ? 'bg-yellow-100' : 'bg-blue-100'
+                }">
+                    <svg class="w-6 h-6 transition-colors duration-300 ${
+                        file.status === 'converted' ? 'text-green-600' : 
+                        file.status === 'converting' ? 'text-yellow-600' : 'text-blue-600'
+                    }" fill="currentColor" viewBox="0 0 20 20">
+                        ${file.status === 'converted' ? 
+                            '<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>' :
+                            '<path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>'
+                        }
                     </svg>
                 </div>
                 <div>
-                    <p class="font-medium text-gray-800 text-lg">${file.originalName}</p>
-                    <p class="text-sm text-gray-500">${formatFileSize(file.size)}</p>
+                    <p class="font-medium text-gray-800 text-lg">${fileName}</p>
+                    <p class="text-sm text-gray-500">${fileInfo}</p>
                 </div>
             </div>
             <div class="flex items-center space-x-3">
                 <span class="text-sm ${statusColor} font-medium">${status}</span>
-                <button class="${buttonClass} text-lg px-6 py-3 action-button" data-file-id="${file.id}" data-action="${file.status === 'converted' ? 'download' : 'convert'}">
-                    ${buttonText}
-                </button>
+                ${buttonContent}
             </div>
         </div>
     `;
     
-    // Add event listener to the button
-    const button = div.querySelector('.action-button');
-    button.addEventListener('click', function() {
-        const fileId = this.getAttribute('data-file-id');
-        const action = this.getAttribute('data-action');
-        
-        if (action === 'convert') {
+    // Add event listeners
+    const convertButton = div.querySelector('.convert-button');
+    const downloadButton = div.querySelector('.download-button');
+    
+    if (convertButton) {
+        convertButton.addEventListener('click', function() {
+            const fileId = this.getAttribute('data-file-id');
             convertSingleFile(fileId);
-        } else if (action === 'download') {
+        });
+    }
+    
+    if (downloadButton) {
+        downloadButton.addEventListener('click', function() {
+            const fileId = this.getAttribute('data-file-id');
             downloadFile(fileId);
-        }
-    });
+        });
+    }
     
     return div;
 }
 
-function createConvertedFileElement(file) {
-    const div = document.createElement('div');
-    div.className = 'bg-white border border-green-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow';
-    
-    const outputName = file.originalName.replace(/\.(heic|heif)$/i, `.${file.outputFormat}`);
-    
-    div.innerHTML = `
-        <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <div>
-                    <p class="font-medium text-gray-800 text-lg">${outputName}</p>
-                    <p class="text-sm text-gray-500">Converted from ${file.originalName} to ${file.outputFormat.toUpperCase()}</p>
-                </div>
-            </div>
-            <button class="btn-success text-lg px-6 py-3 download-button" data-file-id="${file.id}">
-                Download
-            </button>
-        </div>
-    `;
-    
-    // Add event listener to the button
-    const button = div.querySelector('.download-button');
-    button.addEventListener('click', function() {
-        const fileId = this.getAttribute('data-file-id');
-        downloadFile(fileId);
-    });
-    
-    return div;
-}
+
 
 // Download Functions
 function downloadFile(fileId) {

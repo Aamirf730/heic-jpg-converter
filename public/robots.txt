@@ -1,8 +1,13 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://heic-to-jpg.io/sitemap.xml
 
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin or private areas (if any)
 Disallow: /api/
-Disallow: /uploads/
-Disallow: /converted/ 
+Disallow: /admin/
+Disallow: /private/ 

@@ -1,308 +1,172 @@
-# 🚀 AWS Amplify Deployment Guide - HEIC to JPG Converter
+# AWS Amplify Deployment Guide
 
-## **Overview**
-This guide will help you deploy your Node.js HEIC to JPG converter on AWS Amplify. The application uses a modern serverless architecture with Lambda functions for image processing.
+## Overview
+This guide will help you deploy your HEIC to JPG Converter Next.js application to AWS Amplify.
 
-## **📋 Prerequisites**
+## Prerequisites
 - AWS Account
+- Git repository (GitHub, GitLab, Bitbucket, etc.)
 - Node.js 18+ installed locally
-- AWS CLI installed and configured
-- Git repository (GitHub, GitLab, or Bitbucket)
 
-## **🏗️ Architecture**
-- **Frontend**: Static HTML/CSS/JS (hosted on Amplify)
-- **Backend**: Express.js server with Lambda functions
-- **Storage**: S3 buckets for file storage
-- **Image Processing**: heic-convert library for HEIC conversion
+## Step 1: Prepare Your Repository
 
-## **📁 Project Structure**
-```
-heic-to-jpg-nodejs/
-├── public/                 # Static files (served by Amplify)
-│   ├── index.html         # Main application
-│   ├── app.js             # Frontend JavaScript
-│   └── images/            # Images and icons
-├── server.js              # Express server
-├── package.json           # Dependencies
-├── amplify.yml            # Amplify build configuration
-└── README.md              # This file
-```
-
-## **🚀 Deployment Steps**
-
-### **Step 1: Prepare Your Repository**
-
-1. **Create a new Git repository** (GitHub, GitLab, or Bitbucket)
-2. **Upload all files** to your repository:
+1. **Push your code to Git repository**
    ```bash
-   git init
    git add .
-   git commit -m "Initial commit: HEIC to JPG Converter"
-   git remote add origin <your-repository-url>
-   git push -u origin main
+   git commit -m "Convert to Next.js for AWS Amplify"
+   git push origin main
    ```
 
-### **Step 2: Set Up AWS Amplify**
+2. **Ensure these files are in your repository:**
+   - `package.json` (with Next.js dependencies)
+   - `next.config.js`
+   - `tsconfig.json`
+   - `amplify.yml`
+   - `app/` directory (Next.js app router)
+   - `public/` directory (static assets)
 
-1. **Login to AWS Console**
-   - Go to [AWS Amplify Console](https://console.aws.amazon.com/amplify/)
-   - Sign in with your AWS account
+## Step 2: Deploy to AWS Amplify
 
-2. **Create New App**
+### Option A: Deploy via AWS Amplify Console
+
+1. **Go to AWS Amplify Console**
+   - Sign in to AWS Console
+   - Navigate to AWS Amplify
    - Click "New app" → "Host web app"
-   - Choose your Git provider (GitHub, GitLab, Bitbucket)
-   - Connect your repository
-   - Select the repository containing your HEIC converter
+
+2. **Connect Repository**
+   - Choose your Git provider (GitHub, GitLab, etc.)
+   - Authorize AWS Amplify to access your repository
+   - Select your repository and branch (usually `main`)
 
 3. **Configure Build Settings**
-   - **Build settings**: Use the existing `amplify.yml` file
-   - **Environment variables**: None required for basic setup
-   - Click "Save and deploy"
+   - Amplify will auto-detect Next.js and use the `amplify.yml` file
+   - Review the build settings and click "Save and deploy"
 
-### **Step 3: Configure Environment Variables (Optional)**
+4. **Wait for Deployment**
+   - Amplify will build and deploy your application
+   - You'll get a URL like: `https://main.d1234567890.amplifyapp.com`
 
-If you need to customize settings, add these environment variables in Amplify:
+### Option B: Deploy via AWS CLI
 
-1. **Go to App settings** → **Environment variables**
-2. **Add variables**:
-   ```
-   NODE_ENV=production
-   PORT=8080
-   MAX_FILE_SIZE=10485760
-   ```
-
-### **Step 4: Set Up S3 Storage (Recommended)**
-
-For better file management, set up S3 buckets:
-
-1. **Create S3 Buckets**:
-   - Go to [S3 Console](https://console.aws.amazon.com/s3/)
-   - Create bucket: `your-app-uploads`
-   - Create bucket: `your-app-converted`
-
-2. **Configure CORS** for upload bucket:
-   ```json
-   [
-     {
-       "AllowedHeaders": ["*"],
-       "AllowedMethods": ["GET", "POST", "PUT"],
-       "AllowedOrigins": ["https://your-app.amplifyapp.com"],
-       "ExposeHeaders": []
-     }
-   ]
+1. **Install AWS CLI and Amplify CLI**
+   ```bash
+   npm install -g @aws-amplify/cli
+   amplify configure
    ```
 
-3. **Update server.js** to use S3 (optional enhancement)
+2. **Initialize Amplify in your project**
+   ```bash
+   amplify init
+   ```
 
-### **Step 5: Custom Domain (Optional)**
+3. **Add hosting**
+   ```bash
+   amplify add hosting
+   ```
 
-1. **Add custom domain**:
-   - Go to App settings → **Domain management**
+4. **Deploy**
+   ```bash
+   amplify publish
+   ```
+
+## Step 3: Configure Environment Variables (Optional)
+
+If you need environment variables:
+
+1. Go to your app in Amplify Console
+2. Navigate to "Environment variables"
+3. Add any required variables
+
+## Step 4: Custom Domain (Optional)
+
+1. **Add Custom Domain**
+   - In Amplify Console, go to "Domain management"
    - Click "Add domain"
    - Enter your domain name
-   - Follow DNS configuration instructions
+   - Follow the DNS configuration instructions
 
-2. **SSL Certificate**:
+2. **SSL Certificate**
    - Amplify automatically provisions SSL certificates
    - No additional configuration needed
 
-## **🔧 Configuration Files**
+## Step 5: Monitor and Maintain
 
-### **amplify.yml** (Build Configuration)
-```yaml
-version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm install
-    build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: public
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
-```
+### Build Monitoring
+- Amplify automatically rebuilds on every push to your main branch
+- View build logs in the Amplify Console
+- Set up notifications for build failures
 
-### **package.json** (Dependencies)
-```json
-{
-  "name": "heic-to-jpg-converter",
-  "version": "1.0.0",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "build": "echo 'Build completed'"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "multer": "^1.4.5-lts.1",
-    "heic-convert": "^2.1.0",
-    "sharp": "^0.32.6",
-    "cors": "^2.8.5",
-    "helmet": "^7.1.0",
-    "uuid": "^9.0.1",
-    "fs-extra": "^11.1.1"
-  }
-}
-```
+### Performance Monitoring
+- Use AWS CloudWatch for monitoring
+- Set up alerts for errors or performance issues
 
-## **🌐 Application URLs**
+## Troubleshooting
 
-After deployment, your app will be available at:
-- **Amplify URL**: `https://main.xxxxxxxx.amplifyapp.com`
-- **Custom Domain**: `https://yourdomain.com` (if configured)
-
-## **🔍 Testing Your Deployment**
-
-1. **Upload HEIC files** to test conversion
-2. **Check file processing** and download functionality
-3. **Verify SEO features** are working
-4. **Test mobile responsiveness**
-
-## **📊 Monitoring and Analytics**
-
-### **Amplify Analytics**
-1. **Enable Analytics** in Amplify Console
-2. **Track user engagement** and conversion rates
-3. **Monitor performance** metrics
-
-### **CloudWatch Logs**
-1. **View application logs** in CloudWatch
-2. **Monitor errors** and performance issues
-3. **Set up alerts** for critical issues
-
-## **🔒 Security Considerations**
-
-### **File Upload Security**
-- ✅ File type validation (HEIC/HEIF only)
-- ✅ File size limits (10MB max)
-- ✅ Rate limiting (100 requests per 15 minutes)
-- ✅ Automatic file cleanup
-
-### **CORS Configuration**
-- ✅ Configured for your domain only
-- ✅ Secure headers with Helmet.js
-- ✅ HTTPS enforcement
-
-## **💰 Cost Optimization**
-
-### **Amplify Pricing**
-- **Free tier**: 1,000 build minutes/month
-- **Build minutes**: $0.01 per minute
-- **Bandwidth**: $0.15 per GB
-
-### **Cost Reduction Tips**
-1. **Optimize build times** by caching node_modules
-2. **Use CDN** for static assets
-3. **Implement file compression**
-4. **Monitor usage** in AWS Cost Explorer
-
-## **🚀 Performance Optimization**
-
-### **Build Optimization**
-- **Caching**: Enable node_modules caching
-- **Parallel builds**: Use multiple build environments
-- **Build timeouts**: Set appropriate timeouts
-
-### **Runtime Optimization**
-- **Image compression**: Optimize converted images
-- **CDN**: Use CloudFront for global distribution
-- **Caching**: Implement browser caching
-
-## **🔧 Troubleshooting**
-
-### **Common Issues**
+### Common Issues
 
 1. **Build Failures**
-   - Check Node.js version compatibility
-   - Verify all dependencies are in package.json
-   - Review build logs in Amplify Console
+   - Check build logs in Amplify Console
+   - Ensure all dependencies are in `package.json`
+   - Verify Node.js version compatibility
 
-2. **File Upload Issues**
-   - Verify CORS configuration
-   - Check file size limits
-   - Ensure proper file type validation
+2. **HEIC Conversion Not Working**
+   - Ensure `heic2any.min.js` is in the `public/` directory
+   - Check browser console for JavaScript errors
+   - Verify the library is loading correctly
 
-3. **Conversion Failures**
-   - Check heic-convert library installation
-   - Verify file permissions
-   - Review server logs
+3. **Static Assets Not Loading**
+   - Ensure assets are in the `public/` directory
+   - Check file paths in your code
+   - Verify `next.config.js` configuration
 
-### **Debug Commands**
-```bash
-# Check Node.js version
-node --version
+### Performance Optimization
 
-# Install dependencies
-npm install
+1. **Enable Caching**
+   - Amplify automatically caches static assets
+   - Use Next.js Image component for optimized images
+   - Implement proper cache headers
 
-# Test locally
-npm start
+2. **CDN Distribution**
+   - Amplify automatically distributes content via CloudFront
+   - No additional configuration needed
 
-# Check build logs
-amplify console
-```
+## Cost Optimization
 
-## **📈 Scaling Considerations**
+- **Free Tier**: Amplify offers generous free tier
+- **Pay-as-you-go**: Only pay for what you use
+- **Monitoring**: Use AWS Cost Explorer to monitor usage
 
-### **Traffic Scaling**
-- **Automatic scaling** with Amplify
-- **Global CDN** distribution
-- **Load balancing** for high traffic
+## Security Best Practices
 
-### **Storage Scaling**
-- **S3 integration** for large files
-- **Database integration** for file tracking
-- **Redis caching** for session management
+1. **Environment Variables**
+   - Never commit sensitive data to Git
+   - Use Amplify environment variables for secrets
 
-## **🔄 Continuous Deployment**
+2. **HTTPS**
+   - Amplify automatically provides SSL certificates
+   - All traffic is encrypted by default
 
-### **Automatic Deployments**
-- **Git integration** for automatic builds
-- **Branch deployments** for testing
-- **Preview deployments** for pull requests
+3. **Access Control**
+   - Use IAM roles and policies
+   - Implement proper authentication if needed
 
-### **Environment Management**
-- **Production environment** for live app
-- **Staging environment** for testing
-- **Development environment** for development
-
-## **📞 Support Resources**
+## Support
 
 - **AWS Amplify Documentation**: https://docs.aws.amazon.com/amplify/
-- **AWS Support**: Available with AWS Support plans
-- **Community Forums**: AWS Amplify community
-- **GitHub Issues**: Report bugs and feature requests
+- **Next.js Documentation**: https://nextjs.org/docs
+- **AWS Support**: Available with AWS support plans
 
-## **🎉 Success Checklist**
+## Migration from Render
 
-- ✅ Repository connected to Amplify
-- ✅ Build completed successfully
-- ✅ Application accessible via URL
-- ✅ File upload working
-- ✅ HEIC conversion functional
-- ✅ Download functionality working
-- ✅ Mobile responsiveness verified
-- ✅ SEO features implemented
-- ✅ Custom domain configured (optional)
-- ✅ SSL certificate active
-- ✅ Monitoring set up
+### Key Differences
+- **Build Process**: Amplify uses `amplify.yml` instead of `render.yaml`
+- **Static Assets**: Use `public/` directory in Next.js
+- **API Routes**: Use Next.js API routes instead of Express
+- **Environment Variables**: Configure in Amplify Console
 
----
-
-**🎯 Your HEIC to JPG converter is now live on AWS Amplify!**
-
-The application is fully functional with:
-- **Modern serverless architecture**
-- **Automatic scaling**
-- **Global CDN distribution**
-- **SSL security**
-- **SEO optimization**
-- **Mobile responsiveness**
-
-Visit your Amplify URL to start converting HEIC files to JPG! 
+### Benefits of AWS Amplify
+- **Better Performance**: Global CDN distribution
+- **Automatic Scaling**: Handles traffic spikes automatically
+- **Better Integration**: Native AWS services integration
+- **Advanced Features**: A/B testing, preview deployments, etc. 

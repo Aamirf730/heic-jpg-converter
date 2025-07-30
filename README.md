@@ -1,6 +1,6 @@
-# HEIC to JPG Converter - Next.js Version
+# HEIC to JPG Converter
 
-A modern, privacy-focused HEIC to JPG converter built with Next.js and deployed on AWS Amplify.
+A modern, privacy-focused HEIC to JPG converter built with Next.js 14 and TypeScript. Convert your iPhone photos from HEIC to JPG format instantly in your browser.
 
 ## 🚀 Features
 
@@ -11,21 +11,23 @@ A modern, privacy-focused HEIC to JPG converter built with Next.js and deployed 
 - **EXIF Stripping**: Optional metadata removal for privacy
 - **Modern UI**: Beautiful, responsive design with Tailwind CSS
 - **SEO Optimized**: Built-in SEO features and structured data
+- **Mobile Friendly**: Perfect experience on all devices
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Next.js 14 with TypeScript
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **HEIC Conversion**: heic2any.js (client-side)
 - **Deployment**: AWS Amplify
-- **Build Tool**: Next.js App Router
+- **SEO**: Structured data, meta tags, sitemap
 
-## 📦 Installation
+## 📦 Quick Start
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
-   cd heic-to-jpg-converter
+   git clone https://github.com/Aamirf730/heic-jpg-converter.git
+   cd heic-jpg-converter
    ```
 
 2. **Install dependencies**
@@ -48,14 +50,14 @@ A modern, privacy-focused HEIC to JPG converter built with Next.js and deployed 
 1. **Push to Git repository**
    ```bash
    git add .
-   git commit -m "Initial commit"
+   git commit -m "Ready for deployment"
    git push origin main
    ```
 
 2. **Deploy to Amplify**
    - Go to [AWS Amplify Console](https://console.aws.amazon.com/amplify/)
    - Create new app → Host web app
-   - Connect your Git repository
+   - Connect your Git repository: `https://github.com/Aamirf730/heic-jpg-converter`
    - Amplify will auto-detect Next.js and deploy
 
 3. **Custom Domain (Optional)**
@@ -68,7 +70,6 @@ This Next.js app can also be deployed to:
 - **Vercel**: `vercel --prod`
 - **Netlify**: `npm run build && netlify deploy`
 - **Railway**: Connect Git repository
-- **Heroku**: Add buildpack and deploy
 
 ## 🔧 Configuration
 
@@ -83,21 +84,34 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 ### Build Configuration
 
 The app uses the following configuration files:
-- `next.config.js` - Next.js configuration
+- `next.config.js` - Next.js configuration with redirects
 - `tsconfig.json` - TypeScript configuration
-- `amplify.yml` - AWS Amplify build settings
+- `amplify.yaml` - AWS Amplify Gen 2 build settings
 
 ## 📁 Project Structure
 
 ```
-heic-to-jpg-converter/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # Main page component
-│   ├── globals.css        # Global styles
-│   └── api/               # API routes
-│       └── convert/       # Server-side conversion API
-├── public/                # Static assets
+heic-jpg-converter/
+├── app/                           # Next.js App Router
+│   ├── layout.tsx                # Root layout with SEO meta tags
+│   ├── page.tsx                  # Main converter page
+│   ├── globals.css               # Global styles
+│   ├── convert-heic-to-jpg/      # Dedicated page for SEO
+│   │   └── page.tsx             # Convert HEIC to JPG page
+│   └── api/                      # API routes
+│       └── convert/              # Server-side conversion API
+├── public/                       # Static assets
+│   ├── heic2any.min.js          # HEIC conversion library
+│   ├── robots.txt               # SEO robots file
+│   ├── sitemap.xml              # SEO sitemap
+│   └── images/                  # Images and icons
+│       └── favicon.ico          # Site favicon
+├── next.config.js               # Next.js configuration
+├── package.json                 # Dependencies and scripts
+├── tsconfig.json               # TypeScript configuration
+├── amplify.yaml                # AWS Amplify build config
+└── README.md                   # This file
+```
 │   ├── heic2any.min.js    # HEIC conversion library
 │   └── images/            # Images and icons
 ├── package.json           # Dependencies

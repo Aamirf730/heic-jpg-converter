@@ -47,8 +47,7 @@ function setupEventListeners() {
     // Button events
     downloadAllBtn.addEventListener('click', downloadAllFiles);
     
-    // SEO toggle
-    seoToggle.addEventListener('click', toggleSEOContent);
+
 }
 
 // File Upload Functions
@@ -468,17 +467,7 @@ function showLoading(show) {
     }
 }
 
-function toggleSEOContent() {
-    const isVisible = !seoContentInner.classList.contains('hidden');
-    
-    if (isVisible) {
-        seoContentInner.classList.add('hidden');
-        seoIcon.style.transform = 'rotate(0deg)';
-    } else {
-        seoContentInner.classList.remove('hidden');
-        seoIcon.style.transform = 'rotate(180deg)';
-    }
-}
+
 
 // Toggle Learn More section
 function toggleLearnMore() {

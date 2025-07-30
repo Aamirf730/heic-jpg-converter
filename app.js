@@ -209,8 +209,8 @@ function downloadFile(fileId) {
 
 function downloadAllFiles() {
     window.location.href = 'download.php?action=all';
-}
-
+    }
+    
 function clearAllFiles() {
     const formData = new FormData();
     formData.append('action', 'clear');
@@ -268,21 +268,21 @@ function updateFileList() {
     .then(data => {
         files = data.files || [];
         
-        if (files.length === 0) {
-            fileListContainer.style.display = 'none';
-            dropZoneContainer.style.display = 'flex';
-            return;
-        }
-        
-        fileListContainer.style.display = 'flex';
-        dropZoneContainer.style.display = 'none';
-        
-        fileCount.textContent = files.length;
-        
-        fileList.innerHTML = '';
+    if (files.length === 0) {
+        fileListContainer.style.display = 'none';
+        dropZoneContainer.style.display = 'flex';
+        return;
+    }
+    
+    fileListContainer.style.display = 'flex';
+    dropZoneContainer.style.display = 'none';
+    
+    fileCount.textContent = files.length;
+    
+    fileList.innerHTML = '';
         files.forEach((file, index) => {
             const fileElement = createFileElement(file, index);
-            fileList.appendChild(fileElement);
+        fileList.appendChild(fileElement);
         });
     })
     .catch(error => {
@@ -433,4 +433,4 @@ function initializeSEOToggle() {
             }
         });
     }
-} 
+}

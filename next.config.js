@@ -17,6 +17,14 @@ const nextConfig = {
       },
     ]
   },
+  async rewrites() {
+    return [
+      {
+        source: '/robots.txt',
+        destination: '/api/robots',
+      },
+    ]
+  },
   webpack: (config) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,

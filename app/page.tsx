@@ -400,17 +400,55 @@ export default function Home() {
                   <p>Instant conversion, no software needed</p>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div className="flex items-start space-x-2">
-                <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-medium text-gray-800">Works Everywhere</p>
-                  <p>All modern browsers, HEIC/HEIF support</p>
-                </div>
+          {/* Sources and References */}
+          <div className="space-y-4 pt-6 border-t border-gray-200">
+            <h3 className="text-sm font-semibold text-gray-800 flex items-center">
+              <svg className="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Sources & References
+            </h3>
+            
+            <div className="space-y-2 text-xs">
+              <p className="text-gray-600 mb-3">Technical sources for HEIC format information:</p>
+              
+              <div className="space-y-2">
+                <a href="https://www.outrightcrm.com/blog/what-is-heic-format/" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  HEIC Format Guide 2025
+                </a>
+                <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000526.shtml" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  Library of Congress HEIC
+                </a>
+                <a href="https://www.adobe.com/creativecloud/file-types/image/raster/heic-file.html" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  Adobe HEIC Guide
+                </a>
+                <a href="https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  Wikipedia HEIF
+                </a>
+                <a href="https://www.freecodecamp.org/news/best-image-format-for-web-in-2019-jpeg-webp-heic-avif-41ba0c1b2789/" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  FreeCodeCamp Image Formats
+                </a>
+                <a href="https://cloudinary.com/guides/image-formats/heif-vs-heic" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  Cloudinary HEIF vs HEIC
+                </a>
+                <a href="https://help.picsart.io/hc/en-us/articles/27399210909085-What-Are-the-Pros-and-Cons-of-Using-HEIC" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  Picsart HEIC Guide
+                </a>
+                <a href="https://medium.com/@adi.mizrahi/the-best-image-format-for-mobile-applications-5fa9c9bdc2f4" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  Mobile Image Formats
+                </a>
+                <a href="https://afosto.com/blog/avif-vs-webp-format/" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  AVIF vs WebP
+                </a>
+                <a href="https://developers.google.com/speed/webp/faq" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  Google WebP FAQ
+                </a>
+                <a href="https://superuser.com/questions/1811863/easiest-way-to-convert-heic-to-jpeg-or-png" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                  SuperUser HEIC Conversion
+                </a>
               </div>
             </div>
           </div>
@@ -714,6 +752,152 @@ export default function Home() {
             </div>
           </div>
         </main>
+
+        {/* SEO-Only Article Content - Hidden from users but visible to search engines */}
+        <section 
+          className="sr-only" 
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            left: '-9999px',
+            width: '1px',
+            height: '1px',
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            whiteSpace: 'nowrap'
+          }}
+        >
+          <article className="prose prose-lg max-w-none">
+            <h1 className="text-4xl font-bold text-gray-900 mb-6">HEIC Image Format: A Comprehensive Report</h1>
+            
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Technical Specifications of HEIC</h2>
+            <p className="text-gray-700 mb-4">
+              <strong>Format and Structure:</strong> HEIC stands for High Efficiency Image Container, and it is essentially the container file format for images under the HEIF standard (High Efficiency Image File Format) developed by MPEG. HEIC is built on the ISO Base Media File Format structure (the same foundation as MP4 video files), meaning image data and metadata are organized in a series of boxes/atoms within the file. Each HEIC file begins with a file type box (ftyp) identifying it as an HEIF/HEIC file via a brand code (for example, heic or heix). The <strong>.heic extension</strong> is commonly used for HEVC-compressed HEIF images (single images), while <strong>.heics</strong> may denote image sequence files (multiple images). Apple devices use the .heic extension for photos and pronounce it "heek".
+            </p>
+            
+            <p className="text-gray-700 mb-4">
+              <strong>Compression Codec:</strong> HEIC uses the High Efficiency Video Coding (<strong>HEVC</strong>, also known as H.265) codec for image compression by default. In practice, a HEIC image is like a single intra-coded video frame encoded with HEVC's advanced compression algorithms. This modern codec allows HEIC to store images in <strong>half the file size of an equivalent quality JPEG</strong>. HEVC-based still-image encoding (sometimes called the HEVC Main Still Picture profile) offers much more efficient compression than the older JPEG's DCT-based compression. HEIC also supports <strong>lossless compression</strong> modes – the HEIF specification allows images to be saved without quality loss, though most HEIC photos (such as those from phones) are saved with lossy compression for maximum size savings.
+            </p>
+            
+            <p className="text-gray-700 mb-6">
+              <strong>Color Depth and Quality:</strong> HEIC supports <strong>deep color and high dynamic range</strong> imaging. While JPEG is limited to 8-bit per channel (256 levels per color, ~16.7 million colors total), HEIC images can be <strong>10-bit, 12-bit, or even 16-bit</strong> per color channel. In practical use, many HEIC photos are 10-bit, which allows over a billion possible colors and enables true HDR photos with extended dynamic range and smoother gradients. For example, recent smartphones and high-end cameras use 10-bit HEIF/HEIC to capture more vibrant HDR images with wide color gamuts (such as Rec.2020 or P3 color primaries).
+            </p>
+            
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Compression Methods and Efficiency</h2>
+            <p className="text-gray-700 mb-4">
+              HEIC achieves its high compression efficiency primarily through the power of the <strong>HEVC (H.265) compression algorithm</strong>. HEVC was designed for high-resolution video (4K and beyond), and it brings those advanced techniques to still image coding in HEIC. Key factors in how HEIC <strong>maintains quality while reducing file size</strong> include:
+            </p>
+            
+            <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+              <li><strong>Advanced Intra-Frame Compression:</strong> HEVC uses more flexible and complex intra-frame compression than JPEG's 1990s-era algorithm. Instead of fixed 8×8 blocks with DCT (discrete cosine transform) as in JPEG, HEVC can use variable block sizes up to 64×64 pixels and many more intra-prediction modes to find the most efficient way to represent an image region.</li>
+              <li><strong>Efficient Entropy Coding:</strong> HEVC employs modern entropy coding (like CABAC – Context-Adaptive Binary Arithmetic Coding) which packs bits more efficiently than the older Huffman coding used in JPEG. This further squeezes the image data without losing detail, contributing to the significant bitrate reduction.</li>
+              <li><strong>High Precision and Less Data Loss:</strong> Because HEIC supports higher bit depth and more sophisticated color compression, it retains fine details and color gradients better than JPEG. For example, an HEIC photo can preserve subtle variations in skies or shadows without banding, even at high compression, thanks to 10-bit color and HEVC's precision.</li>
+              <li><strong>Multiple Image Compression:</strong> When multiple images are stored in one HEIC container (such as burst shots or an image sequence), the format can employ inter-frame compression similar to a video codec. Redundant information between frames can be stored once and reused, drastically cutting down total size for sequences.</li>
+              <li><strong>Optional Lossless Mode:</strong> While HEIC is usually used as a lossy format, HEIF also supports a lossless compression mode. In lossless mode, the image is compressed such that it can be decoded to an exact pixel-for-pixel copy of the original.</li>
+            </ul>
+            
+            <p className="text-gray-700 mb-6">
+              All these methods mean that HEIC can <strong>retain higher image quality at a fraction of the file size</strong> compared to older formats. Users typically observe that HEIC images maintain clarity and detail even at aggressive compression settings, where an equivalent JPEG would show noticeable degradation. One source notes that HEIC achieves roughly a <strong>50% file size reduction with no visible quality loss</strong> – effectively doubling storage capacity for photos.
+            </p>
+            
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Comparison with JPEG, PNG, and WebP</h2>
+            <p className="text-gray-700 mb-4">
+              HEIC is one of the "next-generation" image formats, and it differs from older formats like JPEG and PNG, as well as fellow modern format WebP, in several ways. The following table provides a high-level comparison of <strong>HEIC vs. JPEG vs. PNG vs. WebP</strong> in terms of compression, quality, and features:
+            </p>
+            
+            <div className="overflow-x-auto mb-6">
+              <table className="min-w-full border border-gray-300">
+                <thead>
+                  <tr className="bg-gray-50">
+                    <th className="border border-gray-300 px-4 py-2 text-left font-semibold">Feature</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left font-semibold">JPEG (JPG)</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left font-semibold">PNG</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left font-semibold">WebP</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left font-semibold">HEIC (HEIF/HEVC)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2 font-medium">Compression Type</td>
+                    <td className="border border-gray-300 px-4 py-2">Lossy only (DCT-based)</td>
+                    <td className="border border-gray-300 px-4 py-2">Lossless only</td>
+                    <td className="border border-gray-300 px-4 py-2">Both lossy and lossless</td>
+                    <td className="border border-gray-300 px-4 py-2">Both lossy and lossless</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-2 font-medium">Typical File Size</td>
+                    <td className="border border-gray-300 px-4 py-2">Baseline standard</td>
+                    <td className="border border-gray-300 px-4 py-2">Very large for photos</td>
+                    <td className="border border-gray-300 px-4 py-2">~25–35% smaller than JPEG</td>
+                    <td className="border border-gray-300 px-4 py-2">~50% smaller than JPEG</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2 font-medium">Color Depth</td>
+                    <td className="border border-gray-300 px-4 py-2">8-bit per channel</td>
+                    <td className="border border-gray-300 px-4 py-2">Up to 16-bit per channel</td>
+                    <td className="border border-gray-300 px-4 py-2">8-bit per channel</td>
+                    <td className="border border-gray-300 px-4 py-2">8, 10, 12, or 16-bit</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-2 font-medium">Transparency</td>
+                    <td className="border border-gray-300 px-4 py-2">No</td>
+                    <td className="border border-gray-300 px-4 py-2">Yes</td>
+                    <td className="border border-gray-300 px-4 py-2">Yes</td>
+                    <td className="border border-gray-300 px-4 py-2">Yes</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 px-4 py-2 font-medium">Animation</td>
+                    <td className="border border-gray-300 px-4 py-2">No</td>
+                    <td className="border border-gray-300 px-4 py-2">No (APNG extension)</td>
+                    <td className="border border-gray-300 px-4 py-2">Yes</td>
+                    <td className="border border-gray-300 px-4 py-2">Yes</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <p className="text-gray-700 mb-6">
+              <strong>Comparison Highlights:</strong> In summary, <strong>HEIC offers superior compression and more features</strong> than the older JPEG and PNG formats, albeit with less universal support. Compared to <strong>JPEG</strong>, HEIC produces <strong>much smaller files for the same quality</strong> – often around 50% size savings. This is a major advantage in storage and bandwidth. HEIC also supports transparency and advanced features that JPEG cannot (JPEG has no alpha channel or multi-frame capability). Additionally, HEIC's support for 10-bit color means it can store <strong>HDR images</strong> with far more color detail than JPEG's 8-bit limitation.
+            </p>
+            
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Device and Software Support for HEIC</h2>
+            <p className="text-gray-700 mb-4">
+              Despite its technical advantages, HEIC's adoption has been uneven. Support varies across different operating systems, devices, and applications. Below is an overview of <strong>where HEIC is supported natively, where it requires add-ons, and where it's not supported</strong>:
+            </p>
+            
+            <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+              <li><strong>Apple Ecosystem:</strong> Apple was the first major adopter of HEIC. iOS 11 and later (since the iPhone 7 in 2017) save photos in HEIC format by default. All modern iPhones and iPads (iOS/iPadOS) have native support: you can view, edit, and share HEIC photos seamlessly in the Photos app or any app using the system image picker. macOS High Sierra (10.13) and later on Macs likewise have built-in support.</li>
+              <li><strong>Windows:</strong> Microsoft added HEIC support starting with Windows 10 (version 1803, released 2018), but it's not enabled out-of-the-box by default. Windows uses a system of extensions: users must install the HEIF Image Extensions (free) from Microsoft, and for HEVC decoding Windows 10 also requires the HEVC Video Extensions (a small paid add-on in the Store).</li>
+              <li><strong>Android:</strong> Android's support for HEIC/HEIF has improved over time. Basic HEIF support (for decoding images) was added in Android 8.0 Oreo. Full support for capturing HEIC photos arrived in Android 10 (2019) on devices with the proper hardware encoders.</li>
+              <li><strong>Web Browsers:</strong> At present, web browser support for HEIC is very limited. As of mid-2024, Apple Safari (on macOS and iOS) is the only major browser that can display HEIC images natively. Other browsers like Chrome, Firefox, and Edge do not support using HEIC files in &lt;img&gt; tags or CSS by default.</li>
+            </ul>
+            
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Conversion and Usage in Workflows</h2>
+            <p className="text-gray-700 mb-4">
+              Given the patchy support, converting HEIC images to more common formats is a frequent task. Here are <strong>tools and methods for converting and using HEIC files</strong> in typical workflows:
+            </p>
+            
+            <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+              <li><strong>Within Apple Ecosystem:</strong> If you stay within Apple devices, you usually don't need to convert – macOS and iOS handle HEIC transparently. However, when sharing or exporting out, Apple provides automatic conversion options. For example, when you AirDrop a photo to an older Mac or send via iMessage to an Android, the system may convert the HEIC to JPEG on-the-fly for compatibility.</li>
+              <li><strong>Windows Conversion:</strong> On Windows 10/11, once you have the HEIF and HEVC extensions installed, you can open HEIC images in the Photos app or even MS Paint. A simple method to convert one image is to open it in Paint and then use File &gt; Save As to save a copy as JPEG or PNG.</li>
+              <li><strong>Using Adobe or Other Software:</strong> If you have Adobe Photoshop, you can open HEIC files (ensure the Windows codecs are installed if on Windows). Once opened, you can simply Save As or export to your desired format. Adobe Lightroom Classic can import HEIC images and you can then export them as JPEG, DNG, etc. with your edits.</li>
+              <li><strong>Online Converters:</strong> Numerous free online tools can convert HEIC to JPEG/PNG; for example, browser-based services where you upload .heic files and get back JPEGs. These are handy if you just have a few images and are on a device that doesn't support HEIC.</li>
+            </ul>
+            
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Conclusion</h2>
+            <p className="text-gray-700 mb-4">
+              HEIC is a <strong>technically advanced image format</strong> that brings high efficiency and new capabilities to photography. It offers superior compression (smaller file sizes) while retaining excellent quality, support for deep color and HDR, the ability to hold multiple images or even video in one file, and features like transparency and rich metadata that go beyond what JPEG and PNG can do.
+            </p>
+            
+            <p className="text-gray-700 mb-4">
+              However, as a new format, HEIC comes with challenges. <strong>Compatibility</strong> is the biggest hurdle – not all software and platforms can handle HEIC natively, especially outside of the Apple ecosystem. This has led to a period where users and professionals often need to convert HEIC files to more ubiquitous formats like JPEG for broader sharing and use.
+            </p>
+            
+                         <p className="text-gray-700">
+               Looking forward, as operating systems and software continue to integrate HEIC support – and with even newer formats like AVIF gaining traction – we can expect the image format landscape to evolve. HEIC has established itself firmly, thanks in large part to Apple's adoption and the format's genuine benefits. It may not completely replace JPEG in the immediate future, but it has carved out an important role in imaging.
+             </p>
+          </article>
+        </section>
       </div>
 
       {/* Hidden file input */}

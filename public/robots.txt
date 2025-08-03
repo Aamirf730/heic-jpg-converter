@@ -10,4 +10,9 @@ Crawl-delay: 1
 # Disallow admin or private areas (if any)
 Disallow: /api/
 Disallow: /admin/
-Disallow: /private/ 
+Disallow: /private/
+
+# Explicitly allow main pages
+Allow: /convert-heic-to-jpg
+Allow: /heic-to-jpeg
+Allow: /free-heic-converter 

@@ -704,73 +704,31 @@ export default function Home() {
           {/* SEO Content Section */}
           <section className="mt-16 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              What Is a HEIC to JPG Converter? How It Works (Free, Private, Online)
+              Convert HEIC to JPG Online - Free & Secure
             </h2>
-
+            
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                A HEIC to JPG converter transforms your iPhone photos from the modern HEIC/HEIF format into the universally compatible JPG format. Our converter is free, fast, and privacy‑first: files are processed locally in your browser—nothing is uploaded to servers.
+                Our HEIC to JPG converter is the fastest and most reliable way to convert your iPhone photos online. 
+                No software installation required - just upload your HEIC files and get high-quality JPG images instantly.
               </p>
-
+              
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
                 Why Convert HEIC to JPG?
               </h3>
               <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-6">
-                <li>JPG works everywhere (Windows, Android, older apps, websites)</li>
-                <li>Easy sharing to platforms that don’t support HEIC</li>
-                <li>Smaller files at high quality for faster uploads</li>
-                <li>Better compatibility with editors, CMSs, and legacy tools</li>
+                <li>JPG format is universally compatible with all devices and platforms</li>
+                <li>Easier to share and upload to social media</li>
+                <li>Smaller file sizes for faster sharing</li>
+                <li>Better compatibility with photo editing software</li>
               </ul>
-
+              
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
-                How Our HEIC to JPG Converter Works
-              </h3>
-              <ol className="list-decimal list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-6">
-                <li>Import your .heic or .heif files (drag & drop or click to browse)</li>
-                <li>Choose output format (JPEG recommended; PNG available)</li>
-                <li>Conversion runs instantly in your browser—no file leaves your device</li>
-                <li>Download your JPG image(s) with one click</li>
-              </ol>
-
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
-                Key Features
-              </h3>
-              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-6">
-                <li>Client‑side processing for maximum privacy (no uploads)</li>
-                <li>Batch conversion support</li>
-                <li>Optional EXIF stripping to remove metadata</li>
-                <li>Fast performance and high‑quality output</li>
-                <li>Works on iPhone, Mac, Windows, Linux, and Android (modern browsers)</li>
-              </ul>
-
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
-                Quick Start (30 Seconds)
-              </h3>
-              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-6">
-                <li>Open this page, drop your HEIC photos</li>
-                <li>Select JPEG → click Convert → download JPG</li>
-                <li>Need PNG? Choose PNG in the Output Format dropdown</li>
-              </ul>
-
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
-                For Developers: Free Conversion API
+                How Our Converter Works
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Prefer server‑side processing? Use our public endpoint to convert HEIC to JPEG programmatically.
-              </p>
-              <pre className="whitespace-pre-wrap text-sm bg-gray-100 dark:bg-gray-900 p-4 rounded-lg overflow-x-auto"><code>{`const formData = new FormData()
-formData.append('file', file, file.name)
-
-const res = await fetch('https://heic-to-jpg.io/api/convert', {
-  method: 'POST',
-  body: formData
-})
-if (!res.ok) throw new Error('Conversion failed')
-const blob = await res.blob()
-`}</code></pre>
-
-              <p className="text-gray-700 dark:text-gray-300 mt-6">
-                Whether you’re converting a single iPhone photo or hundreds at once, our HEIC to JPG converter delivers instant, secure, and high‑quality results—free forever.
+                Our advanced conversion technology ensures your photos maintain their quality while converting from HEIC to JPG format. 
+                The process is completely secure and your files are automatically deleted after conversion.
               </p>
             </div>
           </section>

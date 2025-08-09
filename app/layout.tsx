@@ -241,6 +241,14 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-gray-50 dark:bg-gray-900 transition-colors duration-200`}>
+        <div className="w-full bg-indigo-600 dark:bg-indigo-700 text-white text-center text-sm py-2 px-4">
+          We’ve acquired
+          {' '}
+          <a href="https://converterwebptojpg.com" target="_blank" rel="noopener noreferrer" className="underline font-semibold">
+            converterwebptojpg.com
+          </a>
+          {' '}— welcome new users!
+        </div>
         <ThemeProvider>
           {children}
         </ThemeProvider>

@@ -467,6 +467,7 @@ export default function Home() {
             <div>
               <h1 className="text-3xl font-bold text-gray-800 dark:text-white">HEIC to JPG Converter - Convert HEIC to JPG Online Free</h1>
               <p className="text-gray-600 dark:text-gray-400">Convert HEIC to JPG online instantly - Transform your iPhone photos from HEIC to JPEG format easily</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Bookmark this tool—instant, private conversions any time.</p>
             </div>
             
             {files.length > 0 && (

@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { ThemeProvider } from './contexts/ThemeContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'HEIC to JPG Converter - Convert HEIC to JPG Online Free | HEIC to JPEG',
+  title: 'HEIC to JPG Converter Online - Free ⚡ No Installation (100% Secure)',
   description: 'Convert HEIC to JPG online for free instantly. Best HEIC to JPEG converter tool. Convert iPhone photos from HEIC to JPG format easily. No registration, privacy-focused.',
   keywords: 'heic to jpg, convert heic to jpg, heic to jpg converter, heic to jpeg, .heic to jpg, heic converter online, free heic to jpg, heic to jpg tool, iphone photo converter, heic to jpg free, convert heic files',
   authors: [{ name: 'HEIC to JPG Converter' }],
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://heic-to-jpg.io/',
-    title: 'HEIC to JPG Converter - Convert HEIC to JPG Online Free | HEIC to JPEG',
+    title: 'HEIC to JPG Converter Online - Free ⚡ No Installation (100% Secure)',
     description: 'Convert HEIC to JPG online for free instantly. Best HEIC to JPEG converter tool. Convert iPhone photos from HEIC to JPG format easily.',
     images: ['https://heic-to-jpg.io/og-image.jpg'],
     siteName: 'HEIC to JPG Converter',
@@ -21,17 +22,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HEIC to JPG Converter - Convert HEIC to JPG Online Free | HEIC to JPEG',
+    title: 'HEIC to JPG Converter Online - Free ⚡ No Installation (100% Secure)',
     description: 'Convert HEIC to JPG online for free instantly. Best HEIC to JPEG converter tool. Convert iPhone photos from HEIC to JPG format easily.',
     images: ['https://heic-to-jpg.io/og-image.jpg'],
     creator: '@heictojpg',
   },
+  alternates: {
+    canonical: 'https://heic-to-jpg.io/',
+    languages: {
+      'es': 'https://heic-to-jpg.io/es/heic-a-jpg',
+      'de': 'https://heic-to-jpg.io/de/heic-zu-jpg',
+    },
+  },
   icons: {
     icon: '/images/favicon.ico',
     apple: '/images/apple-touch-icon.png',
-  },
-  alternates: {
-    canonical: 'https://heic-to-jpg.io/',
   },
   verification: {
     google: 'your-google-verification-code',
@@ -52,6 +57,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               tailwind.config = {
+                darkMode: 'class',
                 theme: {
                   extend: {
                     colors: {
@@ -68,6 +74,22 @@ export default function RootLayout({
                 }
               }
             `,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Instant HEIC to JPG Converter",
+              "operatingSystem": "All",
+              "applicationCategory": "Online Converter Tool",
+              "offers": {
+                "@type": "Offer",
+                "price": "0"
+              }
+            })
           }}
         />
         <script
@@ -218,8 +240,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
-        {children}
+      <body className={`${inter.className} bg-gray-50 dark:bg-gray-900 transition-colors duration-200`}>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

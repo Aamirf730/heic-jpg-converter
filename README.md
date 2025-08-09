@@ -18,7 +18,8 @@ A modern, privacy-focused HEIC to JPG converter built with Next.js 14 and TypeSc
 - **Framework**: Next.js 14 with App Router
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **HEIC Conversion**: heic2any.js (client-side)
+- **HEIC Conversion (Client)**: heic2any.js
+- **HEIC Conversion (Server API)**: heic-decode + jpeg-js
 - **Deployment**: AWS Amplify
 - **SEO**: Structured data, meta tags, sitemap
 
@@ -57,8 +58,8 @@ A modern, privacy-focused HEIC to JPG converter built with Next.js 14 and TypeSc
 2. **Deploy to Amplify**
    - Go to [AWS Amplify Console](https://console.aws.amazon.com/amplify/)
    - Create new app → Host web app
-   - Connect your Git repository: `https://github.com/Aamirf730/heic-jpg-converter`
-   - Amplify will auto-detect Next.js and deploy
+   - Connect your Git repository (this repo)
+   - Amplify will auto-detect Next.js and deploy using `amplify.yaml`
 
 3. **Custom Domain (Optional)**
    - Add custom domain in Amplify Console
@@ -143,9 +144,10 @@ heic-jpg-converter/
 
 1. **File Upload**: Users drag & drop or select HEIC files
 2. **Validation**: Files are validated for type and size
-3. **Conversion**: HEIC files are converted using heic2any.js
-4. **Download**: Converted files are available for download
-5. **Cleanup**: Files are automatically cleaned up from memory
+3. **Conversion (Client)**: HEIC files are converted using heic2any.js
+4. **Conversion (Server API)**: Optional server route converts HEIC to JPEG and returns a JPEG binary
+5. **Download**: Converted files are available for download
+6. **Cleanup**: Files are automatically cleaned up from memory
 
 ## 🔒 Privacy & Security
 
@@ -199,6 +201,23 @@ npm start
 # Lint code
 npm run lint
 ```
+
+## 🌐 Public API
+
+- Endpoint: `POST https://heic-to-jpg.io/api/convert`
+- Request: `multipart/form-data` with a `file` field
+- Response: `image/jpeg` (binary)
+- CORS: `*`
+
+Quick example:
+```js
+const formData = new FormData()
+formData.append('file', file, file.name)
+await fetch('https://heic-to-jpg.io/api/convert', { method: 'POST', body: formData })
+```
+
+- Full spec: see `docs/openapi.yaml`
+- More examples: see `docs/README-API.md`
 
 ## 📊 Performance
 

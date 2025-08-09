@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import DarkModeToggle from './components/DarkModeToggle'
 
 interface FileData {
   id: string
@@ -299,50 +300,53 @@ export default function Home() {
   const completedFiles = files.filter(f => f.status === 'completed')
 
   return (
-    <div className="bg-gray-50 flex">
+    <div className="bg-gray-50 dark:bg-gray-900 flex">
       {/* Sidebar */}
-      <div className="w-80 bg-white border-r border-gray-200 p-6 overflow-y-auto">
+      <div className="w-80 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-6 overflow-y-auto">
         <div className="space-y-8">
           {/* Header */}
-          <div className="text-center pb-6 border-b border-gray-200">
+          <div className="text-center pb-6 border-b border-gray-200 dark:border-gray-700">
             <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mx-auto mb-3">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
-            <h2 className="text-lg font-bold text-gray-800">HEIC to JPG</h2>
-            <p className="text-sm text-gray-600">Privacy-first converter</p>
+            <h2 className="text-lg font-bold text-gray-800 dark:text-white">HEIC to JPG</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Privacy-first converter</p>
           </div>
 
           {/* Settings */}
           <div className="space-y-6">
-            <h3 className="text-sm font-semibold text-gray-800 flex items-center">
-              <svg className="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              Settings
-            </h3>
+            <div className="flex items-center justify-between">
+              <h3 className="text-sm font-semibold text-gray-800 dark:text-white flex items-center">
+                <svg className="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Settings
+              </h3>
+              <DarkModeToggle />
+            </div>
             
             {/* Output Format Selection */}
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-800">Output Format</label>
+              <label className="text-sm font-semibold text-gray-800 dark:text-white">Output Format</label>
               <select 
                 value={outputFormat}
                 onChange={(e) => setOutputFormat(e.target.value)}
-                className="w-full p-3 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
+                className="w-full p-3 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent disabled:bg-gray-100 dark:disabled:bg-gray-600 disabled:cursor-not-allowed text-gray-800 dark:text-white"
                 disabled={isConverting}
               >
                 <option value="jpeg">HEIC → JPEG</option>
                 <option value="png">HEIC → PNG</option>
               </select>
-              <p className="text-xs text-gray-600">Choose your preferred output format</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">Choose your preferred output format</p>
             </div>
             
-            <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+            <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-xl">
               <div>
-                <label className="text-sm font-semibold text-gray-800">Strip EXIF data</label>
-                <p className="text-xs text-gray-600 mt-1">Remove metadata for privacy</p>
+                <label className="text-sm font-semibold text-gray-800 dark:text-white">Strip EXIF data</label>
+                <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Remove metadata for privacy</p>
               </div>
               <div className="relative">
                 <input 
@@ -355,7 +359,7 @@ export default function Home() {
                 />
                 <div 
                   className={`w-11 h-6 rounded-full transition-colors duration-200 cursor-pointer flex items-center ${
-                    stripExif ? 'bg-red-500' : 'bg-gray-300'
+                    stripExif ? 'bg-red-500' : 'bg-gray-300 dark:bg-gray-600'
                   } ${isConverting ? 'cursor-not-allowed' : ''}`}
                   onClick={() => !isConverting && setStripExif(!stripExif)}
                 >
@@ -368,35 +372,35 @@ export default function Home() {
           </div>
 
           {/* Info */}
-          <div className="space-y-4 pt-6 border-t border-gray-200">
-            <h3 className="text-sm font-semibold text-gray-800 flex items-center">
+          <div className="space-y-4 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <h3 className="text-sm font-semibold text-gray-800 dark:text-white flex items-center">
               <svg className="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               How it works
             </h3>
             
-            <div className="space-y-3 text-xs text-gray-600">
+            <div className="space-y-3 text-xs text-gray-600 dark:text-gray-400">
               <div className="flex items-start space-x-2">
-                <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-6 h-6 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-800">Privacy First</p>
+                  <p className="font-medium text-gray-800 dark:text-white">Privacy First</p>
                   <p>Files converted locally in your browser</p>
                 </div>
               </div>
               
               <div className="flex items-start space-x-2">
-                <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-6 h-6 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium text-gray-800">Fast & Free</p>
+                  <p className="font-medium text-gray-800 dark:text-white">Fast & Free</p>
                   <p>Instant conversion, no software needed</p>
                 </div>
               </div>
@@ -404,8 +408,8 @@ export default function Home() {
           </div>
 
           {/* Sources and References */}
-          <div className="space-y-4 pt-6 border-t border-gray-200">
-            <h3 className="text-sm font-semibold text-gray-800 flex items-center">
+          <div className="space-y-4 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <h3 className="text-sm font-semibold text-gray-800 dark:text-white flex items-center">
               <svg className="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
@@ -413,40 +417,40 @@ export default function Home() {
             </h3>
             
             <div className="space-y-2 text-xs">
-              <p className="text-gray-600 mb-3">Technical sources for HEIC format information:</p>
+              <p className="text-gray-600 dark:text-gray-400 mb-3">Technical sources for HEIC format information:</p>
               
               <div className="space-y-2">
-                <a href="https://www.outrightcrm.com/blog/what-is-heic-format/" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://www.outrightcrm.com/blog/what-is-heic-format/" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   HEIC Format Guide 2025
                 </a>
-                <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000526.shtml" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000526.shtml" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   Library of Congress HEIC
                 </a>
-                <a href="https://www.adobe.com/creativecloud/file-types/image/raster/heic-file.html" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://www.adobe.com/creativecloud/file-types/image/raster/heic-file.html" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   Adobe HEIC Guide
                 </a>
-                <a href="https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   Wikipedia HEIF
                 </a>
-                <a href="https://www.freecodecamp.org/news/best-image-format-for-web-in-2019-jpeg-webp-heic-avif-41ba0c1b2789/" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://www.freecodecamp.org/news/best-image-format-for-web-in-2019-jpeg-webp-heic-avif-41ba0c1b2789/" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   FreeCodeCamp Image Formats
                 </a>
-                <a href="https://cloudinary.com/guides/image-formats/heif-vs-heic" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://cloudinary.com/guides/image-formats/heif-vs-heic" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   Cloudinary HEIF vs HEIC
                 </a>
-                <a href="https://help.picsart.io/hc/en-us/articles/27399210909085-What-Are-the-Pros-and-Cons-of-Using-HEIC" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://help.picsart.io/hc/en-us/articles/27399210909085-What-Are-the-Pros-and-Cons-of-Using-HEIC" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   Picsart HEIC Guide
                 </a>
-                <a href="https://medium.com/@adi.mizrahi/the-best-image-format-for-mobile-applications-5fa9c9bdc2f4" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://medium.com/@adi.mizrahi/the-best-image-format-for-mobile-applications-5fa9c9bdc2f4" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   Mobile Image Formats
                 </a>
-                <a href="https://afosto.com/blog/avif-vs-webp-format/" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://afosto.com/blog/avif-vs-webp-format/" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   AVIF vs WebP
                 </a>
-                <a href="https://developers.google.com/speed/webp/faq" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://developers.google.com/speed/webp/faq" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   Google WebP FAQ
                 </a>
-                <a href="https://superuser.com/questions/1811863/easiest-way-to-convert-heic-to-jpeg-or-png" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 underline text-xs">
+                <a href="https://superuser.com/questions/1811863/easiest-way-to-convert-heic-to-jpeg-or-png" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   SuperUser HEIC Conversion
                 </a>
               </div>
@@ -458,11 +462,11 @@ export default function Home() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <header className="bg-white border-b border-gray-200 px-8 py-6">
+        <header className="relative bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-8 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800">HEIC to JPG Converter - Convert HEIC to JPG Online Free</h1>
-              <p className="text-gray-600">Convert HEIC to JPG online instantly - Transform your iPhone photos from HEIC to JPEG format easily</p>
+              <h1 className="text-3xl font-bold text-gray-800 dark:text-white">HEIC to JPG Converter - Convert HEIC to JPG Online Free</h1>
+              <p className="text-gray-600 dark:text-gray-400">Convert HEIC to JPG online instantly - Transform your iPhone photos from HEIC to JPEG format easily</p>
             </div>
             
             {files.length > 0 && (
@@ -470,7 +474,7 @@ export default function Home() {
                 <button 
                   onClick={clearAllFiles}
                   disabled={isConverting}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 disabled:opacity-50 transition-all duration-200"
+                  className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 disabled:opacity-50 transition-all duration-200"
                 >
                   Clear All
                 </button>
@@ -484,22 +488,53 @@ export default function Home() {
               </div>
             )}
           </div>
+
+          {/* Top-right language flags */}
+          <div className="absolute top-4 right-6 flex items-center space-x-2">
+            <a href="/" title="English" aria-label="English" className="w-8 h-8 rounded-md bg-white dark:bg-gray-700 flex items-center justify-center shadow hover:scale-105 transition-transform">
+              <span className="text-lg">🇺🇸</span>
+            </a>
+            <a href="/es/heic-a-jpg" title="Español" aria-label="Español" className="w-8 h-8 rounded-md bg-white dark:bg-gray-700 flex items-center justify-center shadow hover:scale-105 transition-transform">
+              <span className="text-lg">🇪🇸</span>
+            </a>
+            <a href="/de/heic-zu-jpg" title="Deutsch" aria-label="Deutsch" className="w-8 h-8 rounded-md bg-white dark:bg-gray-700 flex items-center justify-center shadow hover:scale-105 transition-transform">
+              <span className="text-lg">🇩🇪</span>
+            </a>
+          </div>
         </header>
+
+        {/* Changelog Banner */}
+        <div className="bg-red-600 text-white py-4 px-6 rounded-xl shadow-lg mb-8">
+          <div className="flex items-center justify-center space-x-3">
+            <div className="flex space-x-2">
+              <span className="animate-bounce">🚀</span>
+              <span className="animate-pulse">⚡</span>
+              <span className="animate-bounce">🎯</span>
+            </div>
+            <span className="text-lg font-semibold">Now with 2x faster conversion + Dark Mode</span>
+            <div className="flex space-x-2">
+              <span className="animate-pulse">🎯</span>
+              <span className="animate-bounce">⚡</span>
+              <span className="animate-pulse">🚀</span>
+            </div>
+          </div>
+        </div>
+        {/* Language Switcher removed (moved to header top-right) */}
 
         {/* Main Area */}
         <main className="flex-1 p-8">
           <div className="flex flex-col">
             {/* Error Display */}
             {error && (
-              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+              <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
                 <div className="flex items-center">
                   <svg className="h-5 w-5 text-red-400 mr-3" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                   </svg>
-                  <p className="text-red-800 font-medium">{error}</p>
+                  <p className="text-red-800 dark:text-red-200 font-medium">{error}</p>
                   <button 
                     onClick={() => setError('')}
-                    className="ml-auto text-red-500 hover:text-red-700 transition-colors"
+                    className="ml-auto text-red-500 hover:text-red-700 dark:hover:text-red-300 transition-colors"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -511,15 +546,15 @@ export default function Home() {
 
             {/* Success Display */}
             {success && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+              <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
                 <div className="flex items-center">
                   <svg className="h-5 w-5 text-green-400 mr-3" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <p className="text-green-800 font-medium">{success}</p>
+                  <p className="text-green-800 dark:text-green-200 font-medium">{success}</p>
                   <button 
                     onClick={() => setSuccess('')}
-                    className="ml-auto text-green-500 hover:text-green-700 transition-colors"
+                    className="ml-auto text-green-500 hover:text-green-700 dark:hover:text-green-300 transition-colors"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -537,17 +572,17 @@ export default function Home() {
                     <div className="drop-zone opacity-50 cursor-not-allowed">
                       <div className="space-y-8 flex flex-col items-center">
                         <div className="flex justify-center">
-                          <div className="w-20 h-20 rounded-xl flex items-center justify-center bg-gray-100">
+                          <div className="w-20 h-20 rounded-xl flex items-center justify-center bg-gray-100 dark:bg-gray-700">
                             <svg className="w-10 h-10 text-gray-400 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                             </svg>
                           </div>
                         </div>
                         <div className="space-y-4 text-center">
-                          <h3 className="text-2xl font-bold text-gray-600">
+                          <h3 className="text-2xl font-bold text-gray-600 dark:text-gray-400">
                             Loading converter...
                           </h3>
-                          <p className="text-lg text-gray-500">
+                          <p className="text-lg text-gray-500 dark:text-gray-500">
                             Please wait while we load the HEIC conversion library
                           </p>
                         </div>
@@ -565,7 +600,7 @@ export default function Home() {
                       <div className="space-y-8 flex flex-col items-center">
                         {/* Icon */}
                         <div className="flex justify-center">
-                          <div className="w-20 h-20 rounded-xl flex items-center justify-center transition-all duration-300 bg-red-100 group-hover:bg-red-200">
+                          <div className="w-20 h-20 rounded-xl flex items-center justify-center transition-all duration-300 bg-red-100 dark:bg-red-900/30 group-hover:bg-red-200 dark:group-hover:bg-red-900/50">
                             <svg className="w-10 h-10 transition-all duration-300 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                             </svg>
@@ -574,16 +609,16 @@ export default function Home() {
 
                         {/* Text */}
                         <div className="space-y-4 text-center">
-                          <h3 className="text-2xl font-bold transition-colors duration-300 text-red-600">
+                          <h3 className="text-2xl font-bold transition-colors duration-300 text-red-600 dark:text-red-400">
                             Drop your HEIC files here
                           </h3>
-                          <p className="text-lg transition-colors duration-300 text-red-500">
+                          <p className="text-lg transition-colors duration-300 text-red-500 dark:text-red-400">
                             or click to browse files
                           </p>
                         </div>
 
                         {/* File info */}
-                        <div className="text-sm text-gray-500 text-center mt-4">
+                        <div className="text-sm text-gray-500 dark:text-gray-400 text-center mt-4">
                           Supports .heic and .heif files up to 10MB
                         </div>
 
@@ -609,7 +644,7 @@ export default function Home() {
             {files.length > 0 && (
               <div className="flex-1 flex flex-col">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-lg font-semibold text-gray-800 flex items-center">
+                  <h2 className="text-lg font-semibold text-gray-800 dark:text-white flex items-center">
                     <svg className="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
@@ -619,21 +654,21 @@ export default function Home() {
 
                 <div className="flex-1 overflow-y-auto space-y-3">
                   {files.map((fileData) => (
-                    <div key={fileData.id} className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div key={fileData.id} className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center">
-                          <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                          <div className="w-8 h-8 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mr-3">
                             <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                           </div>
                           <div>
-                            <p className="font-medium text-gray-900 truncate">{fileData.name}</p>
+                            <p className="font-medium text-gray-900 dark:text-gray-100 truncate">{fileData.name}</p>
                             <p className={`text-sm ${
-                              fileData.status === 'pending' ? 'text-gray-500' :
-                              fileData.status === 'converting' ? 'text-yellow-500' :
-                              fileData.status === 'completed' ? 'text-green-500' :
-                              'text-red-500'
+                              fileData.status === 'pending' ? 'text-gray-500 dark:text-gray-400' :
+                              fileData.status === 'converting' ? 'text-yellow-500 dark:text-yellow-400' :
+                              fileData.status === 'completed' ? 'text-green-500 dark:text-green-400' :
+                              'text-red-500 dark:text-red-400'
                             }`}>
                               {fileData.status === 'pending' && '⏳ Waiting to convert...'}
                               {fileData.status === 'converting' && '🔄 Converting...'}
@@ -655,7 +690,7 @@ export default function Home() {
                         )}
                         
                         {fileData.status === 'error' && (
-                          <span className="px-3 py-1 text-sm font-medium text-red-600 bg-red-50 rounded-lg">Failed</span>
+                          <span className="px-3 py-1 text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 rounded-lg">Failed</span>
                         )}
                       </div>
                     </div>
@@ -666,91 +701,105 @@ export default function Home() {
           </div>
 
           {/* SEO Content Section */}
-          <div className="mt-16 bg-white rounded-xl p-8 shadow-sm border border-gray-100">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Convert HEIC to JPG - Free Online HEIC to JPEG Converter</h2>
+          <section className="mt-16 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              Convert HEIC to JPG Online - Free & Secure
+            </h2>
+            
+            <div className="prose prose-lg dark:prose-invert max-w-none">
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                Our HEIC to JPG converter is the fastest and most reliable way to convert your iPhone photos online. 
+                No software installation required - just upload your HEIC files and get high-quality JPG images instantly.
+              </p>
               
-              <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 mb-6">
-                  Our <strong>HEIC to JPG converter</strong> is the best free online tool to <strong>convert HEIC to JPG</strong> format instantly. 
-                  Whether you need to <strong>convert HEIC to JPEG</strong> for sharing photos or converting <strong>.heic to jpg</strong> files 
-                  for better compatibility, our tool makes it simple and secure.
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
+                Why Convert HEIC to JPG?
+              </h3>
+              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-6">
+                <li>JPG format is universally compatible with all devices and platforms</li>
+                <li>Easier to share and upload to social media</li>
+                <li>Smaller file sizes for faster sharing</li>
+                <li>Better compatibility with photo editing software</li>
+              </ul>
+              
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
+                How Our Converter Works
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                Our advanced conversion technology ensures your photos maintain their quality while converting from HEIC to JPG format. 
+                The process is completely secure and your files are automatically deleted after conversion.
+              </p>
+            </div>
+          </section>
+
+          {/* FAQ Section for Featured Snippets */}
+          <section className="mt-16 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+              Frequently Asked Questions
+            </h2>
+            
+            <div className="space-y-8">
+              <div className="faq-section">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  How to convert HEIC to JPG without iPhone?
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Use our web tool in 3 steps: 1) Upload HEIC 2) Click Convert 3) Download JPG. 
+                  No iPhone or special software needed - just any web browser on any device.
                 </p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Why Convert HEIC to JPG?</h3>
-                <p className="text-gray-700 mb-6">
-                  HEIC (High Efficiency Image Container) is Apple's modern image format that offers superior compression compared to JPG. 
-                  However, many devices and platforms don't support HEIC files natively. Converting <strong>HEIC to JPG</strong> ensures 
-                  your photos can be viewed on any device, shared easily, and uploaded to any platform.
+              </div>
+              
+              <div className="faq-section">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  Is HEIC to JPG conversion free?
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Yes, our HEIC to JPG converter is completely free to use. No registration, no hidden fees, 
+                  and no watermarks on your converted images.
                 </p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">How to Convert HEIC to JPG</h3>
-                <ol className="list-decimal list-inside space-y-3 text-gray-700 mb-6">
-                  <li><strong>Upload your HEIC file</strong> - Drag and drop or click to browse your HEIC files</li>
-                  <li><strong>Choose output format</strong> - Select JPEG or PNG as your preferred format</li>
-                  <li><strong>Download converted file</strong> - Get your JPG file instantly after conversion</li>
-                </ol>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Features of Our HEIC to JPG Converter</h3>
-                <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
-                  <li><strong>Free HEIC to JPG conversion</strong> - No registration or payment required</li>
-                  <li><strong>Privacy-focused</strong> - All conversions happen locally in your browser</li>
-                  <li><strong>Batch conversion</strong> - Convert multiple HEIC files at once</li>
-                  <li><strong>Multiple formats</strong> - Convert to JPEG or PNG format</li>
-                  <li><strong>Instant conversion</strong> - No waiting time, results in seconds</li>
-                  <li><strong>High quality</strong> - Maintains image quality during conversion</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Frequently Asked Questions</h3>
-                
-                <div className="space-y-4 mb-6">
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-800 mb-2">How do I convert HEIC to JPG?</h4>
-                    <p className="text-gray-700">Simply upload your HEIC file to our converter, choose JPEG as the output format, and download the converted file. The conversion happens instantly in your browser.</p>
-                  </div>
-                  
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-800 mb-2">Is HEIC to JPG conversion free?</h4>
-                    <p className="text-gray-700">Yes, our HEIC to JPG converter is completely free to use. No registration or payment required.</p>
-                  </div>
-                  
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-800 mb-2">What is the difference between HEIC and JPG?</h4>
-                    <p className="text-gray-700">HEIC (High Efficiency Image Container) is Apple's image format that offers better compression than JPG. JPG is more widely compatible and can be opened on any device or platform.</p>
-                  </div>
-                  
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-800 mb-2">Can I convert multiple HEIC files at once?</h4>
-                    <p className="text-gray-700">Yes, our converter supports batch conversion. You can upload multiple HEIC files and convert them all to JPG format simultaneously.</p>
-                  </div>
-                  
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-800 mb-2">Is my privacy protected when converting HEIC to JPG?</h4>
-                    <p className="text-gray-700">Absolutely. All HEIC to JPG conversions happen locally in your browser. Your files are never uploaded to our servers, ensuring complete privacy.</p>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Best HEIC to JPG Converter Online</h3>
-                <p className="text-gray-700 mb-6">
-                  Our <strong>HEIC to JPG converter</strong> is designed to be the most user-friendly and efficient tool for converting 
-                  HEIC files to JPG format. With instant conversion, batch processing, and complete privacy protection, 
-                  it's the perfect solution for anyone who needs to <strong>convert HEIC to JPG</strong> quickly and securely.
+              </div>
+              
+              <div className="faq-section">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  How long does HEIC to JPG conversion take?
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Conversion is instant! Most HEIC files convert to JPG in under 5 seconds. 
+                  Larger files may take up to 30 seconds depending on your internet speed.
                 </p>
-
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h4 className="font-semibold text-gray-800 mb-3">Key Benefits:</h4>
-                  <ul className="list-disc list-inside space-y-2 text-gray-700">
-                    <li>Convert HEIC to JPG without losing quality</li>
-                    <li>Free online tool - no software download required</li>
-                    <li>Works on all devices and browsers</li>
-                    <li>Instant conversion - no waiting time</li>
-                    <li>100% privacy - files never leave your device</li>
-                    <li>Support for both HEIC and HEIF formats</li>
-                  </ul>
-                </div>
+              </div>
+              
+              <div className="faq-section">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  Will I lose quality when converting HEIC to JPG?
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Our converter maintains excellent image quality. HEIC and JPG are both lossy formats, 
+                  so the quality difference is minimal and often imperceptible to the human eye.
+                </p>
+              </div>
+              
+              <div className="faq-section">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  Can I convert multiple HEIC files at once?
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Yes! You can upload multiple HEIC files simultaneously. Our batch conversion feature 
+                  processes all files efficiently and provides individual download links for each converted image.
+                </p>
+              </div>
+              
+              <div className="faq-section">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  Is my data safe when using the HEIC converter?
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Absolutely! We prioritize your privacy and security. All uploaded files are automatically 
+                  deleted after conversion, and we never store or access your personal photos.
+                </p>
               </div>
             </div>
-          </div>
+          </section>
         </main>
 
         {/* SEO-Only Article Content - Hidden from users but visible to search engines */}

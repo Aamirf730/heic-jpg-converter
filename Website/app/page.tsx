@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import Link from 'next/link'
 import DarkModeToggle from './components/DarkModeToggle'
 
 interface FileData {
@@ -306,12 +307,14 @@ export default function Home() {
         <div className="space-y-8">
           {/* Header */}
           <div className="text-center pb-6 border-b border-gray-200 dark:border-gray-700">
-            <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h2 className="text-lg font-bold text-gray-800 dark:text-white">HEIC to JPG</h2>
+            <Link href="/" className="block hover:opacity-80 transition-opacity">
+              <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h2 className="text-lg font-bold text-gray-800 dark:text-white">HEIC to JPG</h2>
+            </Link>
             <p className="text-sm text-gray-600 dark:text-gray-400">Privacy-first converter</p>
           </div>
 
@@ -407,6 +410,7 @@ export default function Home() {
             </div>
           </div>
 
+
           {/* Sources and References */}
           <div className="space-y-4 pt-6 border-t border-gray-200 dark:border-gray-700">
             <h3 className="text-sm font-semibold text-gray-800 dark:text-white flex items-center">
@@ -453,6 +457,9 @@ export default function Home() {
                 <a href="https://superuser.com/questions/1811863/easiest-way-to-convert-heic-to-jpeg-or-png" target="_blank" rel="noopener noreferrer" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs">
                   SuperUser HEIC Conversion
                 </a>
+                <Link href="/privacy-policy" className="block text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 underline text-xs mt-4">
+                  Privacy Policy
+                </Link>
               </div>
             </div>
           </div>

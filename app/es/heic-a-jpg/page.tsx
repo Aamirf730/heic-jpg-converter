@@ -319,6 +319,7 @@ export default function HeicAJpg() {
             <a href="/" title="English" aria-label="English" className="w-8 h-8 rounded-md bg-white dark:bg-gray-700 flex items-center justify-center shadow hover:scale-105 transition-transform"><span className="text-lg">🇺🇸</span></a>
             <a href="/es/heic-a-jpg" title="Español" aria-label="Español" className="w-8 h-8 rounded-md bg-white dark:bg-gray-700 flex items-center justify-center shadow hover:scale-105 transition-transform"><span className="text-lg">🇪🇸</span></a>
             <a href="/de/heic-zu-jpg" title="Deutsch" aria-label="Deutsch" className="w-8 h-8 rounded-md bg-white dark:bg-gray-700 flex items-center justify-center shadow hover:scale-105 transition-transform"><span className="text-lg">🇩🇪</span></a>
+            <a href="/pl/heic-na-jpg" title="Polski" aria-label="Polski" className="w-8 h-8 rounded-md bg-white dark:bg-gray-700 flex items-center justify-center shadow hover:scale-105 transition-transform"><span className="text-lg">🇵🇱</span></a>
           </div>
         </header>
 

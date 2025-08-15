@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://heic-to-jpg.io/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin or private areas (if any)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Explicitly allow main pages
+Allow: /convert-heic-to-jpg
+Allow: /heic-to-jpeg
+Allow: /free-heic-converter
+
+# Allow language-specific pages
+Allow: /es/heic-a-jpg
+Allow: /de/heic-zu-jpg
+Allow: /pl/heic-na-jpg 

@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:amplify": "next build && cp -r public/* .next/"
   },
   "keywords": [
     "heic",
@@ -25,7 +26,6 @@
   "author": "HEIC to JPG Converter",
   "license": "MIT",
   "dependencies": {
-    "mammoth": "^1.10.0",
     "next": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -41,6 +41,6 @@
     "typescript": "^5.0.0"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": "18.x"
   }
 }

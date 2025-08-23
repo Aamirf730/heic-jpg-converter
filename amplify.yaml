@@ -10,9 +10,14 @@ applications:
           commands:
             - npm run build
       artifacts:
-        baseDirectory: .next
+        baseDirectory: .
         files:
           - '**/*'
+          - '.next/**/*'
+          - 'public/**/*'
+          - 'node_modules/**/*'
+          - 'package.json'
+          - 'next.config.js'
       cache:
         paths:
           - node_modules/**/*
@@ -30,6 +35,26 @@ applications:
               value: 'application/xml'
             - key: 'Cache-Control'
               value: 'public, max-age=60'
+        - pattern: '**/*.js'
+          headers:
+            - key: 'Cache-Control'
+              value: 'public, max-age=31536000, immutable'
+        - pattern: '**/*.css'
+          headers:
+            - key: 'Cache-Control'
+              value: 'public, max-age=31536000, immutable'
+        - pattern: '**/*.png'
+          headers:
+            - key: 'Cache-Control'
+              value: 'public, max-age=31536000, immutable'
+        - pattern: '**/*.jpg'
+          headers:
+            - key: 'Cache-Control'
+              value: 'public, max-age=31536000, immutable'
+        - pattern: '**/*.ico'
+          headers:
+            - key: 'Cache-Control'
+              value: 'public, max-age=31536000, immutable'
     test:
       phases:
         test:

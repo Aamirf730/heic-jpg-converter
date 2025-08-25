@@ -24,8 +24,20 @@ export default function HeicAJpg() {
   const [success, setSuccess] = useState('')
   const [libraryLoaded, setLibraryLoaded] = useState(false)
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false)
+  const [expandedFaqs, setExpandedFaqs] = useState<Set<number>>(new Set())
 
   const generateId = () => Math.random().toString(36).substr(2, 9)
+
+  // Toggle FAQ expansion
+  const toggleFaq = (index: number) => {
+    const newExpandedFaqs = new Set(expandedFaqs)
+    if (newExpandedFaqs.has(index)) {
+      newExpandedFaqs.delete(index)
+    } else {
+      newExpandedFaqs.add(index)
+    }
+    setExpandedFaqs(newExpandedFaqs)
+  }
 
   const fileInputRef = useRef<HTMLInputElement>(null)
   const dropZoneRef = useRef<HTMLDivElement>(null)
@@ -488,7 +500,7 @@ export default function HeicAJpg() {
           <section className="mt-12 lg:mt-16 bg-white dark:bg-gray-800 rounded-xl p-4 lg:p-8 shadow-lg">
             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-6">Convierte HEIC a JPG en línea - Gratis y seguro</h2>
             <div className="prose prose-lg dark:prose-invert max-w-none">
-              <p className="text-gray-700 dark:text-gray-300 mb-4">Nuestro convertidor HEIC a JPG es la forma más rápida y fiable de convertir tus fotos del iPhone en línea. No necesitas instalar software: sube tus archivos HEIC y obtén imágenes JPG de alta calidad al instante.</p>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">Nuestro <a href="https://heic-to-jpg.io/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">convertidor HEIC a JPG</a> es la forma más rápida y fiable de convertir tus fotos del iPhone en línea. No necesitas instalar software: sube tus archivos HEIC y obtén imágenes JPG de alta calidad al instante.</p>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">¿Por qué convertir HEIC a JPG?</h3>
               <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-6">
                 <li>El formato JPG es universalmente compatible con todos los dispositivos y plataformas</li>
@@ -504,31 +516,56 @@ export default function HeicAJpg() {
           {/* FAQ Section */}
           <section className="mt-12 lg:mt-16 bg-white dark:bg-gray-800 rounded-xl p-4 lg:p-8 shadow-lg">
             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-6 lg:mb-8 text-center">Preguntas frecuentes</h2>
-            <div className="space-y-6 lg:space-y-8">
-              <div className="faq-section">
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white mb-3">¿Cómo convertir HEIC a JPG sin iPhone?</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm lg:text-base">Usa nuestra herramienta web en 3 pasos: 1) Subir HEIC 2) Hacer clic en Convertir 3) Descargar JPG. No necesitas iPhone ni software especial; solo un navegador web en cualquier dispositivo.</p>
-              </div>
-              <div className="faq-section">
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white mb-3">¿Es gratuita la conversión de HEIC a JPG?</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm lg:text-base">Sí, nuestro convertidor HEIC a JPG es completamente gratuito. Sin registro, sin tarifas ocultas y sin marcas de agua.</p>
-              </div>
-              <div className="faq-section">
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white mb-3">¿Cuánto tarda la conversión?</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm lg:text-base">¡La conversión es instantánea! La mayoría de archivos HEIC se convierten a JPG en menos de 5 segundos. Los archivos grandes pueden tardar hasta 30 segundos dependiendo de tu conexión a Internet.</p>
-              </div>
-              <div className="faq-section">
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white mb-3">¿Pierdo calidad al convertir?</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm lg:text-base">Nuestro convertidor mantiene una excelente calidad de imagen. HEIC y JPG son formatos con pérdida, por lo que la diferencia de calidad es mínima y a menudo imperceptible.</p>
-              </div>
-              <div className="faq-section">
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white mb-3">¿Puedo convertir múltiples archivos HEIC a la vez?</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm lg:text-base">¡Sí! Puedes subir varios archivos HEIC de manera simultánea. Nuestra conversión por lotes procesa todos los archivos de forma eficiente y ofrece enlaces de descarga individuales.</p>
-              </div>
-              <div className="faq-section">
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-900 dark:text-white mb-3">¿Mis datos están seguros?</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm lg:text-base">¡Absolutamente! Todas las conversiones se realizan localmente en tu navegador. Tus archivos nunca se suben a nuestros servidores.</p>
-              </div>
+            <div className="space-y-4">
+              {[
+                {
+                  question: "¿Cómo convertir HEIC a JPG sin iPhone?",
+                  answer: "Usa nuestra herramienta web en 3 pasos: 1) Subir HEIC 2) Hacer clic en Convertir 3) Descargar JPG. No necesitas iPhone ni software especial; solo un navegador web en cualquier dispositivo."
+                },
+                {
+                  question: "¿Es gratuita la conversión de HEIC a JPG?",
+                  answer: "Sí, nuestro convertidor HEIC a JPG es completamente gratuito. Sin registro, sin tarifas ocultas y sin marcas de agua."
+                },
+                {
+                  question: "¿Cuánto tarda la conversión?",
+                  answer: "¡La conversión es instantánea! La mayoría de archivos HEIC se convierten a JPG en menos de 5 segundos. Los archivos grandes pueden tardar hasta 30 segundos dependiendo de tu conexión a Internet."
+                },
+                {
+                  question: "¿Pierdo calidad al convertir?",
+                  answer: "Nuestro convertidor mantiene una excelente calidad de imagen. HEIC y JPG son formatos con pérdida, por lo que la diferencia de calidad es mínima y a menudo imperceptible."
+                },
+                {
+                  question: "¿Puedo convertir múltiples archivos HEIC a la vez?",
+                  answer: "¡Sí! Puedes subir varios archivos HEIC de manera simultánea. Nuestra conversión por lotes procesa todos los archivos de forma eficiente y ofrece enlaces de descarga individuales."
+                },
+                {
+                  question: "¿Mis datos están seguros?",
+                  answer: "¡Absolutamente! Todas las conversiones se realizan localmente en tu navegador. Tus archivos nunca se suben a nuestros servidores."
+                }
+              ].map((faq, index) => (
+                <div key={index} className="faq-section">
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="w-full text-left py-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 focus:outline-none"
+                  >
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-base font-medium text-gray-900 dark:text-white pr-2">
+                        {faq.question}
+                      </h3>
+                      <span className="text-gray-400 text-sm">
+                        {expandedFaqs.has(index) ? '−' : '+'}
+                      </span>
+                    </div>
+                  </button>
+                  {expandedFaqs.has(index) && (
+                    <div className="mt-2 ml-4">
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </section>
         </main>

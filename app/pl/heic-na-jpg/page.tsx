@@ -349,6 +349,14 @@ export default function HeicNaJpg() {
               <div>
                 <h1 className="text-xl lg:text-3xl font-bold text-gray-800 dark:text-white">Konwerter HEIC na JPG - Konwertuj HEIC na JPG Online Za Darmo</h1>
                 <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400">Konwertuj HEIC na JPG natychmiast – Przekształć swoje zdjęcia z iPhone z HEIC na JPEG łatwo</p>
+                <div className="flex items-center space-x-4 mt-3">
+                  <a href="/pl/heic-na-jpg" className="text-sm font-medium text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors border-b-2 border-red-600 dark:border-red-400">
+                    Konwerter
+                  </a>
+                  <a href="/viewer" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600">
+                    Przeglądarka HEIC
+                  </a>
+                </div>
               </div>
             </div>
             
@@ -502,7 +510,7 @@ export default function HeicNaJpg() {
           <section className="mt-16 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Konwertuj HEIC na JPG online - Za darmo i bezpiecznie</h2>
             <div className="prose prose-lg dark:prose-invert max-w-none">
-              <p className="text-gray-700 dark:text-gray-300 mb-4">Nasz <a href="https://heic-to-jpg.io/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">konwerter HEIC na JPG</a> to najszybszy i najbardziej niezawodny sposób na konwersję zdjęć z iPhone online. Nie musisz instalować oprogramowania: prześlij swoje pliki HEIC i otrzymaj wysokiej jakości obrazy JPG natychmiast.</p>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">Nasz <a href="https://heic-to-jpg.io/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">HEIC na JPG</a> konwerter to najszybszy i najbardziej niezawodny sposób na konwersję zdjęć z iPhone online. Nie musisz instalować oprogramowania: prześlij swoje pliki HEIC i otrzymaj wysokiej jakości obrazy JPG natychmiast.</p>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Dlaczego konwertować HEIC na JPG?</h3>
               <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-6">
                 <li>Format JPG jest uniwersalnie kompatybilny ze wszystkimi urządzeniami i platformami</li>

@@ -512,6 +512,14 @@ export default function Home() {
                 <h1 className="text-xl lg:text-3xl font-bold text-gray-800 dark:text-white">HEIC to JPG Converter - Convert HEIC to JPG Online Free</h1>
                 <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400">Convert HEIC to JPG online instantly - Transform your iPhone photos from HEIC to JPEG format easily</p>
                 <p className="text-xs lg:text-sm text-gray-500 dark:text-gray-400 mt-1">Bookmark this tool—instant, private conversions any time.</p>
+                <div className="flex items-center space-x-4 mt-3">
+                  <Link href="/" className="text-sm font-medium text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors border-b-2 border-red-600 dark:border-red-400">
+                    Converter
+                  </Link>
+                  <Link href="/viewer" className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600">
+                    HEIC Viewer
+                  </Link>
+                </div>
               </div>
             </div>
             
@@ -780,7 +788,7 @@ export default function Home() {
             
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Our <a href="https://heic-to-jpg.io/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">HEIC to JPG converter</a> is the fastest and most reliable way to convert your iPhone photos online. 
+                Our <a href="https://heic-to-jpg.io/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">HEIC to JPG</a> converter is the fastest and most reliable way to convert your iPhone photos online. 
                 No software installation required - just upload your HEIC files and get high-quality JPG images instantly.
               </p>
               

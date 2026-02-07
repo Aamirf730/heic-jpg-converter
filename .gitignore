@@ -32,3 +32,23 @@ Thumbs.db
 
 # Secrets backup
 SECRETS_BACKUP/
+*.env
+.env.local
+.env.production
+.env.development
+*firebase-adminsdk*.json
+service-account.json
+serviceAccount.json
+credentials.json
+*-credentials.json
+*.pem
+*.key
+secrets.json
+secrets.yaml
+secrets.yml
+.secrets
+api-key*.json
+*-private-key.json
+Config.xcconfig
+*.xcconfig
+!*.xcconfig.example

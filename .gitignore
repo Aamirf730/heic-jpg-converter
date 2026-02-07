@@ -22,6 +22,10 @@ Thumbs.db
 # Environment files
 .env
 .env.*
+*.env
+.env.local
+.env.production
+.env.development
 *.local
 
 # Netlify
@@ -32,10 +36,8 @@ Thumbs.db
 
 # Secrets backup
 SECRETS_BACKUP/
-*.env
-.env.local
-.env.production
-.env.development
+
+# Secret files
 *firebase-adminsdk*.json
 service-account.json
 serviceAccount.json
@@ -51,7 +53,4 @@ api-key*.json
 *-private-key.json
 Config.xcconfig
 *.xcconfig
-!*.xcconfig.example
-*firebase-adminsdk*.json
-api-key*.json
 !*.xcconfig.example

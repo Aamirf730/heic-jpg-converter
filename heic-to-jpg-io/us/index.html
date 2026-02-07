@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <title>HEIC to JPG Converter (US) - Free, Fast, Private | heic-to-jpg.io</title>
+    <meta
+      name="description"
+      content="Convert HEIC/HEIF to JPG instantly in your browser in the United States. Bulk convert and download as a ZIP. No uploads, fast, and free."
+    />
+    <link rel="canonical" href="https://heic-to-jpg.io/us/" />
+    <link rel="alternate" hreflang="x-default" href="https://heic-to-jpg.io/" />
+    <link rel="alternate" hreflang="en-US" href="https://heic-to-jpg.io/us/" />
+    <link rel="alternate" hreflang="en-GB" href="https://heic-to-jpg.io/uk/" />
+    <link rel="alternate" hreflang="en-CA" href="https://heic-to-jpg.io/ca/" />
+    <link rel="alternate" hreflang="en-AU" href="https://heic-to-jpg.io/au/" />
+    <link rel="alternate" hreflang="en-NZ" href="https://heic-to-jpg.io/nz/" />
+    <link rel="alternate" hreflang="de-DE" href="https://heic-to-jpg.io/de/" />
+    <link rel="alternate" hreflang="fr-FR" href="https://heic-to-jpg.io/fr/" />
+    <link rel="alternate" hreflang="nl-NL" href="https://heic-to-jpg.io/nl/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://heic-to-jpg.io/se/" />
+    <link rel="alternate" hreflang="de-CH" href="https://heic-to-jpg.io/ch/" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0b1220" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="heic-to-jpg.io" />
+    <meta property="og:title" content="HEIC to JPG Converter (US)" />
+    <meta
+      property="og:description"
+      content="Convert HEIC/HEIF to JPG instantly in your browser. Bulk download as ZIP. Private: your files never leave your device."
+    />
+    <meta property="og:url" content="https://heic-to-jpg.io/us/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HEIC to JPG Converter (US)" />
+    <meta
+      name="twitter:description"
+      content="Convert HEIC/HEIF to JPG instantly in your browser. Bulk download as ZIP. No uploads."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+    />
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2338bdf8'/%3E%3Cstop offset='1' stop-color='%23fb7185'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cpath d='M18 42V22h10c6 0 10 3.6 10 10s-4 10-10 10H18zm8-6h2c3 0 5-1.6 5-4s-2-4-5-4h-2v8z' fill='url(%23g)'/%3E%3Cpath d='M42 22h6v20h-6V22z' fill='url(%23g)'/%3E%3C/svg%3E" />
+
+    <link rel="stylesheet" href="/css/core.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+
+    <!-- Keep the initial JS tiny for PageSpeed/TBT. Vendors load only after a user adds files. -->
+    <script type="module" src="/js/main.js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "HEIC to JPG Converter (United States)",
+        "url": "https://heic-to-jpg.io/us/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "inLanguage": "en-US",
+        "description": "Client-side HEIC/HEIF to JPG converter. Bulk convert, download as ZIP. No uploads."
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#tool">Skip to converter</a>
+
+    <div class="bg-art" aria-hidden="true"></div>
+
+    <div class="shell">
+      <aside class="sidebar" aria-label="Converter settings">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <span class="logo-dot"></span>
+          </div>
+          <div>
+            <div class="brand-title">heic-to-jpg.io</div>
+            <div class="brand-sub">Fast, private, client-side conversion</div>
+          </div>
+        </div>
+
+        <form id="globalSettings" class="panel" novalidate>
+          <h2 class="panel-title">Settings</h2>
+
+          <label class="field">
+            <span class="field-label">JPG quality</span>
+            <span class="field-row">
+              <input
+                id="quality"
+                name="quality"
+                type="range"
+                min="1"
+                max="100"
+                value="80"
+                step="1"
+              />
+              <output id="qualityOut" class="field-output" for="quality">80</output>
+            </span>
+            <span class="field-hint">
+              Higher is larger files. Changes affect pending files only.
+            </span>
+          </label>
+
+          <label class="check">
+            <input id="keepExif" name="keepExif" type="checkbox" checked />
+            <span>Keep EXIF (best effort)</span>
+          </label>
+
+          <div class="panel-note">
+            <p>
+              Files are processed one-at-a-time in a Web Worker to keep the UI
+              responsive and reduce mobile memory pressure.
+            </p>
+          </div>
+        </form>
+
+        <div class="panel">
+          <h2 class="panel-title">Privacy</h2>
+          <p class="panel-text">
+            Your images never upload to a server. Everything happens locally in
+            your browser.
+          </p>
+        </div>
+      </aside>
+
+      <main class="main" id="tool">
+        <header class="hero">
+          <h1>HEIC to JPG Converter</h1>
+                    <p class="hero-sub">
+            Convert HEIC/HEIF photos to JPG instantly in your browser in the United States. Bulk convert, preview,
+            download individually or as a ZIP.
+          </p>
+          <p class="hero-kicker">
+            Optimized for Core Web Vitals: stable layout (CLS), minimal main
+            thread work (TBT), and interaction-driven loading.
+          </p>
+        </header>
+
+        <section class="drop-wrap" aria-label="Upload HEIC files">
+          <div
+            id="dropzone"
+            class="dropzone"
+            role="button"
+            tabindex="0"
+            aria-describedby="dropHelp"
+          >
+            <input
+              id="fileInput"
+              class="file-input"
+              type="file"
+              accept=".heic,.heif,image/heic,image/heif"
+              multiple
+            />
+            <div class="dropzone-inner">
+              <div class="dz-title">Drop HEIC files here</div>
+              <div class="dz-sub" id="dropHelp">
+                Or click to choose files. No uploads.
+              </div>
+              <div class="dz-meta">Supports HEIC and HEIF.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="results" aria-label="Conversion results">
+          <div id="resultsGrid" class="results-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="faq" aria-label="Frequently asked questions">
+          <h2>FAQ</h2>
+
+          <details>
+            <summary>Does this upload my photos?</summary>
+            <div class="faq-body">
+              <p>
+                No. Conversion happens entirely on your device. The app uses
+                WebAssembly and Web Workers inside your browser.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Why are iPhone photos HEIC?</summary>
+            <div class="faq-body">
+              <p>
+                HEIC (based on HEIF) can store photos at smaller sizes than JPG
+                while keeping high quality. Many apps still prefer JPG, so
+                conversion is common.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Can I convert multiple files at once?</summary>
+            <div class="faq-body">
+              <p>
+                Yes. Add multiple HEIC/HEIF files and the tool will process them
+                sequentially, then enable a “Download all (.zip)” button.
+              </p>
+            </div>
+          </details>
+        </section>
+
+        <!--
+          SEO context: off-screen but not display:none so crawlers can still read it.
+          This improves topical coverage without affecting CLS or the visible tool UI.
+        -->
+        <div class="seo-context">
+          <h2>HEIC to JPG in the United States: a practical guide for fast, private conversion</h2>
+          <p>
+            If you have photos from an iPhone or a newer device, there’s a good
+            chance they are saved as <strong>HEIC</strong> (or <strong>HEIF</strong>)
+            instead of <strong>JPG</strong>. HEIC is efficient and modern, but it
+            can be inconvenient when you need maximum compatibility. Many
+            websites, apps, printers, and older operating systems still expect
+            JPEG files, and “just uploading” a HEIC image often fails or strips
+            previews. A reliable HEIC to JPG converter solves that problem by
+            producing a standard JPEG that works almost everywhere.
+          </p>
+          <p>
+            <strong>heic-to-jpg.io</strong> is designed as a single-page tool with
+            performance and stability in mind. The UI renders skeleton result
+            cards immediately (to keep the layout stable), then performs
+            conversion sequentially in a Web Worker. That approach keeps the main
+            thread responsive and reduces the chance of memory spikes on mobile.
+            Most importantly, the conversion happens <strong>client-side</strong>:
+            your files are processed on your device, not uploaded to a server.
+          </p>
+
+          <h3>What is HEIC / HEIF?</h3>
+          <p>
+            HEIF (High Efficiency Image File Format) is a container format for
+            images and image sequences. HEIC is a common HEIF variant used for
+            single photos. Apple popularized HEIC on iOS because it can store
+            high-quality images at smaller file sizes than JPEG. Internally, many
+            HEIC photos use a modern video codec (HEVC/H.265) to compress still
+            images efficiently. This can be great for storage, but it also means
+            that some systems need extra components or decoders to read HEIC
+            images correctly.
+          </p>
+          <p>
+            You may see HEIC/HEIF in situations like: importing iPhone photos to a
+            Windows PC, attaching images to email clients, uploading to older CMS
+            systems, or dropping photos into software that only accepts JPG/PNG.
+            Converting to JPG is usually the simplest compatibility fix, because
+            JPEG decoding is universally supported across browsers and devices.
+          </p>
+
+          <h3>Why convert HEIC to JPG?</h3>
+          <p>
+            Converting HEIC to JPG is useful when you want an image format that:
+          </p>
+          <ul>
+            <li>Uploads reliably to forms and web apps that don’t accept HEIC.</li>
+            <li>Opens in older photo editors, office apps, or print workflows.</li>
+            <li>Is easier to share with people on mixed devices (Android/Windows/macOS).</li>
+            <li>Works in third-party services that generate thumbnails from JPG.</li>
+            <li>Fits into automation pipelines that expect “.jpg” extensions.</li>
+          </ul>
+          <p>
+            While PNG is also widely compatible, JPG is usually the better target
+            for photos (smaller output, ideal for gradients and natural images).
+            JPG does not support transparency, but HEIC photos typically don’t
+            need it. For standard camera photos, converting to JPEG is the most
+            practical option.
+          </p>
+
+          <h3>How this browser-based HEIC to JPG converter works</h3>
+          <p>
+            The conversion pipeline is intentionally interaction-driven. The page
+            loads with minimal JavaScript so it can be fast and stable. When you
+            add HEIC files, the app creates result “cards” immediately, then
+            lazy-loads the heavy decoding runtime and ZIP utilities. HEIC decoding
+            is performed with WebAssembly, and conversion runs inside a dedicated
+            Web Worker. By doing decoding off the main thread, the UI stays
+            responsive while each file is processed one at a time.
+          </p>
+          <p>
+            After decoding a HEIC image to raw RGBA pixels, the converter encodes
+            the result as a JPEG using a canvas encoder. The app then creates an
+            Object URL for preview and revokes URLs on reset to avoid memory leaks.
+            This object URL lifecycle management is especially important on
+            mobile browsers, where holding many large previews can cause crashes
+            or tab reloads.
+          </p>
+
+          <h3>Quality settings: file size vs. detail</h3>
+          <p>
+            JPEG is a lossy format. That means the “quality” setting affects the
+            output size and visual detail. Higher quality produces larger files
+            and preserves more texture, while lower quality reduces file size at
+            the cost of compression artifacts. For most photos, a quality range
+            of <strong>75 to 85</strong> is a good balance. Use higher values for
+            print, professional editing, or images with sharp edges and text. Use
+            lower values when you need smaller files for web uploads or messaging.
+          </p>
+          <p>
+            This tool’s global quality slider applies to files that are still
+            pending in the queue. You can also override quality per image using
+            the settings button on a card. That lets you keep most images at an
+            efficient size while preserving extra quality for a few important
+            photos.
+          </p>
+
+          <h3>EXIF metadata: keep it or remove it</h3>
+          <p>
+            Many photos contain EXIF metadata such as camera model, exposure,
+            timestamp, and sometimes GPS location. Keeping EXIF can be useful if
+            you rely on photo dates, lens information, or editing apps that read
+            metadata. On the other hand, removing metadata can be better for
+            privacy, especially if you’re sharing images publicly. This converter
+            includes a “keep EXIF” toggle as a best-effort option: when metadata
+            can be extracted from the HEIC container and safely inserted into the
+            output JPEG, it will be preserved. If not, conversion still succeeds
+            and you get a clean JPEG.
+          </p>
+
+          <h3>Batch conversion and ZIP downloads</h3>
+          <p>
+            If you have dozens of iPhone photos to convert, bulk processing saves
+            time. Add multiple files at once and let the app process them
+            sequentially. As each image completes, the preview updates and an
+            individual download button becomes available. When the batch is
+            finished, the “Download all (.zip)” button is enabled. The ZIP is
+            generated only when you click download, which avoids unnecessary CPU
+            work and keeps the page responsive during conversion.
+          </p>
+
+          <h3>Troubleshooting HEIC conversion</h3>
+          <p>
+            If a HEIC file fails to convert, it’s often due to one of a few common
+            reasons. Some HEIF containers include image sequences (for example,
+            burst shots or Live Photo derivatives). This tool converts the primary
+            image by default. A file may also be partially corrupted (incomplete
+            transfer), or it may use features that are not supported by a given
+            decoder build. Try re-exporting the original photo, downloading it
+            again, or converting fewer files at once on memory-constrained
+            devices. If a file is detected as non-HEIC, ensure the extension is
+            .heic or .heif and that your browser isn’t stripping MIME types.
+          </p>
+          <p>
+            For the best results, use a modern browser. If you’re on a phone and
+            the tab reloads mid-conversion, reduce the batch size and let the
+            sequential worker finish a few files at a time. The converter is built
+            to fail safely: errors are shown on the affected card and the queue
+            continues, so one problematic file does not stop the entire batch.
+          </p>
+        </div>
+
+        <footer class="footer" aria-label="Site footer">
+          <p>
+            © <span id="year"></span> heic-to-jpg.io. Client-side conversion.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <div id="actionBar" class="action-bar" hidden>
+      <div class="action-left">
+        <div id="statusText" class="status-text">Ready</div>
+        <div id="statsText" class="stats-text"></div>
+      </div>
+
+      <div class="action-right">
+        <button id="downloadAllBtn" class="btn btn-primary" type="button" disabled>
+          Download all (.zip)
+        </button>
+        <button id="resetBtn" class="btn btn-ghost" type="button">
+          Clear &amp; reset
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

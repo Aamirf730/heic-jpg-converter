@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="sv-SE">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <title>HEIC till JPG-konverterare (Gratis, Snabb, Privat) | heic-to-jpg.io</title>
+    <meta
+      name="description"
+      content="Konvertera HEIC/HEIF till JPG direkt i din webblasare. Batchkonvertering med forhandsvisning, enskilda nedladdningar eller ZIP. Inga uppladdningar, snabbt och gratis."
+    />
+    <link rel="canonical" href="https://heic-to-jpg.io/se/" />
+    <link rel="alternate" hreflang="x-default" href="https://heic-to-jpg.io/" />
+    <link rel="alternate" hreflang="en-US" href="https://heic-to-jpg.io/us/" />
+    <link rel="alternate" hreflang="en-GB" href="https://heic-to-jpg.io/uk/" />
+    <link rel="alternate" hreflang="en-CA" href="https://heic-to-jpg.io/ca/" />
+    <link rel="alternate" hreflang="en-AU" href="https://heic-to-jpg.io/au/" />
+    <link rel="alternate" hreflang="en-NZ" href="https://heic-to-jpg.io/nz/" />
+    <link rel="alternate" hreflang="de-DE" href="https://heic-to-jpg.io/de/" />
+    <link rel="alternate" hreflang="fr-FR" href="https://heic-to-jpg.io/fr/" />
+    <link rel="alternate" hreflang="nl-NL" href="https://heic-to-jpg.io/nl/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://heic-to-jpg.io/se/" />
+    <link rel="alternate" hreflang="de-CH" href="https://heic-to-jpg.io/ch/" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0b1220" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="heic-to-jpg.io" />
+    <meta property="og:title" content="HEIC till JPG-konverterare" />
+    <meta
+      property="og:description"
+      content="Konvertera HEIC/HEIF till JPG i webblasaren. Batchkonvertering och ZIP-nedladdning. Privat: filerna stannar pa din enhet."
+    />
+    <meta property="og:url" content="https://heic-to-jpg.io/se/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HEIC till JPG-konverterare" />
+    <meta
+      name="twitter:description"
+      content="Konvertera HEIC/HEIF till JPG i webblasaren. Batch, ZIP, inga uppladdningar."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+    />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2338bdf8'/%3E%3Cstop offset='1' stop-color='%23fb7185'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cpath d='M18 42V22h10c6 0 10 3.6 10 10s-4 10-10 10H18zm8-6h2c3 0 5-1.6 5-4s-2-4-5-4h-2v8z' fill='url(%23g)'/%3E%3Cpath d='M42 22h6v20h-6V22z' fill='url(%23g)'/%3E%3C/svg%3E"
+    />
+
+    <link rel="stylesheet" href="/css/core.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+
+    <!-- Keep the initial JS tiny for PageSpeed/TBT. Vendors load only after a user adds files. -->
+    <script type="module" src="/js/main.js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "HEIC till JPG-konverterare",
+        "url": "https://heic-to-jpg.io/se/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "inLanguage": "sv-SE",
+        "description": "Klientsidig HEIC/HEIF till JPG-konverterare. Batchkonvertering och ZIP-nedladdning. Inga uppladdningar."
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#tool">Hoppa till konverteraren</a>
+
+    <div class="bg-art" aria-hidden="true"></div>
+
+    <div class="shell">
+      <aside class="sidebar" aria-label="Konverterarinställningar">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <span class="logo-dot"></span>
+          </div>
+          <div>
+            <div class="brand-title">heic-to-jpg.io</div>
+            <div class="brand-sub">Snabb, privat, i webblasaren</div>
+          </div>
+        </div>
+
+        <form id="globalSettings" class="panel" novalidate>
+          <h2 class="panel-title">Installningar</h2>
+
+          <label class="field">
+            <span class="field-label">JPG-kvalitet</span>
+            <span class="field-row">
+              <input
+                id="quality"
+                name="quality"
+                type="range"
+                min="1"
+                max="100"
+                value="80"
+                step="1"
+              />
+              <output id="qualityOut" class="field-output" for="quality">80</output>
+            </span>
+            <span class="field-hint">
+              Hogre varde ger storre filer. Andringar galler bara vantande filer.
+            </span>
+          </label>
+
+          <label class="check">
+            <input id="keepExif" name="keepExif" type="checkbox" checked />
+            <span>Behall EXIF (om mojligt)</span>
+          </label>
+
+          <div class="panel-note">
+            <p>
+              Filer bearbetas en i taget i en Web Worker for att halla granssonittet
+              responsivt och minska minnestryck pa mobil.
+            </p>
+          </div>
+        </form>
+
+        <div class="panel">
+          <h2 class="panel-title">Integritet</h2>
+          <p class="panel-text">
+            Dina bilder laddas aldrig upp till en server. Allt sker lokalt i din
+            webblasare.
+          </p>
+        </div>
+      </aside>
+
+      <main class="main" id="tool">
+        <header class="hero">
+          <h1>HEIC till JPG-konverterare</h1>
+          <p class="hero-sub">
+            Konvertera HEIC/HEIF-foton till JPG direkt. Batch, forhandsvisning,
+            nedladdning per bild eller som ZIP.
+          </p>
+          <p class="hero-kicker">
+            Optimerad for Core Web Vitals: stabil layout (CLS), minimalt arbete
+            pa huvudtraden (TBT) och interaktionsstyrd laddning.
+          </p>
+        </header>
+
+        <section class="drop-wrap" aria-label="Ladda upp HEIC-filer">
+          <div
+            id="dropzone"
+            class="dropzone"
+            role="button"
+            tabindex="0"
+            aria-describedby="dropHelp"
+          >
+            <input
+              id="fileInput"
+              class="file-input"
+              type="file"
+              accept=".heic,.heif,image/heic,image/heif"
+              multiple
+            />
+            <div class="dropzone-inner">
+              <div class="dz-title">Dra och slapp HEIC-filer har</div>
+              <div class="dz-sub" id="dropHelp">
+                Eller klicka for att valja filer. Inga uppladdningar.
+              </div>
+              <div class="dz-meta">Stoder HEIC och HEIF.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="results" aria-label="Konverteringsresultat">
+          <div id="resultsGrid" class="results-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="faq" aria-label="Vanliga fragor">
+          <h2>FAQ</h2>
+
+          <details>
+            <summary>Laddas mina foton upp?</summary>
+            <div class="faq-body">
+              <p>
+                Nej. Konverteringen sker helt pa din enhet. Appen anvander
+                WebAssembly och Web Workers i din webblasare.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Varfor ar iPhone-foton HEIC?</summary>
+            <div class="faq-body">
+              <p>
+                HEIC (baserat pa HEIF) kan lagra foton i mindre storlek an JPG
+                med hog kvalitet. Manga appar foredrar fortfarande JPG, sa
+                konvertering ar vanligt.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Kan jag konvertera flera filer samtidigt?</summary>
+            <div class="faq-body">
+              <p>
+                Ja. Lagga till flera HEIC/HEIF-filer; verktyget behandlar dem
+                sekventiellt och aktiverar sedan "Ladda ner allt (.zip)".
+              </p>
+            </div>
+          </details>
+        </section>
+
+        <!--
+          SEO-context: off-screen men inte display:none sa att crawlers kan lasa texten.
+          Detta okar topical coverage utan att paverka synlig UI/CLS.
+        -->
+        <div class="seo-context">
+          <h2>HEIC till JPG: en praktisk guide for snabb och privat konvertering</h2>
+          <p>
+            Om du har foton fran en iPhone eller en nyare enhet ar det vanligt att
+            de sparas som <strong>HEIC</strong> (eller <strong>HEIF</strong>) i
+            stallet for <strong>JPG</strong>. HEIC ar effektivt och modernt, men
+            kan skapa problem nar du behovet av maximal kompatibilitet ar stort.
+            Manga webbplatser, appar, skrivare och aldre system forvantar sig
+            fortfarande JPEG. Darfor ar HEIC till JPG-konvertering ofta det
+            enklaste sattet att dela, ladda upp eller anvanda en bild utan
+            formatstrul.
+          </p>
+          <p>
+            <strong>heic-to-jpg.io</strong> ar byggt som ett single-page verktyg
+            med fokus pa prestanda och stabilitet. UI:t skapar resultatkort direkt
+            (skelett) for att undvika layoutskiften, och bearbetar sedan filer
+            sekventiellt i en Web Worker. Det haller huvudtraden fri, gor sidan
+            responsiv och minskar minnesspikar pa mobil. Viktigast av allt:
+            konverteringen sker <strong>lokalt</strong> i din webblasare och dina
+            filer laddas inte upp till en server.
+          </p>
+
+          <h3>Vad ar HEIC / HEIF?</h3>
+          <p>
+            HEIF (High Efficiency Image File Format) ar ett containerformat som
+            kan lagra bilder och ibland bildsekvenser. HEIC ar en vanlig HEIF-variant
+            for enstaka foton. Apple populariserade HEIC pa iOS eftersom formatet
+            kan ge hog bildkvalitet vid mindre filstorlek jamfort med JPEG.
+            Internt anvander manga HEIC-foton en modern codec (HEVC/H.265) for att
+            komprimera stillbilder effektivt.
+          </p>
+          <p>
+            Nackdelen ar att vissa plattformar behver extra avkodare for att lasa
+            HEIC korrekt. Du kan stota pa problem nar du importerar iPhone-foton
+            till Windows, bifogar bilder i vissa e-postappar, laddar upp till
+            aldre CMS eller anvander program som bara accepterar JPG/PNG.
+            I de lagen ar JPG oftast den snabbaste vagen till kompatibilitet.
+          </p>
+
+          <h3>Varfor konvertera HEIC till JPG?</h3>
+          <p>Konvertering ar praktiskt nar du vill ha ett format som:</p>
+          <ul>
+            <li>Laddas upp utan problem till webbappar och formulär som inte tar HEIC.</li>
+            <li>Oppnas i aldre bildredigerare och kontorsprogram.</li>
+            <li>Ar enkelt att dela mellan iPhone, Android, Windows och macOS.</li>
+            <li>Ger stabil miniatyrgenerering i tredjepartstjanster.</li>
+            <li>Fungerar i pipelines som forutsatter filandelsen .jpg.</li>
+          </ul>
+          <p>
+            PNG ar ocksa kompatibelt, men for foton ar JPG ofta battre: mindre
+            filer och bra for naturliga bilder. JPG har inte transparens, men
+            kamera-foton kraver normalt inte det.
+          </p>
+
+          <h3>Sa fungerar den har webblasarbasserade konverteraren</h3>
+          <p>
+            Konverteringsflodet ar interaktionsstyrt. Sidan laddar minimalt med
+            JavaScript for att vara snabb. Nar du lagger till filer skapas
+            resultatkort direkt, och tunga beroenden laddas forst da: HEIC-dekodning
+            via WebAssembly samt ZIP-verktyg for batchnedladdning. Själva decodingen
+            och konverteringen körs i en dedikerad Web Worker, vilket gor att UI:t
+            forblir responsivt medan filer behandlas en i taget.
+          </p>
+          <p>
+            Efter dekodning till RGBA-pixlar kodar appen om resultatet till JPEG
+            med en canvas encoder. For forhandsvisningar anvands Object URLs, och
+            vid återställning revokas de for att frigora minne. Detta ar viktigt
+            pa mobila webblasare dar manga stora previews kan leda till krascher
+            eller att fliken laddas om.
+          </p>
+
+          <h3>Kvalitetsinstallning: filstorlek vs detaljer</h3>
+          <p>
+            JPEG ar ett lossy format, sa kvalitetsvalet styr bade filstorlek och
+            detaljniva. Hogre kvalitet ger storre filer och fler bevarade detaljer,
+            medan lagre kvalitet minskar storleken men kan skapa artefakter.
+            For de flesta foton ar <strong>75 till 85</strong> en bra balans.
+            Valj hogre for utskrift, proffsig redigering eller bilder med skarp
+            text. Valj lagre om du behover mindre filer for webbuppladdning.
+          </p>
+          <p>
+            Den globala reglaget galler filer som fortfarande ar vantande.
+            Du kan ocksa overskrida per bild via inställningsknappen pa kortet.
+            Det gor att du kan exportera majoriteten effektivt och bara hoja
+            kvaliteten for vissa viktiga bilder.
+          </p>
+
+          <h3>EXIF-metadata: behalla eller ta bort</h3>
+          <p>
+            Manga foton innehaller EXIF-metadata som datum, kameramodell,
+            exponering och ibland GPS-plats. Att behalla EXIF ar bra for sortering
+            och fotoappar, men for integritet kan det vara battre att ta bort
+            metadata innan du delar offentligt. Verktyget har en "Behall EXIF"
+            toggle (best effort). Nar metadata kan extraheras fran HEIC-containern
+            och säkert injiceras i JPEG bevaras den. Annars fungerar konverteringen
+            anda, men du far en ren JPG utan metadata.
+          </p>
+
+          <h3>Batchkonvertering och ZIP-nedladdning</h3>
+          <p>
+            Har du manga bilder att konvertera? Lagga till flera filer och lat
+            verktyget behandla dem sekventiellt. Varje klar bild far en individuell
+            nedladdningsknapp. Nar batchen ar klar aktiveras "Ladda ner allt (.zip)".
+            ZIP-filen genereras forst nar du klickar, vilket sparar CPU under
+            konverteringen och haller sidan responsiv.
+          </p>
+
+          <h3>Felsokning: nar en HEIC inte kan konverteras</h3>
+          <p>
+            Om en fil misslyckas beror det ofta pa en korrupt fil, en speciell
+            HEIF-variant eller en container med sekvenser (till exempel burst eller
+            Live Photo-derivat). Verktyget konverterar normalt den primara bilden.
+            Pa mobil kan det hjalpa att konvertera mindre batcher. Fel visas per
+            kort och koen fortsatter, sa en problemfil stoppar inte resten.
+          </p>
+          <p>
+            For bast resultat: anvand en modern webblasare. Lokal konvertering ar
+            ocksa en tydlig fordel jamfort med "online converters" som laddar upp
+            filer till en server. Har sker allt i din webblasare: lasa, dekoda,
+            skapa JPG och ladda ner direkt.
+          </p>
+        </div>
+
+        <footer class="footer" aria-label="Sidfot">
+          <p>
+            © <span id="year"></span> heic-to-jpg.io. Konvertering i webblasaren.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <div id="actionBar" class="action-bar" hidden>
+      <div class="action-left">
+        <div id="statusText" class="status-text">Redo</div>
+        <div id="statsText" class="stats-text"></div>
+      </div>
+
+      <div class="action-right">
+        <button id="downloadAllBtn" class="btn btn-primary" type="button" disabled>
+          Ladda ner allt (.zip)
+        </button>
+        <button id="resetBtn" class="btn btn-ghost" type="button">
+          Rensa och aterstall
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

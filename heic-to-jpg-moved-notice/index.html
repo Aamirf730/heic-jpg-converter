@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>We Moved | HEIC to JPG</title>
+    <link rel="canonical" href="https://heic-to-jpg.io/" />
+
+    <meta http-equiv="refresh" content="3;url=https://heic-to-jpg.io/" />
+
+    <style>
+      :root {
+        --bg: #0b1220;
+        --fg: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --card: rgba(255, 255, 255, 0.06);
+        --line: rgba(255, 255, 255, 0.14);
+        --a: #38bdf8;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        color: var(--fg);
+        background:
+          radial-gradient(1200px 800px at 20% 0%, rgba(56, 189, 248, 0.16), transparent 60%),
+          radial-gradient(900px 700px at 80% 10%, rgba(251, 113, 133, 0.15), transparent 55%),
+          var(--bg);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+      main {
+        width: min(720px, 100%);
+        border: 1px solid var(--line);
+        background: var(--card);
+        padding: 22px;
+      }
+      h1 {
+        margin: 0 0 10px;
+        font-size: 22px;
+        letter-spacing: 0.2px;
+      }
+      p {
+        margin: 0 0 10px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      a {
+        color: var(--a);
+        text-decoration: none;
+      }
+      a:hover { text-decoration: underline; }
+      .url {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        background: rgba(0, 0, 0, 0.18);
+        font-weight: 600;
+      }
+      .small { font-size: 13px; }
+    </style>
+
+    <script>
+      // Keep the notice visible, but redirect quickly for convenience.
+      setTimeout(function () {
+        try {
+          window.location.replace("https://heic-to-jpg.io/");
+        } catch (_) {
+          window.location.href = "https://heic-to-jpg.io/";
+        }
+      }, 3000);
+    </script>
+  </head>
+  <body>
+    <main role="main">
+      <h1>We moved to heic-to-jpg.io</h1>
+      <p>
+        This tool has moved. Please use the new site:
+      </p>
+      <p>
+        <a class="url" href="https://heic-to-jpg.io/">https://heic-to-jpg.io/</a>
+      </p>
+      <p class="small">
+        You will be redirected automatically in a few seconds.
+      </p>
+    </main>
+  </body>
+</html>

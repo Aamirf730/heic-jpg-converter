@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="nl-NL">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <title>HEIC naar JPG Converter (Gratis, Snel, Prive) | heic-to-jpg.io</title>
+    <meta
+      name="description"
+      content="Converteer HEIC/HEIF naar JPG direct in je browser. Batch conversie met preview, losse downloads of ZIP. Geen uploads, snel en gratis."
+    />
+    <link rel="canonical" href="https://heic-to-jpg.io/nl/" />
+    <link rel="alternate" hreflang="x-default" href="https://heic-to-jpg.io/" />
+    <link rel="alternate" hreflang="en-US" href="https://heic-to-jpg.io/us/" />
+    <link rel="alternate" hreflang="en-GB" href="https://heic-to-jpg.io/uk/" />
+    <link rel="alternate" hreflang="en-CA" href="https://heic-to-jpg.io/ca/" />
+    <link rel="alternate" hreflang="en-AU" href="https://heic-to-jpg.io/au/" />
+    <link rel="alternate" hreflang="en-NZ" href="https://heic-to-jpg.io/nz/" />
+    <link rel="alternate" hreflang="de-DE" href="https://heic-to-jpg.io/de/" />
+    <link rel="alternate" hreflang="fr-FR" href="https://heic-to-jpg.io/fr/" />
+    <link rel="alternate" hreflang="nl-NL" href="https://heic-to-jpg.io/nl/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://heic-to-jpg.io/se/" />
+    <link rel="alternate" hreflang="de-CH" href="https://heic-to-jpg.io/ch/" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0b1220" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="heic-to-jpg.io" />
+    <meta property="og:title" content="HEIC naar JPG Converter" />
+    <meta
+      property="og:description"
+      content="Converteer HEIC/HEIF naar JPG in je browser. Batch conversie en ZIP-download. Prive: je bestanden blijven op je apparaat."
+    />
+    <meta property="og:url" content="https://heic-to-jpg.io/nl/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HEIC naar JPG Converter" />
+    <meta
+      name="twitter:description"
+      content="Converteer HEIC/HEIF naar JPG in je browser. Batch conversie, ZIP, geen uploads."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+    />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2338bdf8'/%3E%3Cstop offset='1' stop-color='%23fb7185'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cpath d='M18 42V22h10c6 0 10 3.6 10 10s-4 10-10 10H18zm8-6h2c3 0 5-1.6 5-4s-2-4-5-4h-2v8z' fill='url(%23g)'/%3E%3Cpath d='M42 22h6v20h-6V22z' fill='url(%23g)'/%3E%3C/svg%3E"
+    />
+
+    <link rel="stylesheet" href="/css/core.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+
+    <!-- Keep the initial JS tiny for PageSpeed/TBT. Vendors load only after a user adds files. -->
+    <script type="module" src="/js/main.js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "HEIC naar JPG Converter",
+        "url": "https://heic-to-jpg.io/nl/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "inLanguage": "nl-NL",
+        "description": "Client-side HEIC/HEIF naar JPG converter. Batch conversie en ZIP-download. Geen uploads."
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#tool">Ga naar de converter</a>
+
+    <div class="bg-art" aria-hidden="true"></div>
+
+    <div class="shell">
+      <aside class="sidebar" aria-label="Converter-instellingen">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <span class="logo-dot"></span>
+          </div>
+          <div>
+            <div class="brand-title">heic-to-jpg.io</div>
+            <div class="brand-sub">Snel, prive, in je browser</div>
+          </div>
+        </div>
+
+        <form id="globalSettings" class="panel" novalidate>
+          <h2 class="panel-title">Instellingen</h2>
+
+          <label class="field">
+            <span class="field-label">JPG-kwaliteit</span>
+            <span class="field-row">
+              <input
+                id="quality"
+                name="quality"
+                type="range"
+                min="1"
+                max="100"
+                value="80"
+                step="1"
+              />
+              <output id="qualityOut" class="field-output" for="quality">80</output>
+            </span>
+            <span class="field-hint">
+              Hoger betekent grotere bestanden. Wijzigingen gelden alleen voor
+              wachtende bestanden.
+            </span>
+          </label>
+
+          <label class="check">
+            <input id="keepExif" name="keepExif" type="checkbox" checked />
+            <span>EXIF behouden (waar mogelijk)</span>
+          </label>
+
+          <div class="panel-note">
+            <p>
+              Bestanden worden een voor een verwerkt in een Web Worker om de UI
+              responsief te houden en geheugendruk op mobiel te beperken.
+            </p>
+          </div>
+        </form>
+
+        <div class="panel">
+          <h2 class="panel-title">Privacy</h2>
+          <p class="panel-text">
+            Je afbeeldingen worden nooit naar een server geupload. Alles gebeurt
+            lokaal in je browser.
+          </p>
+        </div>
+      </aside>
+
+      <main class="main" id="tool">
+        <header class="hero">
+          <h1>HEIC naar JPG Converter</h1>
+          <p class="hero-sub">
+            Converteer HEIC/HEIF-foto's direct naar JPG. Batch conversie, preview,
+            download per bestand of als ZIP.
+          </p>
+          <p class="hero-kicker">
+            Geoptimaliseerd voor Core Web Vitals: stabiele layout (CLS), minimale
+            main-thread work (TBT) en laden na interactie.
+          </p>
+        </header>
+
+        <section class="drop-wrap" aria-label="HEIC-bestanden uploaden">
+          <div
+            id="dropzone"
+            class="dropzone"
+            role="button"
+            tabindex="0"
+            aria-describedby="dropHelp"
+          >
+            <input
+              id="fileInput"
+              class="file-input"
+              type="file"
+              accept=".heic,.heif,image/heic,image/heif"
+              multiple
+            />
+            <div class="dropzone-inner">
+              <div class="dz-title">Sleep HEIC-bestanden hierheen</div>
+              <div class="dz-sub" id="dropHelp">
+                Of klik om bestanden te kiezen. Geen uploads.
+              </div>
+              <div class="dz-meta">Ondersteunt HEIC en HEIF.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="results" aria-label="Conversieresultaten">
+          <div id="resultsGrid" class="results-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="faq" aria-label="Veelgestelde vragen">
+          <h2>FAQ</h2>
+
+          <details>
+            <summary>Worden mijn foto's geupload?</summary>
+            <div class="faq-body">
+              <p>
+                Nee. Conversie gebeurt volledig op je apparaat. De app gebruikt
+                WebAssembly en Web Workers in je browser.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Waarom zijn iPhone-foto's HEIC?</summary>
+            <div class="faq-body">
+              <p>
+                HEIC (op basis van HEIF) kan foto's kleiner opslaan dan JPG met
+                hoge kwaliteit. Veel apps verwachten nog JPG, daarom wordt vaak
+                geconverteerd.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Kan ik meerdere bestanden tegelijk converteren?</summary>
+            <div class="faq-body">
+              <p>
+                Ja. Voeg meerdere HEIC/HEIF-bestanden toe; de tool verwerkt ze
+                sequentieel en activeert daarna "Alles downloaden (.zip)".
+              </p>
+            </div>
+          </details>
+        </section>
+
+        <!--
+          SEO-context: buiten beeld maar niet display:none zodat crawlers dit kunnen lezen.
+          Zo vergroten we de topical coverage zonder de zichtbare UI/CLS te raken.
+        -->
+        <div class="seo-context">
+          <h2>HEIC naar JPG: een praktische gids voor snelle, prive conversie</h2>
+          <p>
+            Als je foto's van een iPhone of een moderner apparaat hebt, is de kans
+            groot dat ze zijn opgeslagen als <strong>HEIC</strong> (of <strong>HEIF</strong>)
+            in plaats van <strong>JPG</strong>. HEIC is efficient en modern, maar
+            het kan onhandig zijn wanneer je maximale compatibiliteit nodig hebt.
+            Veel websites, apps, printers en oudere systemen verwachten nog steeds
+            JPEG. Een betrouwbare HEIC naar JPG converter lost dit op door een
+            standaard JPG te maken die bijna overal werkt.
+          </p>
+          <p>
+            <strong>heic-to-jpg.io</strong> is ontworpen als een single-page tool
+            met focus op performance en stabiliteit. De UI rendert direct skeleton
+            kaarten voor resultaten (layout blijft stabiel), en verwerkt bestanden
+            daarna sequentieel in een Web Worker. Zo blijft de main thread vrij,
+            reageert de interface snel, en wordt geheugendruk op mobiel beperkt.
+            Belangrijk: de conversie gebeurt <strong>client-side</strong> in je
+            browser. Je bestanden worden niet geupload.
+          </p>
+
+          <h3>Wat is HEIC / HEIF?</h3>
+          <p>
+            HEIF (High Efficiency Image File Format) is een containerformaat voor
+            beelden en soms ook beeldreeksen. HEIC is een veelvoorkomende HEIF-variant
+            voor enkele foto's. Apple heeft HEIC op iOS populair gemaakt omdat het
+            hoge kwaliteit kan bewaren bij kleinere bestandsgroottes dan JPEG.
+            Intern gebruiken veel HEIC-foto's een modern codec (HEVC/H.265) om
+            stilstaande beelden efficient te comprimeren.
+          </p>
+          <p>
+            Het nadeel is dat sommige omgevingen extra decoders nodig hebben.
+            Je komt HEIC/HEIF bijvoorbeeld tegen bij het importeren van iPhone-foto's
+            op Windows, in e-mail clients, bij uploads naar oudere CMS'en of in
+            software die alleen JPG/PNG accepteert. Converteren naar JPG is vaak
+            de snelste manier om compatibiliteitsproblemen op te lossen.
+          </p>
+
+          <h3>Waarom HEIC naar JPG converteren?</h3>
+          <p>Converteren is handig als je een formaat wilt dat:</p>
+          <ul>
+            <li>Betrouwbaar uploadt naar formulieren en web apps die HEIC niet ondersteunen.</li>
+            <li>Opent in oudere editors, kantoorsoftware en print-workflows.</li>
+            <li>Makkelijk te delen is met mensen op Android/Windows/macOS.</li>
+            <li>Vignetten consistent kan laten genereren door third-party services.</li>
+            <li>Past in pipelines of tools die expliciet .jpg verwachten.</li>
+          </ul>
+          <p>
+            PNG is ook breed ondersteund, maar voor foto's is JPG meestal beter:
+            bestanden zijn kleiner en het is geschikt voor natuurlijke beelden.
+            JPG ondersteunt geen transparantie, maar dat is voor camera-foto's
+            zelden nodig.
+          </p>
+
+          <h3>Hoe werkt deze browser-based HEIC naar JPG converter?</h3>
+          <p>
+            De conversie pipeline is interaction-driven. De pagina start met minimale
+            JavaScript om snel te laden. Zodra je HEIC-bestanden toevoegt, maakt de
+            app meteen resultaatkaarten en laadt daarna pas de zware runtime:
+            HEIC-decoding via WebAssembly en ZIP tools voor batch downloads.
+            Decoding en conversie draaien in een dedicated Web Worker. Door werk
+            van de main thread weg te halen blijft de UI responsief terwijl de
+            bestanden een voor een worden verwerkt.
+          </p>
+          <p>
+            Na het decoden naar ruwe RGBA pixels encodeert de app naar JPEG via een
+            canvas encoder. Voor previews gebruikt de app Object URLs, en bij reset
+            worden die weer gerevoked om geheugen vrij te geven. Dit is extra
+            belangrijk op mobiele browsers, waar veel grote previews kunnen leiden
+            tot crashes of een tab reload.
+          </p>
+
+          <h3>Kwaliteit instellen: bestandsgrootte vs detail</h3>
+          <p>
+            JPEG is lossy. Dat betekent dat de kwaliteit invloed heeft op de
+            grootte en op details. Hogere kwaliteit geeft grotere bestanden en
+            minder artifacts; lagere kwaliteit verkleint de output maar kan
+            compressie-randen veroorzaken. Voor de meeste foto's is <strong>75 tot 85</strong>
+            een goede balans. Kies hoger voor print of beelden met scherpe tekst.
+            Kies lager als je kleine bestanden nodig hebt voor web uploads.
+          </p>
+          <p>
+            De globale quality slider geldt voor bestanden die nog in de wachtrij
+            staan. Per afbeelding kun je ook een override instellen via de settings
+            knop op de kaart. Zo kun je bulk efficient houden en alleen enkele
+            foto's in hogere kwaliteit exporteren.
+          </p>
+
+          <h3>EXIF metadata: behouden of verwijderen</h3>
+          <p>
+            Foto's bevatten vaak EXIF metadata: datum, camera model, exposure en
+            soms GPS locatie. EXIF behouden helpt bij sorteren of apps die metadata
+            uitlezen. Voor privacy kan het beter zijn metadata te verwijderen.
+            Deze tool heeft een EXIF toggle (best effort). Als metadata veilig uit
+            de HEIC container kan worden gehaald en in de output JPEG kan worden
+            toegevoegd, dan blijft het behouden. Als dat niet lukt, werkt de
+            conversie nog steeds maar krijg je een schone JPG.
+          </p>
+
+          <h3>Batch conversie en ZIP downloads</h3>
+          <p>
+            Moet je tientallen iPhone foto's omzetten? Voeg meerdere bestanden toe
+            en laat de app sequentieel verwerken. Na elke conversie wordt de preview
+            zichtbaar en kun je individueel downloaden. Als de batch klaar is,
+            wordt "Alles downloaden (.zip)" actief. De ZIP wordt pas gegenereerd
+            wanneer je klikt, zodat de browser tijdens conversie niet onnodig CPU
+            werk doet.
+          </p>
+
+          <h3>Troubleshooting: wanneer een HEIC niet converteert</h3>
+          <p>
+            Als een bestand faalt, is dat vaak door een beschadigde download,
+            een speciale HEIF variant, of door containers met sequences (bijvoorbeeld
+            burst of Live Photo afgeleiden). Deze tool converteert standaard de
+            primary image. Op mobiele devices helpt het om kleinere batches te
+            verwerken. Fouten zijn per kaart zichtbaar en de queue loopt door,
+            zodat een enkel probleem bestand de rest niet stopt.
+          </p>
+          <p>
+            Voor het beste resultaat gebruik je een moderne browser. Lokale
+            conversie is bovendien beter voor privacy dan veel "online converters"
+            die eerst uploaden en server-side verwerken. Hier blijft alles in je
+            browser: lezen, decoden, JPG maken en direct downloaden.
+          </p>
+        </div>
+
+        <footer class="footer" aria-label="Footer">
+          <p>
+            © <span id="year"></span> heic-to-jpg.io. Client-side conversie.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <div id="actionBar" class="action-bar" hidden>
+      <div class="action-left">
+        <div id="statusText" class="status-text">Klaar</div>
+        <div id="statsText" class="stats-text"></div>
+      </div>
+
+      <div class="action-right">
+        <button id="downloadAllBtn" class="btn btn-primary" type="button" disabled>
+          Alles downloaden (.zip)
+        </button>
+        <button id="resetBtn" class="btn btn-ghost" type="button">
+          Wissen &amp; resetten
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

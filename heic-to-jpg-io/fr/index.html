@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <title>Convertisseur HEIC en JPG (Gratuit, Rapide, Prive) | heic-to-jpg.io</title>
+    <meta
+      name="description"
+      content="Convertissez des photos HEIC/HEIF en JPG directement dans votre navigateur. Conversion par lot avec apercu, telechargements individuels ou ZIP. Aucun envoi, rapide et gratuit."
+    />
+    <link rel="canonical" href="https://heic-to-jpg.io/fr/" />
+    <link rel="alternate" hreflang="x-default" href="https://heic-to-jpg.io/" />
+    <link rel="alternate" hreflang="en-US" href="https://heic-to-jpg.io/us/" />
+    <link rel="alternate" hreflang="en-GB" href="https://heic-to-jpg.io/uk/" />
+    <link rel="alternate" hreflang="en-CA" href="https://heic-to-jpg.io/ca/" />
+    <link rel="alternate" hreflang="en-AU" href="https://heic-to-jpg.io/au/" />
+    <link rel="alternate" hreflang="en-NZ" href="https://heic-to-jpg.io/nz/" />
+    <link rel="alternate" hreflang="de-DE" href="https://heic-to-jpg.io/de/" />
+    <link rel="alternate" hreflang="fr-FR" href="https://heic-to-jpg.io/fr/" />
+    <link rel="alternate" hreflang="nl-NL" href="https://heic-to-jpg.io/nl/" />
+    <link rel="alternate" hreflang="sv-SE" href="https://heic-to-jpg.io/se/" />
+    <link rel="alternate" hreflang="de-CH" href="https://heic-to-jpg.io/ch/" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0b1220" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="heic-to-jpg.io" />
+    <meta property="og:title" content="Convertisseur HEIC en JPG" />
+    <meta
+      property="og:description"
+      content="Convertissez HEIC/HEIF en JPG directement dans le navigateur. Conversion par lot et telechargement ZIP. Prive : vos fichiers restent sur votre appareil."
+    />
+    <meta property="og:url" content="https://heic-to-jpg.io/fr/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Convertisseur HEIC en JPG" />
+    <meta
+      name="twitter:description"
+      content="Convertissez HEIC/HEIF en JPG dans le navigateur. Conversion par lot, ZIP, sans envoi."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
+    />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2338bdf8'/%3E%3Cstop offset='1' stop-color='%23fb7185'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cpath d='M18 42V22h10c6 0 10 3.6 10 10s-4 10-10 10H18zm8-6h2c3 0 5-1.6 5-4s-2-4-5-4h-2v8z' fill='url(%23g)'/%3E%3Cpath d='M42 22h6v20h-6V22z' fill='url(%23g)'/%3E%3C/svg%3E"
+    />
+
+    <link rel="stylesheet" href="/css/core.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+
+    <!-- Keep the initial JS tiny for PageSpeed/TBT. Vendors load only after a user adds files. -->
+    <script type="module" src="/js/main.js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Convertisseur HEIC en JPG",
+        "url": "https://heic-to-jpg.io/fr/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "inLanguage": "fr-FR",
+        "description": "Convertisseur HEIC/HEIF vers JPG cote client. Conversion par lot et telechargement ZIP. Aucun envoi."
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#tool">Aller au convertisseur</a>
+
+    <div class="bg-art" aria-hidden="true"></div>
+
+    <div class="shell">
+      <aside class="sidebar" aria-label="Parametres du convertisseur">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <span class="logo-dot"></span>
+          </div>
+          <div>
+            <div class="brand-title">heic-to-jpg.io</div>
+            <div class="brand-sub">Rapide, prive, cote client</div>
+          </div>
+        </div>
+
+        <form id="globalSettings" class="panel" novalidate>
+          <h2 class="panel-title">Parametres</h2>
+
+          <label class="field">
+            <span class="field-label">Qualite JPG</span>
+            <span class="field-row">
+              <input
+                id="quality"
+                name="quality"
+                type="range"
+                min="1"
+                max="100"
+                value="80"
+                step="1"
+              />
+              <output id="qualityOut" class="field-output" for="quality">80</output>
+            </span>
+            <span class="field-hint">
+              Plus la valeur est elevee, plus le fichier est gros. Changements
+              appliques uniquement aux fichiers en attente.
+            </span>
+          </label>
+
+          <label class="check">
+            <input id="keepExif" name="keepExif" type="checkbox" checked />
+            <span>Conserver EXIF (si possible)</span>
+          </label>
+
+          <div class="panel-note">
+            <p>
+              Les fichiers sont traites un par un dans un Web Worker pour garder
+              l'interface reactive et reduire la pression memoire sur mobile.
+            </p>
+          </div>
+        </form>
+
+        <div class="panel">
+          <h2 class="panel-title">Confidentialite</h2>
+          <p class="panel-text">
+            Vos images ne sont jamais envoyees sur un serveur. Tout se passe
+            localement dans votre navigateur.
+          </p>
+        </div>
+      </aside>
+
+      <main class="main" id="tool">
+        <header class="hero">
+          <h1>Convertisseur HEIC en JPG</h1>
+          <p class="hero-sub">
+            Convertissez des photos HEIC/HEIF en JPG instantanement. Conversion
+            par lot, apercu, telechargement individuel ou ZIP.
+          </p>
+          <p class="hero-kicker">
+            Optimise pour les Core Web Vitals : mise en page stable (CLS),
+            travail minimal sur le thread principal (TBT) et chargement declenche
+            par l'interaction.
+          </p>
+        </header>
+
+        <section class="drop-wrap" aria-label="Televerser des fichiers HEIC">
+          <div
+            id="dropzone"
+            class="dropzone"
+            role="button"
+            tabindex="0"
+            aria-describedby="dropHelp"
+          >
+            <input
+              id="fileInput"
+              class="file-input"
+              type="file"
+              accept=".heic,.heif,image/heic,image/heif"
+              multiple
+            />
+            <div class="dropzone-inner">
+              <div class="dz-title">Deposez vos fichiers HEIC ici</div>
+              <div class="dz-sub" id="dropHelp">
+                Ou cliquez pour choisir des fichiers. Aucun envoi.
+              </div>
+              <div class="dz-meta">Prend en charge HEIC et HEIF.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="results" aria-label="Resultats de conversion">
+          <div id="resultsGrid" class="results-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="faq" aria-label="Questions frequentes">
+          <h2>FAQ</h2>
+
+          <details>
+            <summary>Est-ce que cela envoie mes photos ?</summary>
+            <div class="faq-body">
+              <p>
+                Non. La conversion se fait entierement sur votre appareil.
+                L'application utilise WebAssembly et des Web Workers dans votre
+                navigateur.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Pourquoi les photos d'iPhone sont en HEIC ?</summary>
+            <div class="faq-body">
+              <p>
+                HEIC (base sur HEIF) peut stocker des photos plus petites que
+                JPG tout en gardant une bonne qualite. Beaucoup d'applications
+                preferent encore JPG, donc la conversion est frequente.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Puis-je convertir plusieurs fichiers a la fois ?</summary>
+            <div class="faq-body">
+              <p>
+                Oui. Ajoutez plusieurs fichiers HEIC/HEIF et l'outil les traite
+                sequentiellement, puis active le bouton "Tout telecharger (.zip)".
+              </p>
+            </div>
+          </details>
+        </section>
+
+        <!--
+          Contexte SEO : hors-ecran mais pas display:none pour que les robots puissent le lire.
+          Cela augmente la couverture semantique sans impacter le CLS ou l'UI visible.
+        -->
+        <div class="seo-context">
+          <h2>HEIC en JPG : guide pratique pour une conversion rapide et privee</h2>
+          <p>
+            Si vous recevez des photos depuis un iPhone, un iPad ou un appareil
+            recent, il est courant qu'elles soient enregistrées en <strong>HEIC</strong>
+            (ou <strong>HEIF</strong>) plutot qu'en <strong>JPG</strong>. HEIC est
+            efficace et moderne, mais il peut devenir frustrant des que vous
+            avez besoin d'une compatibilite maximale. De nombreuses plateformes,
+            services et logiciels attendent encore du JPEG. Une conversion HEIC
+            vers JPG est donc souvent la solution la plus simple pour partager,
+            envoyer ou publier une photo sans erreur.
+          </p>
+          <p>
+            <strong>heic-to-jpg.io</strong> est concu comme un outil "une page"
+            axe sur la performance et la stabilite. L'interface affiche
+            immediatement des cartes de resultat (squelettes) pour stabiliser la
+            mise en page, puis effectue la conversion de maniere sequentielle
+            dans un Web Worker. Cette approche limite le travail sur le thread
+            principal, garde l'UI fluide, et reduit les pics memoire, surtout
+            sur mobile. Et surtout, la conversion est <strong>cote client</strong>
+            : vos fichiers restent sur votre appareil.
+          </p>
+
+          <h3>Qu'est-ce que HEIC / HEIF ?</h3>
+          <p>
+            HEIF (High Efficiency Image File Format) est un format conteneur
+            capable de stocker des images et parfois des sequences. HEIC est une
+            variante HEIF tres courante pour des photos uniques. Apple a popularise
+            HEIC sur iOS car il permet de conserver une haute qualite tout en
+            reduisant la taille des fichiers par rapport au JPEG. Techniquement,
+            de nombreuses images HEIC s'appuient sur un codec moderne (HEVC/H.265)
+            pour compresser des images fixes.
+          </p>
+          <p>
+            Le revers est que certains environnements ont besoin d'un decodeur
+            specifique. Vous pouvez rencontrer HEIC/HEIF lors d'un import iPhone
+            vers Windows, dans un logiciel qui n'accepte que JPG/PNG, sur un CMS
+            ancien, ou dans des formulaires qui refusent l'extension .heic. Dans
+            ces cas, convertir en JPG est le moyen le plus fiable d'obtenir un
+            fichier lisible partout, y compris dans les navigateurs.
+          </p>
+
+          <h3>Pourquoi convertir HEIC en JPG ?</h3>
+          <p>Convertir HEIC vers JPG est utile lorsque vous voulez un format qui :</p>
+          <ul>
+            <li>S'upload sans probleme sur les sites et applis qui n'acceptent pas HEIC.</li>
+            <li>S'ouvre dans des editeurs plus anciens et dans des outils bureautiques.</li>
+            <li>Se partage facilement entre iPhone, Android, Windows et macOS.</li>
+            <li>Genere des vignettes de maniere fiable dans des services tiers.</li>
+            <li>Fonctionne dans des workflows ou des automatismes qui attendent du .jpg.</li>
+          </ul>
+          <p>
+            PNG est egalement compatible, mais pour des photos, JPG est generalement
+            plus efficace (poids plus faible, rendu naturel). JPG ne gere pas la
+            transparence, mais les photos ne l'exigent presque jamais. Pour la
+            compatibilite et la taille, JPEG reste le choix le plus pratique.
+          </p>
+
+          <h3>Comment fonctionne ce convertisseur HEIC en JPG dans le navigateur</h3>
+          <p>
+            Le fonctionnement est volontairement base sur l'interaction. La page
+            charge tres peu de JavaScript au demarrage afin d'etre rapide et stable.
+            Des que vous ajoutez des fichiers, l'app cree les cartes de resultat,
+            puis charge a la demande le runtime de decodage (WebAssembly) et les
+            utilitaires de telechargement ZIP. Le decodage HEIC est effectue en
+            WebAssembly, et la conversion s'execute dans un Web Worker dedie.
+            En travaillant hors du thread principal, l'interface reste réactive.
+          </p>
+          <p>
+            Apres decodage d'une image HEIC en pixels RGBA, l'app encode le resultat
+            en JPEG via un encodeur canvas. Ensuite, elle cree une URL d'objet
+            (Object URL) pour afficher un apercu, puis revoque ces URL lors d'une
+            reinitialisation. Cette gestion du cycle de vie est importante sur
+            mobile, car conserver trop d'aperçus peut epuiser la memoire et
+            provoquer un rechargement de l'onglet.
+          </p>
+
+          <h3>Reglage de qualite : taille du fichier vs details</h3>
+          <p>
+            JPG est un format avec pertes : le parametre de qualite influence la
+            taille finale et le niveau de detail. Une qualite elevee conserve plus
+            de texture mais augmente le poids. Une qualite plus faible diminue la
+            taille, au prix d'artefacts visibles. Pour la plupart des photos, une
+            plage de <strong>75 a 85</strong> est un bon compromis. Augmentez la
+            valeur pour l'impression ou des images avec du texte net. Diminuez-la
+            si vous devez respecter une limite de poids pour un upload.
+          </p>
+          <p>
+            Le curseur global s'applique aux fichiers encore en attente. Vous pouvez
+            aussi ajuster la qualite pour une image specifique via l'icone de
+            parametres sur sa carte. Cela permet de garder une taille efficace pour
+            la majorite des photos tout en preservant la qualite de quelques images
+            importantes.
+          </p>
+
+          <h3>Metadonnees EXIF : conserver ou supprimer</h3>
+          <p>
+            Beaucoup de photos contiennent des metadonnees EXIF : date, modele
+            d'appareil, exposition, et parfois localisation GPS. Conserver EXIF est
+            pratique pour le tri ou pour des applications photo. En revanche, pour
+            la vie privee, retirer EXIF peut etre preferable avant de publier une
+            image. Ce convertisseur propose une option "Conserver EXIF" en mode
+            best effort : lorsque les donnees peuvent etre extraites du conteneur
+            HEIC et inserees de facon sure dans le JPEG, elles sont conservees.
+            Sinon, la conversion reussit quand meme, mais sans metadonnees.
+          </p>
+
+          <h3>Conversion par lot et telechargements ZIP</h3>
+          <p>
+            Si vous devez convertir beaucoup de photos, la conversion par lot fait
+            gagner du temps. Ajoutez plusieurs fichiers et laissez l'outil les
+            traiter sequentiellement. A chaque conversion reussie, l'apercu se met
+            a jour et un bouton de telechargement individuel devient disponible.
+            Une fois le lot termine, le bouton "Tout telecharger (.zip)" est
+            active. Le ZIP n'est genere qu'au clic, ce qui evite du CPU inutile
+            pendant la conversion.
+          </p>
+
+          <h3>Depannage : si une conversion echoue</h3>
+          <p>
+            Une erreur peut venir d'un fichier partiellement corrompu, d'une
+            variante HEIF particuliere, ou d'un conteneur contenant une sequence
+            (par exemple des rafales ou des derivés de Live Photo). Par defaut,
+            ce convertisseur cible l'image principale. Sur mobile, reduisez la
+            taille des lots si l'onglet se recharge : cela limite la pression
+            memoire. Le processus est concu pour echouer sans bloquer : une carte
+            affiche l'erreur, mais la file continue, afin qu'un seul fichier ne
+            stoppe pas toute la conversion.
+          </p>
+          <p>
+            Pour de meilleurs resultats, utilisez un navigateur moderne. La
+            conversion locale (cote client) est aussi un avantage important :
+            beaucoup de convertisseurs "en ligne" televersent d'abord vos images,
+            ce qui peut etre lent et poser des questions de confidentialite.
+            Ici, vos photos sont lues, decodees, puis re-encodees en JPG dans
+            votre navigateur, puis telechargees immediatement.
+          </p>
+        </div>
+
+        <footer class="footer" aria-label="Pied de page">
+          <p>
+            © <span id="year"></span> heic-to-jpg.io. Conversion cote client.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <div id="actionBar" class="action-bar" hidden>
+      <div class="action-left">
+        <div id="statusText" class="status-text">Prêt</div>
+        <div id="statsText" class="stats-text"></div>
+      </div>
+
+      <div class="action-right">
+        <button id="downloadAllBtn" class="btn btn-primary" type="button" disabled>
+          Tout telecharger (.zip)
+        </button>
+        <button id="resetBtn" class="btn btn-ghost" type="button">
+          Effacer et reinitialiser
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

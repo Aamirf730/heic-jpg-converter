@@ -1,0 +1,148 @@
+:root {
+  --bg: #0b1220;
+  --panel: rgba(255, 255, 255, 0.07);
+  --panel-2: rgba(255, 255, 255, 0.045);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.72);
+  --faint: rgba(255, 255, 255, 0.55);
+  --line: rgba(255, 255, 255, 0.14);
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.38);
+
+  --brand-a: #38bdf8;
+  --brand-b: #fb7185;
+  --ok: #34d399;
+  --warn: #f59e0b;
+  --bad: #fb7185;
+
+  --r-lg: 18px;
+  --r-md: 14px;
+  --r-sm: 12px;
+
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --space-5: 28px;
+  --space-6: 36px;
+
+  --font-sans: "Lato", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Lato", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: radial-gradient(
+      1200px 800px at 20% 0%,
+      rgba(56, 189, 248, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 700px at 80% 10%,
+      rgba(251, 113, 133, 0.15),
+      transparent 55%
+    ),
+    radial-gradient(
+      1000px 800px at 60% 120%,
+      rgba(16, 185, 129, 0.12),
+      transparent 55%
+    ),
+    var(--bg);
+  font-family: var(--font-sans);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.3);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  left: var(--space-3);
+  top: var(--space-3);
+  width: auto;
+  height: auto;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  outline: 2px solid rgba(56, 189, 248, 0.6);
+  z-index: 999;
+}
+
+.bg-art {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+      circle at 15% 10%,
+      rgba(255, 255, 255, 0.05),
+      transparent 30%
+    ),
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.04), transparent 28%),
+    radial-gradient(circle at 65% 80%, rgba(255, 255, 255, 0.03), transparent 24%);
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+.seo-context {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

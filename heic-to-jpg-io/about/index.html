@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About heic-to-jpg.io | Private Browser Conversion</title>
+    <meta name="description" content="Learn how heic-to-jpg.io converts HEIC photos privately in your browser, why the tool is free, and what happens to your files." />
+    <link rel="canonical" href="https://heic-to-jpg.io/about/" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/css/core.css" />
+    <link rel="stylesheet" href="/css/content.css" />
+  </head>
+  <body>
+    <div class="bg-art" aria-hidden="true"></div>
+    <div class="content-shell">
+      <header class="content-header">
+        <a class="content-brand" href="/">heic-to-jpg.io</a>
+        <nav class="content-nav" aria-label="Primary navigation">
+          <a href="/guides/">Guides</a>
+          <a href="/privacy/">Privacy</a>
+          <a class="nav-cta" href="/">Convert HEIC</a>
+        </nav>
+      </header>
+      <main>
+        <header class="article-hero">
+          <p class="article-kicker">About the tool</p>
+          <h1>A focused converter with a privacy-first architecture.</h1>
+          <p class="article-deck">heic-to-jpg.io exists to solve one common problem without accounts, uploads, watermarks, or a complicated editor.</p>
+        </header>
+        <div class="article-layout">
+          <article class="article-body">
+            <h2>Why this converter exists</h2>
+            <p>HEIC is a capable image format, especially for people who take photos on an iPhone or iPad. The difficulty begins when a website, document workflow, older program, or recipient expects a JPG. A simple conversion should not require handing private photos to an unknown upload server.</p>
+            <p>This tool therefore runs the image conversion in the browser. When you choose a file, browser code reads it locally, decodes the HEIC image, and creates a JPEG result in memory. The converted file is offered back to you as an individual download or as part of a ZIP. The original image is not sent to our application server.</p>
+
+            <h2>How it is built</h2>
+            <p>The converter uses WebAssembly for HEIC decoding and a Web Worker for the expensive image work. Files are handled sequentially instead of decoding a whole camera roll at once. That choice is deliberate: large images can consume considerable memory after decompression, especially on phones.</p>
+            <p>Heavy conversion and ZIP libraries are loaded only after you add files. This keeps the initial page small and avoids doing unnecessary work for visitors who only need a guide. Preview URLs are revoked when you reset or leave the page so the browser can release memory.</p>
+
+            <h2>What the tool does and does not do</h2>
+            <ul>
+              <li>It accepts HEIC and HEIF photos and exports standard JPG files.</li>
+              <li>It supports multiple files, per-image quality overrides, and ZIP downloads.</li>
+              <li>It can attempt to retain EXIF metadata, but HEIC metadata layouts vary and preservation is best effort.</li>
+              <li>It does not add watermarks, require an account, or upload your selected images to our server.</li>
+              <li>It does not modify the original files on your device.</li>
+            </ul>
+
+            <h2>Accuracy and useful guidance</h2>
+            <p>The guides on this site are written to answer the practical questions that appear around HEIC files: why Windows may not show a preview, how Apple devices can share compatible copies, how Preview exports JPEG files, and whether converting changes image quality. Where operating-system instructions are involved, the guides link to the relevant Apple or Microsoft support material so readers can verify the current platform behavior.</p>
+            <p>If you are ready to convert, return to the <a href="/">free HEIC to JPG converter</a>. If you are deciding which format to keep, start with the <a href="/guides/heic-vs-jpg/">HEIC vs JPG comparison</a>.</p>
+          </article>
+          <aside class="article-sidebar" aria-label="Related links">
+            <div class="side-card">
+              <h2>Convert now</h2>
+              <p>Process HEIC files locally in your browser.</p>
+              <a class="article-cta" href="/">Open converter</a>
+            </div>
+            <div class="side-card">
+              <h2>Read next</h2>
+              <a href="/privacy/">Privacy details</a>
+              <a href="/guides/">HEIC guides</a>
+              <a href="/guides/heic-vs-jpg/">HEIC vs JPG</a>
+            </div>
+          </aside>
+        </div>
+      </main>
+      <footer class="content-footer"><span>© 2026 heic-to-jpg.io</span><nav aria-label="Footer navigation"><a href="/">Converter</a><a href="/guides/">Guides</a><a href="/privacy/">Privacy</a></nav></footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy | heic-to-jpg.io</title>
+    <meta name="description" content="Plain-language privacy information for heic-to-jpg.io, including local image processing, external conversion libraries, and browser memory cleanup." />
+    <link rel="canonical" href="https://heic-to-jpg.io/privacy/" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/css/core.css" />
+    <link rel="stylesheet" href="/css/content.css" />
+  </head>
+  <body>
+    <div class="bg-art" aria-hidden="true"></div>
+    <div class="content-shell">
+      <header class="content-header">
+        <a class="content-brand" href="/">heic-to-jpg.io</a>
+        <nav class="content-nav" aria-label="Primary navigation"><a href="/guides/">Guides</a><a href="/about/">About</a><a class="nav-cta" href="/">Convert HEIC</a></nav>
+      </header>
+      <main>
+        <header class="article-hero">
+          <p class="article-kicker">Privacy</p>
+          <h1>Your selected photos stay in your browser.</h1>
+          <p class="article-deck">This page explains the converter’s data flow in plain language. Last updated July 10, 2026.</p>
+        </header>
+        <div class="article-layout">
+          <article class="article-body">
+            <h2>Image processing</h2>
+            <p>When you select an HEIC or HEIF file, the converter reads and processes that file on your device using browser features such as WebAssembly, Web Workers, canvas encoding, and temporary object URLs. Your selected images and the converted JPG data are not uploaded to the heic-to-jpg.io application server.</p>
+            <p>The output remains in browser memory until you download it, reset the converter, close the tab, or the browser releases the page. The converter revokes temporary preview URLs during reset and page unload to help free memory.</p>
+
+            <h2>External resources</h2>
+            <p>The page loads the Lato typeface from Google Fonts. After you add files, it downloads pinned versions of the HEIC decoder, ZIP utility, and download helper from public content delivery networks. Those network requests fetch program code; the converter does not attach your selected image data to them.</p>
+            <p>As with ordinary web requests, infrastructure and resource providers may receive technical request information such as an IP address, browser user agent, requested URL, and timestamp. Their handling of that data is governed by their own policies.</p>
+
+            <h2>EXIF metadata</h2>
+            <p>Photos may contain camera details, capture dates, and GPS coordinates. If Keep EXIF is enabled, the converter attempts to copy compatible metadata into the JPG. Preservation is best effort because HEIC files can store metadata differently. Turn the option off if you do not want the converter to try carrying metadata into the output.</p>
+
+            <h2>Accounts, uploads, and storage</h2>
+            <p>The converter does not require an account and does not provide cloud storage. We do not ask for your name or email address to convert a file. There is no server-side image library attached to your visit.</p>
+
+            <h2>Changes to this page</h2>
+            <p>The policy may be updated if the tool’s data flow or third-party resources change. The update date at the top of this page will change when the text is revised. If privacy is your primary concern, you can also inspect your browser’s network panel while converting to confirm that the selected file is not sent in a request.</p>
+
+            <h2>Using the tool</h2>
+            <p>By using the site, you understand that conversion occurs on your device and that performance depends on your browser, available memory, and the source file. You are responsible for files you choose to process and download.</p>
+          </article>
+          <aside class="article-sidebar" aria-label="Privacy summary">
+            <div class="side-card">
+              <h2>At a glance</h2>
+              <p>No account. No image upload to our server. Temporary browser-memory processing.</p>
+              <a class="article-cta" href="/">Open converter</a>
+            </div>
+            <div class="side-card"><h2>Learn more</h2><a href="/about/">How the converter works</a><a href="/guides/">HEIC guides</a></div>
+          </aside>
+        </div>
+      </main>
+      <footer class="content-footer"><span>© 2026 heic-to-jpg.io</span><nav aria-label="Footer navigation"><a href="/">Converter</a><a href="/guides/">Guides</a><a href="/about/">About</a></nav></footer>
+    </div>
+  </body>
+</html>

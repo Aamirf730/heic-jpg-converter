@@ -7,13 +7,14 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
 
-    <title>Convertisseur HEIC en JPG (Gratuit, Rapide, Prive) | heic-to-jpg.io</title>
+    <title>Convertisseur HEIC en JPG - Gratuit et Prive</title>
     <meta
       name="description"
-      content="Convertissez des photos HEIC/HEIF en JPG directement dans votre navigateur. Conversion par lot avec apercu, telechargements individuels ou ZIP. Aucun envoi, rapide et gratuit."
+      content="Convertissez HEIC et HEIF en JPG dans votre navigateur. Conversion privee par lot, qualite reglable, telechargement individuel ou ZIP."
     />
     <link rel="canonical" href="https://heic-to-jpg.io/fr/" />
     <link rel="alternate" hreflang="x-default" href="https://heic-to-jpg.io/" />
+    <link rel="alternate" hreflang="en" href="https://heic-to-jpg.io/" />
     <link rel="alternate" hreflang="en-US" href="https://heic-to-jpg.io/us/" />
     <link rel="alternate" hreflang="en-GB" href="https://heic-to-jpg.io/uk/" />
     <link rel="alternate" hreflang="en-CA" href="https://heic-to-jpg.io/ca/" />
@@ -43,12 +44,7 @@
       content="Convertissez HEIC/HEIF en JPG dans le navigateur. Conversion par lot, ZIP, sans envoi."
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
-    />
 
     <link
       rel="icon"
@@ -162,6 +158,7 @@
             <input
               id="fileInput"
               class="file-input"
+              aria-label="Choisir des fichiers HEIC ou HEIF"
               type="file"
               accept=".heic,.heif,image/heic,image/heif"
               multiple
@@ -216,11 +213,8 @@
           </details>
         </section>
 
-        <!--
-          Contexte SEO : hors-ecran mais pas display:none pour que les robots puissent le lire.
-          Cela augmente la couverture semantique sans impacter le CLS ou l'UI visible.
-        -->
-        <div class="seo-context">
+        <!-- Ce guide est visible pour les visiteurs comme pour les moteurs de recherche. -->
+        <div class="content-guide">
           <h2>HEIC en JPG : guide pratique pour une conversion rapide et privee</h2>
           <p>
             Si vous recevez des photos depuis un iPhone, un iPad ou un appareil
@@ -360,6 +354,7 @@
         </div>
 
         <footer class="footer" aria-label="Pied de page">
+          <nav class="footer-links" aria-label="Liens du site"><a href="/">Convertisseur</a><a href="/guides/">Guides</a><a href="/about/">A propos</a><a href="/privacy/">Confidentialite</a></nav>
           <p>
             © <span id="year"></span> heic-to-jpg.io. Conversion cote client.
           </p>

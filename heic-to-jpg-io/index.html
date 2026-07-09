@@ -7,13 +7,14 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
 
-    <title>HEIC to JPG Converter (Free, Fast, Private) | heic-to-jpg.io</title>
+    <title>HEIC to JPG Converter - Free, Private &amp; No Upload</title>
     <meta
       name="description"
-      content="Convert HEIC/HEIF to JPG instantly in your browser. Bulk convert and download as a ZIP. No uploads, fast, and free."
+      content="Convert HEIC and HEIF photos to JPG free in your browser. Private, no uploads or signup, adjustable quality, EXIF control, and batch ZIP download."
     />
     <link rel="canonical" href="https://heic-to-jpg.io/" />
     <link rel="alternate" hreflang="x-default" href="https://heic-to-jpg.io/" />
+    <link rel="alternate" hreflang="en" href="https://heic-to-jpg.io/" />
     <link rel="alternate" hreflang="en-US" href="https://heic-to-jpg.io/us/" />
     <link rel="alternate" hreflang="en-GB" href="https://heic-to-jpg.io/uk/" />
     <link rel="alternate" hreflang="en-CA" href="https://heic-to-jpg.io/ca/" />
@@ -36,19 +37,14 @@
     />
     <meta property="og:url" content="https://heic-to-jpg.io/" />
 
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="HEIC to JPG Converter" />
     <meta
       name="twitter:description"
       content="Convert HEIC/HEIF to JPG instantly in your browser. Bulk download as ZIP. No uploads."
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap"
-    />
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2338bdf8'/%3E%3Cstop offset='1' stop-color='%23fb7185'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cpath d='M18 42V22h10c6 0 10 3.6 10 10s-4 10-10 10H18zm8-6h2c3 0 5-1.6 5-4s-2-4-5-4h-2v8z' fill='url(%23g)'/%3E%3Cpath d='M42 22h6v20h-6V22z' fill='url(%23g)'/%3E%3C/svg%3E" />
 
@@ -62,12 +58,39 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "HEIC to JPG Converter",
-        "url": "https://heic-to-jpg.io/",
-        "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "All",
-        "description": "Client-side HEIC/HEIF to JPG converter. Bulk convert, download as ZIP. No uploads."
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://heic-to-jpg.io/#website",
+            "url": "https://heic-to-jpg.io/",
+            "name": "heic-to-jpg.io",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "https://heic-to-jpg.io/#converter",
+            "name": "HEIC to JPG Converter",
+            "url": "https://heic-to-jpg.io/",
+            "applicationCategory": "MultimediaApplication",
+            "applicationSubCategory": "Image converter",
+            "operatingSystem": "Any operating system with a modern web browser",
+            "browserRequirements": "JavaScript, WebAssembly, and Web Workers",
+            "isAccessibleForFree": true,
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "featureList": [
+              "Private in-browser conversion",
+              "Batch HEIC and HEIF conversion",
+              "Adjustable JPEG quality",
+              "Optional EXIF preservation",
+              "Individual and ZIP downloads"
+            ],
+            "description": "A free client-side HEIC and HEIF to JPG converter with batch processing, quality controls, EXIF options, and ZIP downloads. Files are not uploaded."
+          }
+        ]
       }
     </script>
   </head>
@@ -78,7 +101,7 @@
 
     <div class="shell">
       <aside class="sidebar" aria-label="Converter settings">
-        <div class="brand">
+        <a class="brand" href="/" aria-label="heic-to-jpg.io home">
           <div class="logo" aria-hidden="true">
             <span class="logo-dot"></span>
           </div>
@@ -86,7 +109,14 @@
             <div class="brand-title">heic-to-jpg.io</div>
             <div class="brand-sub">Fast, private, client-side conversion</div>
           </div>
-        </div>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#tool">Converter</a>
+          <a href="/guides/">Guides</a>
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy</a>
+        </nav>
 
         <form id="globalSettings" class="panel" novalidate>
           <h2 class="panel-title">Settings</h2>
@@ -136,13 +166,14 @@
         <header class="hero">
           <h1>HEIC to JPG Converter</h1>
           <p class="hero-sub">
-            Convert HEIC/HEIF photos to JPG instantly. Bulk convert, preview,
-            download individually or as a ZIP.
+            Turn iPhone HEIC and HEIF photos into compatible JPG files. Convert
+            one image or a full batch without uploading your photos.
           </p>
-          <p class="hero-kicker">
-            Optimized for Core Web Vitals: stable layout (CLS), minimal main
-            thread work (TBT), and interaction-driven loading.
-          </p>
+          <div class="trust-row" aria-label="Converter benefits">
+            <span>Free, no signup</span>
+            <span>Files stay on your device</span>
+            <span>Batch ZIP download</span>
+          </div>
         </header>
 
         <section class="drop-wrap" aria-label="Upload HEIC files">
@@ -156,6 +187,7 @@
             <input
               id="fileInput"
               class="file-input"
+              aria-label="Choose HEIC or HEIF files"
               type="file"
               accept=".heic,.heif,image/heic,image/heif"
               multiple
@@ -163,15 +195,96 @@
             <div class="dropzone-inner">
               <div class="dz-title">Drop HEIC files here</div>
               <div class="dz-sub" id="dropHelp">
-                Or click to choose files. No uploads.
+                Or <span class="dz-cta">choose files</span> from your device.
               </div>
-              <div class="dz-meta">Supports HEIC and HEIF.</div>
+              <div class="dz-meta">HEIC and HEIF supported. No file uploads or watermarks.</div>
             </div>
           </div>
         </section>
 
         <section class="results" aria-label="Conversion results">
           <div id="resultsGrid" class="results-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="steps" aria-labelledby="stepsTitle">
+          <div class="section-heading">
+            <span class="eyebrow">Three simple steps</span>
+            <h2 id="stepsTitle">How to convert HEIC to JPG</h2>
+          </div>
+          <ol class="step-grid">
+            <li>
+              <span class="step-number">01</span>
+              <h3>Choose your HEIC files</h3>
+              <p>Select one or several .heic or .heif photos. The files remain on your device.</p>
+            </li>
+            <li>
+              <span class="step-number">02</span>
+              <h3>Set quality and privacy</h3>
+              <p>Use the quality slider and decide whether the converter should try to retain EXIF metadata.</p>
+            </li>
+            <li>
+              <span class="step-number">03</span>
+              <h3>Download your JPGs</h3>
+              <p>Save images individually or download the completed batch together in one ZIP file.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="feature-section" aria-labelledby="whyTitle">
+          <div class="section-heading">
+            <span class="eyebrow">Built for real photo libraries</span>
+            <h2 id="whyTitle">Private conversion without the usual limits</h2>
+          </div>
+          <div class="feature-grid">
+            <article>
+              <h3>Your photos are not uploaded</h3>
+              <p>Decoding and JPG creation happen inside your browser. The original files are not sent to our server.</p>
+            </article>
+            <article>
+              <h3>Batch-friendly by design</h3>
+              <p>Images are processed one at a time to keep the interface responsive and reduce memory pressure on phones.</p>
+            </article>
+            <article>
+              <h3>You control the output</h3>
+              <p>Choose JPEG quality globally or override it for an individual image before downloading the result.</p>
+            </article>
+            <article>
+              <h3>No account or watermark</h3>
+              <p>Use the converter without registering. Your downloaded JPG files are clean and ready to share.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="guide-links" aria-labelledby="guideLinksTitle">
+          <div class="section-heading section-heading--row">
+            <div>
+              <span class="eyebrow">Device guides</span>
+              <h2 id="guideLinksTitle">More ways to work with HEIC files</h2>
+            </div>
+            <a class="text-link" href="/guides/">View all guides</a>
+          </div>
+          <div class="guide-grid">
+            <a href="/guides/convert-heic-to-jpg-on-windows/">
+              <span>Windows</span>
+              <strong>Convert HEIC to JPG on Windows</strong>
+              <small>Browser and built-in options</small>
+            </a>
+            <a href="/guides/convert-heic-to-jpg-on-iphone/">
+              <span>iPhone &amp; iPad</span>
+              <strong>Convert or stop shooting HEIC</strong>
+              <small>Sharing and camera settings</small>
+            </a>
+            <a href="/guides/convert-heic-to-jpg-on-mac/">
+              <span>macOS</span>
+              <strong>Export HEIC as JPEG on Mac</strong>
+              <small>Preview, Photos, and batch conversion</small>
+            </a>
+            <a href="/guides/heic-vs-jpg/">
+              <span>Format guide</span>
+              <strong>HEIC vs JPG: which should you use?</strong>
+              <small>Quality, size, and compatibility</small>
+            </a>
+          </div>
         </section>
 
         <section class="faq" aria-label="Frequently asked questions">
@@ -207,13 +320,38 @@
               </p>
             </div>
           </details>
+
+          <details>
+            <summary>Is this HEIC to JPG converter free?</summary>
+            <div class="faq-body">
+              <p>Yes. There is no account, watermark, paid quality level, or server-side upload limit.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Does converting HEIC to JPG reduce quality?</summary>
+            <div class="faq-body">
+              <p>JPEG uses lossy compression, so some information is discarded. A setting around 80 to 90 usually gives a practical balance between detail and file size for everyday photos.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Will the JPG keep the original date and GPS information?</summary>
+            <div class="faq-body">
+              <p>The Keep EXIF option attempts to preserve compatible metadata. HEIC containers vary, so preservation is best effort. Turn it off before public sharing if you want to avoid carrying location metadata into the JPG.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Why can the JPG be larger than the HEIC?</summary>
+            <div class="faq-body">
+              <p>HEIC generally compresses photos more efficiently than JPEG. A high-quality JPG can therefore be larger even though it is more widely compatible.</p>
+            </div>
+          </details>
         </section>
 
-        <!--
-          SEO context: off-screen but not display:none so crawlers can still read it.
-          This improves topical coverage without affecting CLS or the visible tool UI.
-        -->
-        <div class="seo-context">
+        <!-- This guide is intentionally visible: useful content belongs to visitors as well as crawlers. -->
+        <div class="content-guide">
           <h2>HEIC to JPG: a practical guide for fast, private conversion</h2>
           <p>
             If you have photos from an iPhone or a newer device, there’s a good
@@ -356,9 +494,17 @@
         </div>
 
         <footer class="footer" aria-label="Site footer">
-          <p>
-            © <span id="year"></span> heic-to-jpg.io. Client-side conversion.
-          </p>
+          <div class="footer-links">
+            <a href="/">Converter</a>
+            <a href="/guides/">Guides</a>
+            <a href="/about/">About</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/de/" hreflang="de">Deutsch</a>
+            <a href="/fr/" hreflang="fr">Francais</a>
+            <a href="/nl/" hreflang="nl">Nederlands</a>
+            <a href="/se/" hreflang="sv">Svenska</a>
+          </div>
+          <p>© <span id="year"></span> heic-to-jpg.io. Private, client-side conversion.</p>
         </footer>
       </main>
     </div>

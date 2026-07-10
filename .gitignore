@@ -60,3 +60,9 @@ api-key*.json
 *firebase-adminsdk*.json
 api-key*.json
 !*.xcconfig.example
+*firebase-adminsdk*.json
+api-key*.json
+!*.xcconfig.example
+*firebase-adminsdk*.json
+api-key*.json
+!*.xcconfig.example
